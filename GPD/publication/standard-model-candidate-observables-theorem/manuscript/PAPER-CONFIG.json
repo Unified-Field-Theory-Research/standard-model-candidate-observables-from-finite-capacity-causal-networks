@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "paper": 8,
+  "title": "Standard-Model-Candidate Observables From Finite-Capacity Causal Networks",
+  "active_rung": "SMC-002",
+  "closed_rungs": [
+    "SMC-001"
+  ],
+  "claim_boundary": "Initial upstream-binding scaffold only; no Standard-Model-candidate observable recovery, observed particle catalog, physical Standard Model, continuum QFT, or unified-field promotion."
+}
