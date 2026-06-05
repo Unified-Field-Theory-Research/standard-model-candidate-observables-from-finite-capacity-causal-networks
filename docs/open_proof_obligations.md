@@ -1,6 +1,6 @@
 # Open Proof Obligations
 
-## Closed Dependencies: SMC-001 Through SMC-003
+## Closed Dependencies: SMC-001 Through SMC-004
 
 `SMC-001` closes the upstream binding and claim-boundary contract through the
 recorded Paper 7 final conditional particle-excitation observables
@@ -30,24 +30,41 @@ content, physical particle excitations, external fields, continuum QFT,
 background Hilbert bundles, simulation-only signals, fit shortcuts, physical
 promotion, and unified-field promotion.
 
+`SMC-004` closes compatibility with the closed Paper 7 particle-excitation
+observable package. It binds `SMC-002` and `SMC-003` to Paper 7 finite
+excitation-sector rows, transition/interaction rows, matter/gauge
+compatibility rows, conservation/coarse-graining rows, finite label/support
+preservation, local readout preservation, finite-capacity compatibility,
+bounded-transfer compatibility, and causal-cone/no-signaling preservation,
+while rejecting observed particle catalogs, physical Standard Model content,
+physical particle excitations, external fields, continuum QFT, background
+Hilbert bundles, simulation-only signals, fit shortcuts, physical promotion,
+and unified-field promotion.
+
 ## Active Obligation
 
-`SMC-004` is open.
+`SMC-005` is open.
 
 Required row shape:
 
 - closed `SMC-001` upstream binding;
 - closed `SMC-002` finite candidate sector-family catalog observable;
 - closed `SMC-003` finite candidate interaction-family signature;
-- compatibility with Paper 7 finite excitation-sector observable rows;
-- compatibility with Paper 7 finite transition/interaction rows;
-- compatibility with Paper 7 matter/gauge compatibility rows;
-- compatibility with Paper 7 conservation/coarse-graining stability rows;
-- preservation of finite family and excitation-label support;
-- preservation of finite charge/gauge signature support;
-- preservation of local support and readout boundaries;
-- preservation of finite local capacity and bounded transfer;
-- preservation of causal-cone/no-signaling constraints;
+- closed `SMC-004` particle-excitation compatibility;
+- finite catalog continuity witness;
+- finite interaction/transition conservation witness;
+- bounded catalog flux or transfer witness;
+- intrinsic coarse-graining map over finite candidate families;
+- non-growing coarse candidate-family label bound;
+- non-growing coarse interaction-family label bound;
+- non-growing coarse local support bound;
+- non-growing coarse transfer bound;
+- coarse-grained catalog rows compatible with `SMC-002`;
+- coarse-grained interaction rows compatible with `SMC-003`;
+- coarse-grained Paper 7 compatibility rows compatible with `SMC-004`;
+- no external conservation-law import;
+- no continuum current import;
+- no continuum-limit oracle;
 - no observed particle catalog;
 - no physical Standard Model content;
 - no physical particle-excitation import;
@@ -62,8 +79,6 @@ Required row shape:
 
 ## Future Obligations
 
-- `SMC-005`: catalog conservation/continuity and intrinsic coarse-graining
-  stability.
 - `SMC-006`: Paper 7 regime consistency and no upstream bypass.
 - `SMC-007`: no-hidden-observed-catalog/physical Standard Model import audit.
 - `SMC-008`: final internal conditional certificate, if all prior obligations
@@ -87,6 +102,32 @@ promotion remain out of scope and false.
 - compatibility with bounded transfer;
 - compatibility with Paper 7 excitation-sector rows;
 - compatibility with Paper 7 transition/interaction rows;
+- no observed particle catalog;
+- no physical Standard Model content;
+- no physical particle-excitation import;
+- no external matter field;
+- no external gauge field;
+- no continuum QFT import;
+- no background Hilbert bundle import;
+- no simulation-only signal;
+- no fit shortcut;
+- no physical promotion;
+- no unified-field promotion.
+
+## Closed SMC-004 Row Shape
+
+- closed `SMC-001` upstream binding;
+- closed `SMC-002` finite candidate sector-family catalog observable;
+- closed `SMC-003` finite candidate interaction-family signature;
+- compatibility with Paper 7 finite excitation-sector observable rows;
+- compatibility with Paper 7 finite transition/interaction rows;
+- compatibility with Paper 7 matter/gauge compatibility rows;
+- compatibility with Paper 7 conservation/coarse-graining stability rows;
+- preservation of finite family and excitation-label support;
+- preservation of finite charge/gauge signature support;
+- preservation of local support and readout boundaries;
+- preservation of finite local capacity and bounded transfer;
+- preservation of causal-cone/no-signaling constraints;
 - no observed particle catalog;
 - no physical Standard Model content;
 - no physical particle-excitation import;

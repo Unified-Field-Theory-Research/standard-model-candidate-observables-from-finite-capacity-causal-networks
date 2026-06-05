@@ -1,6 +1,7 @@
 use cclab_accel::{
     paper8_skeleton_marker, smc002_finite_candidate_sector_family_catalog_marker,
     smc003_finite_candidate_interaction_family_signature_marker,
+    smc004_particle_excitation_compatibility_marker, CandidateParticleExcitationCompatibility,
     FiniteCandidateInteractionFamilySignature, FiniteCandidateSectorFamilyCatalogObservable,
     Paper8SkeletonCertificate, Paper8UpstreamBinding, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT,
     PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT,
@@ -351,6 +352,99 @@ fn smc003_interaction_signature_fails_closed_on_nonfinite_or_imported_structure(
 }
 
 #[test]
+fn smc004_particle_excitation_compatibility_closes_only_compatibility_rung() {
+    let compatibility = CandidateParticleExcitationCompatibility::canonical_smc004();
+
+    assert!(compatibility.smc001_upstream_binding_closed);
+    assert!(compatibility.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(compatibility.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(compatibility.paper7_particle_excitation_observables_closed);
+    assert!(compatibility.closes_smc004());
+    assert!(compatibility.paper7_finite_excitation_sector_rows_compatible);
+    assert!(compatibility.paper7_transition_interaction_rows_compatible);
+    assert!(compatibility.paper7_matter_gauge_compatibility_rows_compatible);
+    assert!(compatibility.paper7_conservation_coarse_graining_rows_compatible);
+    assert!(compatibility.candidate_catalog_preserves_excitation_label_support);
+    assert!(compatibility.interaction_signatures_preserve_transition_support);
+    assert!(compatibility.charge_gauge_signature_support_preserved);
+    assert!(compatibility.local_support_readout_boundaries_preserved);
+    assert!(compatibility.finite_capacity_compatible);
+    assert!(compatibility.bounded_transfer_compatible);
+    assert!(compatibility.causal_cone_no_signaling_preserved);
+    assert!(!compatibility.observed_particle_catalog_import);
+    assert!(!compatibility.physical_standard_model_content_import);
+    assert!(!compatibility.physical_particle_excitation_import);
+    assert_eq!(
+        smc004_particle_excitation_compatibility_marker(),
+        "smc004-particle-excitation-observable-compatibility-closed"
+    );
+
+    let certificate =
+        Paper8SkeletonCertificate::with_smc004_particle_excitation_compatibility_closed();
+    assert!(certificate.smc001_upstream_binding_closed);
+    assert!(certificate.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(certificate.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(certificate.smc004_particle_excitation_compatibility_closed);
+    assert!(!certificate.smc005_catalog_conservation_coarse_graining_closed);
+    assert!(!certificate.smc008_final_conditional_certificate_closed);
+    assert!(!certificate.paper8_theorem_closed);
+    assert!(!certificate.closes_paper8_theorem());
+}
+
+#[test]
+fn smc004_particle_excitation_compatibility_fails_closed_on_missing_rows_or_imports() {
+    let compatibility = CandidateParticleExcitationCompatibility::canonical_smc004();
+
+    let missing_smc003 = CandidateParticleExcitationCompatibility {
+        smc003_finite_candidate_interaction_family_signature_closed: false,
+        ..compatibility
+    };
+    assert!(!missing_smc003.closes_smc004());
+
+    let missing_paper7_excitation_rows = CandidateParticleExcitationCompatibility {
+        paper7_finite_excitation_sector_rows_compatible: false,
+        ..compatibility
+    };
+    assert!(!missing_paper7_excitation_rows.closes_smc004());
+
+    let missing_paper7_transition_rows = CandidateParticleExcitationCompatibility {
+        paper7_transition_interaction_rows_compatible: false,
+        ..compatibility
+    };
+    assert!(!missing_paper7_transition_rows.closes_smc004());
+
+    let missing_conservation_rows = CandidateParticleExcitationCompatibility {
+        paper7_conservation_coarse_graining_rows_compatible: false,
+        ..compatibility
+    };
+    assert!(!missing_conservation_rows.closes_smc004());
+
+    let nonlocal_readout = CandidateParticleExcitationCompatibility {
+        local_support_readout_boundaries_preserved: false,
+        ..compatibility
+    };
+    assert!(!nonlocal_readout.closes_smc004());
+
+    let hidden_observed_catalog = CandidateParticleExcitationCompatibility {
+        observed_particle_catalog_import: true,
+        ..compatibility
+    };
+    assert!(!hidden_observed_catalog.closes_smc004());
+
+    let hidden_physical_standard_model = CandidateParticleExcitationCompatibility {
+        physical_standard_model_content_import: true,
+        ..compatibility
+    };
+    assert!(!hidden_physical_standard_model.closes_smc004());
+
+    let hidden_physical_particle = CandidateParticleExcitationCompatibility {
+        physical_particle_excitation_import: true,
+        ..compatibility
+    };
+    assert!(!hidden_physical_particle.closes_smc004());
+}
+
+#[test]
 fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -371,6 +465,11 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     assert_contains(
         &upstream,
         "\"smc003_finite_candidate_interaction_family_signature_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
+        "\"smc004_particle_excitation_compatibility_closed\": true",
         "UPSTREAM-PAPERS.json",
     );
     assert_contains(
@@ -396,7 +495,7 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
 }
 
 #[test]
-fn docs_record_smc003_closed_smc004_active_and_physical_claims_false() {
+fn docs_record_smc004_closed_smc005_active_and_physical_claims_false() {
     let root = project_root();
     let theorem = read(
         &root,
@@ -416,12 +515,14 @@ fn docs_record_smc003_closed_smc004_active_and_physical_claims_false() {
         assert_contains(artifact.1, "SMC-002", artifact.0);
         assert_contains(artifact.1, "SMC-003", artifact.0);
         assert_contains(artifact.1, "SMC-004", artifact.0);
+        assert_contains(artifact.1, "SMC-005", artifact.0);
         assert_contains(artifact.1, "finite candidate sector-family", artifact.0);
         assert_contains(
             artifact.1,
             "finite candidate interaction-family",
             artifact.0,
         );
+        assert_contains(artifact.1, "Paper 7", artifact.0);
         assert_contains(artifact.1, "observed particle", artifact.0);
         assert_contains(artifact.1, "physical Standard Model", artifact.0);
         assert_contains(artifact.1, "continuum quantum field theory", artifact.0);

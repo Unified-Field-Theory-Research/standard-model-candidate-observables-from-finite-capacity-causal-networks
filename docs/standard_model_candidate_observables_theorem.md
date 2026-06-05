@@ -20,11 +20,12 @@ Paper 8 aims at the following internal conditional theorem:
 The theorem target is open. `SMC-001` closes only the upstream binding and
 claim-boundary scaffold. `SMC-002` closes only the finite candidate
 sector-family catalog observable row. `SMC-003` closes only finite candidate
-interaction-family signatures. This is not observed particle catalog
-recovery, not physical Standard Model recovery, not a physical
-particle-excitation claim, not a physical matter-field claim, not a physical
-gauge-field claim, not physical quantum dynamics, not continuum quantum field
-theory, and not a unified field theory.
+interaction-family signatures. `SMC-004` closes only compatibility with
+closed Paper 7 particle-excitation observable rows. This is not observed
+particle catalog recovery, not physical Standard Model recovery, not a
+physical particle-excitation claim, not a physical matter-field claim, not a
+physical gauge-field claim, not physical quantum dynamics, not continuum
+quantum field theory, and not a unified field theory.
 
 ## Upstream Binding
 
@@ -192,11 +193,56 @@ promotion.
 
 ### SMC-004: Particle-Excitation Observable Compatibility
 
-Status: open.
+Status: closed as Paper 7 particle-excitation observable compatibility.
+
+`SMC-004` binds the closed `SMC-002` catalog rows and closed `SMC-003`
+interaction-family signatures to the closed Paper 7 particle-excitation
+observable package. It requires Paper 7 particle-excitation observables to be
+closed, compatibility with Paper 7 finite excitation-sector rows,
+compatibility with Paper 7 finite transition/interaction rows, compatibility
+with Paper 7 matter/gauge compatibility rows, compatibility with Paper 7
+conservation/coarse-graining rows, preservation of finite excitation-label
+support, preservation of finite transition support, preservation of
+charge/gauge signature support, preservation of local support/readout
+boundaries, finite-capacity compatibility, bounded-transfer compatibility,
+and preservation of causal-cone/no-signaling constraints.
+
+It rejects observed particle catalogs, physical Standard Model content,
+physical particle excitations, external matter fields, external gauge fields,
+continuum QFT, background Hilbert bundles, simulation-only signals, fit
+shortcuts, physical promotion, and unified-field promotion.
+
+Rust anchors:
+
+- `CandidateParticleExcitationCompatibility`
+- `CandidateParticleExcitationCompatibility::canonical_smc004`
+- `CandidateParticleExcitationCompatibility::closes_smc004`
+- `Paper8SkeletonCertificate::with_smc004_particle_excitation_compatibility_closed`
+- `smc004_particle_excitation_compatibility_marker`
+
+Lean anchors:
+
+- `SMC004ParticleExcitationCompatibilityContract`
+- `SMC004ParticleExcitationCompatibilityContract.closed`
+- `smc004_particle_excitation_compatibility_closed_from_fields`
+- `smc004_missing_smc003_signature_not_closed`
+- `smc004_missing_paper7_transition_rows_not_closed`
+- `smc004_observed_particle_catalog_import_not_closed`
+- `smc004_canonical_particle_excitation_compatibility_closed`
+- `paper8_smc004_compatibility_does_not_close_standard_model_candidate_observables_theorem`
+
+Boundary: `SMC-004` closes only compatibility with closed Paper 7
+particle-excitation observable rows. It does not close catalog
+conservation/coarse-graining stability, Paper 7 regime consistency, the
+no-hidden-observed-catalog import audit, the final Paper 8 theorem, observed
+particle catalogs, physical Standard Model content, physical particle
+excitations, physical matter fields, physical gauge fields, physical quantum
+dynamics, continuum QFT, physical nature promotion, or unified-field
+promotion.
 
 ### SMC-005: Catalog Conservation And Coarse-Graining Stability
 
-Status: planned.
+Status: open.
 
 ### SMC-006: Paper 7 Regime Consistency
 

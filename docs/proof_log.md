@@ -178,11 +178,73 @@ Standard Model content, physical particle excitations, physical matter
 fields, physical gauge fields, physical quantum dynamics, continuum QFT,
 physical nature promotion, or unified-field promotion.
 
+## SMC-004: Particle-Excitation Observable Compatibility
+
+Status: closed as compatibility with closed Paper 7 particle-excitation
+observable rows.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/standard_model_candidate_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/StandardModelCandidateObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/standard_model_candidate_observables_gate.rs`
+- `GPD/publication/standard-model-candidate-observables-theorem/manuscript/standard_model_candidate_observables_theorem.tex`
+- `GPD/publication/standard-model-candidate-observables-theorem/manuscript/PAPER-CONFIG.json`
+
+Rust anchors:
+
+- `CandidateParticleExcitationCompatibility`
+- `CandidateParticleExcitationCompatibility::canonical_smc004`
+- `CandidateParticleExcitationCompatibility::closes_smc004`
+- `Paper8SkeletonCertificate::with_smc004_particle_excitation_compatibility_closed`
+- `smc004_particle_excitation_compatibility_marker`
+
+Lean anchors:
+
+- `SMC004ParticleExcitationCompatibilityContract`
+- `SMC004ParticleExcitationCompatibilityContract.closed`
+- `smc004_particle_excitation_compatibility_closed_from_fields`
+- `smc004_missing_smc003_signature_not_closed`
+- `smc004_missing_paper7_transition_rows_not_closed`
+- `smc004_observed_particle_catalog_import_not_closed`
+- `smc004_canonical_particle_excitation_compatibility_closed`
+- `paper8_smc004_compatibility_does_not_close_standard_model_candidate_observables_theorem`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`SMC-004` closes only compatibility of the closed `SMC-002` catalog rows and
+closed `SMC-003` interaction-family signatures with closed Paper 7 finite
+excitation-sector, transition/interaction, matter/gauge compatibility, and
+conservation/coarse-graining rows. It preserves finite label/support,
+charge/gauge signature support, local readout boundaries, finite capacity,
+bounded transfer, and causal-cone/no-signaling constraints. It does not close
+catalog conservation/coarse-graining stability, Paper 7 regime consistency,
+the no-hidden-observed-catalog import audit, the final Paper 8 theorem,
+observed particle catalogs, physical Standard Model content, physical
+particle excitations, physical matter fields, physical gauge fields, physical
+quantum dynamics, continuum QFT, physical nature promotion, or unified-field
+promotion.
+
 ## Active Next Obligation
 
-`SMC-004`: prove compatibility of the closed `SMC-002` catalog rows and
-closed `SMC-003` interaction-family signatures with the closed Paper 7
-particle-excitation observable rows without importing observed particle
-catalogs, physical Standard Model content, physical particle excitations,
-continuum QFT, external Hilbert bundles, simulation-only signals, fit
-shortcuts, physical quantum dynamics, or unified-field promotion.
+`SMC-005`: prove finite catalog conservation/continuity and intrinsic
+coarse-graining stability for the closed `SMC-002` through `SMC-004` rows
+without importing external conservation laws, continuum currents,
+continuum-limit oracles, observed particle catalogs, physical Standard Model
+content, physical particle excitations, continuum QFT, external Hilbert
+bundles, simulation-only signals, fit shortcuts, physical quantum dynamics,
+or unified-field promotion.

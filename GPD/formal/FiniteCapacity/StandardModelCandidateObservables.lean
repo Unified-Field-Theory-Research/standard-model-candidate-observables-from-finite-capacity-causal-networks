@@ -572,6 +572,159 @@ theorem smc003_canonical_finite_candidate_interaction_family_signature_closed :
   unfold smc003CanonicalFiniteCandidateInteractionFamilySignatureContract
   simp
 
+structure SMC004ParticleExcitationCompatibilityContract where
+  smc001UpstreamBindingClosed : Prop
+  smc002FiniteCandidateSectorFamilyCatalogClosed : Prop
+  smc003FiniteCandidateInteractionFamilySignatureClosed : Prop
+  paper7ParticleExcitationObservablesClosed : Prop
+  paper7FiniteExcitationSectorRowsCompatible : Prop
+  paper7TransitionInteractionRowsCompatible : Prop
+  paper7MatterGaugeCompatibilityRowsCompatible : Prop
+  paper7ConservationCoarseGrainingRowsCompatible : Prop
+  candidateCatalogPreservesExcitationLabelSupport : Prop
+  interactionSignaturesPreserveTransitionSupport : Prop
+  chargeGaugeSignatureSupportPreserved : Prop
+  localSupportReadoutBoundariesPreserved : Prop
+  finiteCapacityCompatible : Prop
+  boundedTransferCompatible : Prop
+  causalConeNoSignalingPreserved : Prop
+  observedParticleCatalogImport : Prop
+  physicalStandardModelContentImport : Prop
+  physicalParticleExcitationImport : Prop
+  externalMatterFieldImport : Prop
+  externalGaugeFieldImport : Prop
+  continuumQFTImport : Prop
+  backgroundHilbertBundleImport : Prop
+  simulationOnlySignal : Prop
+  fitShortcut : Prop
+  physicalPromotion : Prop
+  unifiedFieldPromotion : Prop
+
+def SMC004ParticleExcitationCompatibilityContract.closed
+    (c : SMC004ParticleExcitationCompatibilityContract) : Prop :=
+  c.smc001UpstreamBindingClosed ∧
+  c.smc002FiniteCandidateSectorFamilyCatalogClosed ∧
+  c.smc003FiniteCandidateInteractionFamilySignatureClosed ∧
+  c.paper7ParticleExcitationObservablesClosed ∧
+  c.paper7FiniteExcitationSectorRowsCompatible ∧
+  c.paper7TransitionInteractionRowsCompatible ∧
+  c.paper7MatterGaugeCompatibilityRowsCompatible ∧
+  c.paper7ConservationCoarseGrainingRowsCompatible ∧
+  c.candidateCatalogPreservesExcitationLabelSupport ∧
+  c.interactionSignaturesPreserveTransitionSupport ∧
+  c.chargeGaugeSignatureSupportPreserved ∧
+  c.localSupportReadoutBoundariesPreserved ∧
+  c.finiteCapacityCompatible ∧
+  c.boundedTransferCompatible ∧
+  c.causalConeNoSignalingPreserved ∧
+  ¬ c.observedParticleCatalogImport ∧
+  ¬ c.physicalStandardModelContentImport ∧
+  ¬ c.physicalParticleExcitationImport ∧
+  ¬ c.externalMatterFieldImport ∧
+  ¬ c.externalGaugeFieldImport ∧
+  ¬ c.continuumQFTImport ∧
+  ¬ c.backgroundHilbertBundleImport ∧
+  ¬ c.simulationOnlySignal ∧
+  ¬ c.fitShortcut ∧
+  ¬ c.physicalPromotion ∧
+  ¬ c.unifiedFieldPromotion
+
+theorem smc004_particle_excitation_compatibility_closed_from_fields
+    (c : SMC004ParticleExcitationCompatibilityContract)
+    (hSMC001 : c.smc001UpstreamBindingClosed)
+    (hSMC002 : c.smc002FiniteCandidateSectorFamilyCatalogClosed)
+    (hSMC003 : c.smc003FiniteCandidateInteractionFamilySignatureClosed)
+    (hPaper7 : c.paper7ParticleExcitationObservablesClosed)
+    (hExcitationRows : c.paper7FiniteExcitationSectorRowsCompatible)
+    (hTransitionRows : c.paper7TransitionInteractionRowsCompatible)
+    (hMatterGaugeRows : c.paper7MatterGaugeCompatibilityRowsCompatible)
+    (hConservationRows : c.paper7ConservationCoarseGrainingRowsCompatible)
+    (hCatalogLabels : c.candidateCatalogPreservesExcitationLabelSupport)
+    (hInteractionSupport : c.interactionSignaturesPreserveTransitionSupport)
+    (hChargeGauge : c.chargeGaugeSignatureSupportPreserved)
+    (hLocalReadout : c.localSupportReadoutBoundariesPreserved)
+    (hCapacity : c.finiteCapacityCompatible)
+    (hTransfer : c.boundedTransferCompatible)
+    (hCausal : c.causalConeNoSignalingPreserved)
+    (hNoObserved : ¬ c.observedParticleCatalogImport)
+    (hNoPhysicalSM : ¬ c.physicalStandardModelContentImport)
+    (hNoPhysicalParticle : ¬ c.physicalParticleExcitationImport)
+    (hNoMatter : ¬ c.externalMatterFieldImport)
+    (hNoGaugeField : ¬ c.externalGaugeFieldImport)
+    (hNoQFT : ¬ c.continuumQFTImport)
+    (hNoHilbert : ¬ c.backgroundHilbertBundleImport)
+    (hNoSimulation : ¬ c.simulationOnlySignal)
+    (hNoFit : ¬ c.fitShortcut)
+    (hNoPhysicalPromotion : ¬ c.physicalPromotion)
+    (hNoUnified : ¬ c.unifiedFieldPromotion) :
+    c.closed := by
+  exact ⟨hSMC001, hSMC002, hSMC003, hPaper7, hExcitationRows,
+    hTransitionRows, hMatterGaugeRows, hConservationRows, hCatalogLabels,
+    hInteractionSupport, hChargeGauge, hLocalReadout, hCapacity, hTransfer,
+    hCausal, hNoObserved, hNoPhysicalSM, hNoPhysicalParticle, hNoMatter,
+    hNoGaugeField, hNoQFT, hNoHilbert, hNoSimulation, hNoFit,
+    hNoPhysicalPromotion, hNoUnified⟩
+
+theorem smc004_missing_smc003_signature_not_closed
+    (c : SMC004ParticleExcitationCompatibilityContract)
+    (hClosed : c.closed)
+    (hMissingSMC003 : ¬ c.smc003FiniteCandidateInteractionFamilySignatureClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, hSMC003, _⟩
+  exact hMissingSMC003 hSMC003
+
+theorem smc004_missing_paper7_transition_rows_not_closed
+    (c : SMC004ParticleExcitationCompatibilityContract)
+    (hClosed : c.closed)
+    (hMissingTransition : ¬ c.paper7TransitionInteractionRowsCompatible) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, hTransitionRows, _⟩
+  exact hMissingTransition hTransitionRows
+
+theorem smc004_observed_particle_catalog_import_not_closed
+    (c : SMC004ParticleExcitationCompatibilityContract)
+    (hClosed : c.closed)
+    (hObserved : c.observedParticleCatalogImport) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, hNoObserved, _⟩
+  exact hNoObserved hObserved
+
+def smc004CanonicalParticleExcitationCompatibilityContract :
+    SMC004ParticleExcitationCompatibilityContract :=
+  { smc001UpstreamBindingClosed := True,
+    smc002FiniteCandidateSectorFamilyCatalogClosed := True,
+    smc003FiniteCandidateInteractionFamilySignatureClosed := True,
+    paper7ParticleExcitationObservablesClosed := True,
+    paper7FiniteExcitationSectorRowsCompatible := True,
+    paper7TransitionInteractionRowsCompatible := True,
+    paper7MatterGaugeCompatibilityRowsCompatible := True,
+    paper7ConservationCoarseGrainingRowsCompatible := True,
+    candidateCatalogPreservesExcitationLabelSupport := True,
+    interactionSignaturesPreserveTransitionSupport := True,
+    chargeGaugeSignatureSupportPreserved := True,
+    localSupportReadoutBoundariesPreserved := True,
+    finiteCapacityCompatible := True,
+    boundedTransferCompatible := True,
+    causalConeNoSignalingPreserved := True,
+    observedParticleCatalogImport := False,
+    physicalStandardModelContentImport := False,
+    physicalParticleExcitationImport := False,
+    externalMatterFieldImport := False,
+    externalGaugeFieldImport := False,
+    continuumQFTImport := False,
+    backgroundHilbertBundleImport := False,
+    simulationOnlySignal := False,
+    fitShortcut := False,
+    physicalPromotion := False,
+    unifiedFieldPromotion := False }
+
+theorem smc004_canonical_particle_excitation_compatibility_closed :
+    smc004CanonicalParticleExcitationCompatibilityContract.closed := by
+  unfold SMC004ParticleExcitationCompatibilityContract.closed
+  unfold smc004CanonicalParticleExcitationCompatibilityContract
+  simp
+
 structure Paper8StandardModelCandidateObservablesTheoremContract where
   smc001UpstreamBindingClosed : Prop
   smc002FiniteCandidateSectorFamilyCatalogClosed : Prop
@@ -630,5 +783,13 @@ theorem paper8_smc003_signature_does_not_close_standard_model_candidate_observab
     False := by
   rcases hClosed with ⟨_, _, _, hSMC004, _⟩
   exact hMissingSMC004 hSMC004
+
+theorem paper8_smc004_compatibility_does_not_close_standard_model_candidate_observables_theorem
+    (c : Paper8StandardModelCandidateObservablesTheoremContract)
+    (hClosed : c.closed)
+    (hMissingSMC005 : ¬ c.smc005CatalogConservationCoarseGrainingClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, hSMC005, _⟩
+  exact hMissingSMC005 hSMC005
 
 end FiniteCapacity

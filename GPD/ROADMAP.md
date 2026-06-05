@@ -32,10 +32,11 @@ unless a future paper-specific certificate explicitly closes them.
   bounded transfer, Paper 7 transition-row compatibility, and no physical
   scattering theory, Standard Model Lagrangian, continuum gauge-group,
   S-matrix, or external-dynamics imports.
-- [ ] **Phase 4: Prove Particle-Excitation Observable Compatibility** -
-  `SMC-004` should show compatibility with the closed Paper 7 finite
+- [x] **Phase 4: Prove Particle-Excitation Observable Compatibility** -
+  `SMC-004` shows compatibility with the closed Paper 7 finite
   excitation-sector, transition/interaction, matter/gauge compatibility,
-  conservation, and coarse-graining rows.
+  conservation, and coarse-graining rows while preserving finite capacity,
+  bounded transfer, local readout, and causal-cone/no-signaling constraints.
 - [ ] **Phase 5: Prove Catalog Conservation And Coarse-Graining Stability** -
   `SMC-005` should state finite catalog continuity/stability rows and show
   coherent transport under finite intrinsic coarse-graining.

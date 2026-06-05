@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project": "standard-model-candidate-observables-from-finite-capacity-causal-networks",
   "paper": 8,
-  "active_obligation": "SMC-004",
+  "active_obligation": "SMC-005",
   "rust_only_runtime_policy": true,
   "lean_lane": "GPD/formal",
   "physical_promotion_allowed": false

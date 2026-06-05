@@ -2,13 +2,14 @@
 
 ## Current Position
 
-**Current Phase:** 4
-**Current Phase Name:** Prove Particle-Excitation Observable Compatibility
+**Current Phase:** 5
+**Current Phase Name:** Prove Catalog Conservation And Coarse-Graining Stability
 **Status:** `SMC-001` upstream binding and claim-boundary scaffold closed;
 `SMC-002` finite intrinsic candidate sector-family catalog observable closed;
 `SMC-003` finite candidate interaction-family signature closed; `SMC-004`
-particle-excitation observable compatibility is open; physical promotion
-remains false
+particle-excitation observable compatibility closed; `SMC-005` catalog
+conservation/coarse-graining stability is open; physical promotion remains
+false
 
 Closed rung summary: `SMC-001` records the upstream binding through the
 closed Paper 7 conditional particle-excitation observables theorem at commit
@@ -52,13 +53,22 @@ compatibility, and no physical scattering, Standard Model Lagrangian,
 continuum gauge-group, asymptotic-state, S-matrix, or external-dynamics
 imports.
 
-Next stable target phrase: `SMC-004`: prove compatibility of the closed
-`SMC-002` catalog rows and closed `SMC-003` interaction-family signatures
-with the closed Paper 7 particle-excitation observable rows without importing
-observed particle catalogs, physical Standard Model content, physical
-particle excitations, continuum QFT, external Hilbert bundles, physical
-matter fields, physical gauge fields, physical quantum dynamics,
-simulation-only signals, fit shortcuts, or unified-field promotion.
+`SMC-004` records compatibility of the closed `SMC-002` catalog rows and
+closed `SMC-003` interaction-family signatures with closed Paper 7 finite
+excitation-sector rows, transition/interaction rows, matter/gauge
+compatibility rows, and conservation/coarse-graining rows while preserving
+finite excitation-label support, transition support, charge/gauge signature
+support, local support/readout boundaries, finite capacity, bounded transfer,
+and causal-cone/no-signaling constraints.
+
+Next stable target phrase: `SMC-005`: prove finite catalog
+conservation/continuity and intrinsic coarse-graining stability for the closed
+`SMC-002` through `SMC-004` rows without importing external conservation
+laws, continuum currents, continuum-limit oracles, observed particle
+catalogs, physical Standard Model content, physical particle excitations,
+continuum QFT, external Hilbert bundles, physical matter fields, physical
+gauge fields, physical quantum dynamics, simulation-only signals, fit
+shortcuts, or unified-field promotion.
 
 Stable nonpromotion tokens: observed particle catalogs; physical Standard
 Model content; physical particle excitations; physical matter fields;
@@ -91,23 +101,32 @@ theory; unified-field promotion.
   observed-particle, physical Standard Model, physical-particle,
   external-field, continuum-QFT, background-Hilbert, simulation-only,
   fit-only, physical-promotion, and unified-field imports.
+- `SMC-004` rows bind `SMC-002` and `SMC-003` to the closed Paper 7
+  particle-excitation observable package: finite excitation-sector rows,
+  transition/interaction rows, matter/gauge compatibility rows,
+  conservation/coarse-graining rows, finite label/support preservation, local
+  readout preservation, finite-capacity compatibility, bounded-transfer
+  compatibility, causal-cone/no-signaling preservation, and fail-closed
+  rejection of observed-particle, physical Standard Model, physical-particle,
+  external-field, continuum-QFT, background-Hilbert, simulation-only,
+  fit-only, physical-promotion, and unified-field imports.
 
 ## Open Questions
 
-- `SMC-004`: How do the closed `SMC-002` catalog rows and `SMC-003`
-  interaction-family signatures preserve compatibility with the closed Paper
-  7 excitation-sector, transition/interaction, matter/gauge-compatibility,
-  conservation, and coarse-graining rows without importing observed particle
-  catalogs, physical Standard Model content, continuum QFT, external-field
-  premises, or simulation-only/fit-only signals?
+- `SMC-005`: How can finite catalog conservation/continuity and intrinsic
+  coarse-graining stability be stated for the closed `SMC-002` through
+  `SMC-004` rows without importing external conservation laws, continuum
+  currents, continuum-limit oracles, observed particle catalogs, physical
+  Standard Model content, continuum QFT, external-field premises, or
+  simulation-only/fit-only signals?
 
 ## Pending Todos
 
-- Define Paper 7 excitation-sector, transition/interaction,
-  matter/gauge-compatibility, conservation, and coarse-graining compatibility
-  witnesses for `SMC-004`.
-- Add Rust and Lean fail-closed checks for `SMC-004`.
-- Update theorem docs, proof log, and publication skeleton after `SMC-004`
+- Define finite catalog continuity, transition conservation, bounded catalog
+  flux/transfer, intrinsic coarse-graining, non-growing coarse catalog bounds,
+  and Paper 7 row compatibility witnesses for `SMC-005`.
+- Add Rust and Lean fail-closed checks for `SMC-005`.
+- Update theorem docs, proof log, and publication skeleton after `SMC-005`
   closes.
 
 ## Blockers/Concerns
@@ -115,6 +134,7 @@ theory; unified-field promotion.
 - `SMC-001` is an upstream-binding and claim-boundary contract only.
 - `SMC-002` is a finite candidate sector-family catalog contract only.
 - `SMC-003` is a finite candidate interaction-family signature contract only.
+- `SMC-004` is a Paper 7 particle-excitation compatibility contract only.
 - Standard-Model-candidate observable recovery remains open.
 - Observed particle catalogs, physical Standard Model content, physical
   particle excitations, physical matter fields, physical gauge fields,
