@@ -101,6 +101,111 @@ impl Paper8UpstreamBinding {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct FiniteCandidateSectorFamilyCatalogObservable {
+    pub smc001_upstream_binding_closed: bool,
+    pub family_label_bound: u32,
+    pub occupied_family_count: u32,
+    pub excitation_label_bound: u32,
+    pub occupied_excitation_label_count: u32,
+    pub charge_signature_label_bound: u32,
+    pub occupied_charge_signature_count: u32,
+    pub gauge_signature_label_bound: u32,
+    pub occupied_gauge_signature_count: u32,
+    pub local_support_size: u32,
+    pub local_readout_boundary_size: u32,
+    pub finite_capacity_bound: u32,
+    pub bounded_transfer_bound: u32,
+    pub paper7_excitation_sector_rows_compatible: bool,
+    pub paper7_transition_interaction_rows_compatible: bool,
+    pub paper6_charge_signature_support_inherited: bool,
+    pub paper6_gauge_signature_support_inherited: bool,
+    pub observed_particle_catalog_import: bool,
+    pub physical_standard_model_content_import: bool,
+    pub physical_particle_excitation_import: bool,
+    pub external_matter_field_import: bool,
+    pub external_gauge_field_import: bool,
+    pub continuum_qft_import: bool,
+    pub background_hilbert_bundle_import: bool,
+    pub simulation_only_signal: bool,
+    pub fit_shortcut: bool,
+    pub physical_promotion: bool,
+    pub unified_field_promotion: bool,
+}
+
+impl FiniteCandidateSectorFamilyCatalogObservable {
+    pub fn canonical_smc002() -> Self {
+        Self {
+            smc001_upstream_binding_closed: Paper8UpstreamBinding::canonical_smc001()
+                .closes_smc001(),
+            family_label_bound: 8,
+            occupied_family_count: 3,
+            excitation_label_bound: 8,
+            occupied_excitation_label_count: 3,
+            charge_signature_label_bound: 8,
+            occupied_charge_signature_count: 3,
+            gauge_signature_label_bound: 8,
+            occupied_gauge_signature_count: 3,
+            local_support_size: 4,
+            local_readout_boundary_size: 2,
+            finite_capacity_bound: 16,
+            bounded_transfer_bound: 4,
+            paper7_excitation_sector_rows_compatible: true,
+            paper7_transition_interaction_rows_compatible: true,
+            paper6_charge_signature_support_inherited: true,
+            paper6_gauge_signature_support_inherited: true,
+            observed_particle_catalog_import: false,
+            physical_standard_model_content_import: false,
+            physical_particle_excitation_import: false,
+            external_matter_field_import: false,
+            external_gauge_field_import: false,
+            continuum_qft_import: false,
+            background_hilbert_bundle_import: false,
+            simulation_only_signal: false,
+            fit_shortcut: false,
+            physical_promotion: false,
+            unified_field_promotion: false,
+        }
+    }
+
+    pub fn closes_smc002(&self) -> bool {
+        self.smc001_upstream_binding_closed
+            && self.family_label_bound > 0
+            && self.occupied_family_count > 0
+            && self.occupied_family_count <= self.family_label_bound
+            && self.excitation_label_bound > 0
+            && self.occupied_excitation_label_count > 0
+            && self.occupied_excitation_label_count <= self.excitation_label_bound
+            && self.charge_signature_label_bound > 0
+            && self.occupied_charge_signature_count > 0
+            && self.occupied_charge_signature_count <= self.charge_signature_label_bound
+            && self.gauge_signature_label_bound > 0
+            && self.occupied_gauge_signature_count > 0
+            && self.occupied_gauge_signature_count <= self.gauge_signature_label_bound
+            && self.local_support_size > 0
+            && self.local_support_size <= self.finite_capacity_bound
+            && self.local_readout_boundary_size > 0
+            && self.local_readout_boundary_size <= self.local_support_size
+            && self.bounded_transfer_bound > 0
+            && self.bounded_transfer_bound <= self.finite_capacity_bound
+            && self.paper7_excitation_sector_rows_compatible
+            && self.paper7_transition_interaction_rows_compatible
+            && self.paper6_charge_signature_support_inherited
+            && self.paper6_gauge_signature_support_inherited
+            && !self.observed_particle_catalog_import
+            && !self.physical_standard_model_content_import
+            && !self.physical_particle_excitation_import
+            && !self.external_matter_field_import
+            && !self.external_gauge_field_import
+            && !self.continuum_qft_import
+            && !self.background_hilbert_bundle_import
+            && !self.simulation_only_signal
+            && !self.fit_shortcut
+            && !self.physical_promotion
+            && !self.unified_field_promotion
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Paper8SkeletonCertificate {
     pub smc001_upstream_binding_closed: bool,
     pub smc002_finite_candidate_sector_family_catalog_closed: bool,
@@ -147,6 +252,31 @@ impl Paper8SkeletonCertificate {
         }
     }
 
+    pub fn with_smc002_catalog_closed() -> Self {
+        let binding = Paper8UpstreamBinding::canonical_smc001();
+        let catalog = FiniteCandidateSectorFamilyCatalogObservable::canonical_smc002();
+        Self {
+            smc001_upstream_binding_closed: binding.closes_smc001(),
+            smc002_finite_candidate_sector_family_catalog_closed: catalog.closes_smc002(),
+            smc003_finite_candidate_interaction_family_signature_closed: false,
+            smc004_particle_excitation_compatibility_closed: false,
+            smc005_catalog_conservation_coarse_graining_closed: false,
+            smc006_paper7_regime_consistency_closed: false,
+            smc007_no_hidden_observed_catalog_import_audit_closed: false,
+            smc008_final_conditional_certificate_closed: false,
+            paper8_theorem_closed: false,
+            physical_nature_claim: false,
+            observed_particle_catalog_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
     pub fn closes_paper8_theorem(&self) -> bool {
         self.smc001_upstream_binding_closed
             && self.smc002_finite_candidate_sector_family_catalog_closed
@@ -171,4 +301,8 @@ impl Paper8SkeletonCertificate {
 
 pub fn paper8_skeleton_marker() -> &'static str {
     "paper8-standard-model-candidate-observables-smc001-nonpromoting-skeleton"
+}
+
+pub fn smc002_finite_candidate_sector_family_catalog_marker() -> &'static str {
+    "smc002-finite-candidate-sector-family-catalog-observable-closed"
 }

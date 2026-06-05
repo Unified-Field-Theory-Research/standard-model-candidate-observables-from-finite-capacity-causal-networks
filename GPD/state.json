@@ -1,11 +1,12 @@
 {
   "schema_version": 1,
   "paper": 8,
-  "current_phase": 2,
-  "current_phase_name": "Define Finite Candidate Sector-Family Catalog Observable",
-  "active_obligation": "SMC-002",
+  "current_phase": 3,
+  "current_phase_name": "Define Finite Candidate Interaction-Family Signature",
+  "active_obligation": "SMC-003",
   "closed_obligations": [
-    "SMC-001"
+    "SMC-001",
+    "SMC-002"
   ],
   "upstream_binding": {
     "paper1_commit": "3a9637c65f783ca35e77118f83560290f42f3085",
@@ -20,7 +21,7 @@
   },
   "claims": {
     "smc001_upstream_binding_closed": true,
-    "smc002_finite_candidate_sector_family_catalog_closed": false,
+    "smc002_finite_candidate_sector_family_catalog_closed": true,
     "smc003_finite_candidate_interaction_family_signature_closed": false,
     "smc004_particle_excitation_compatibility_closed": false,
     "smc005_catalog_conservation_coarse_graining_closed": false,
@@ -38,5 +39,5 @@
     "continuum_quantum_field_theory_claim": false,
     "unified_field_theory_claim": false
   },
-  "next_research_move": "SMC-002: define a finite intrinsic candidate sector-family catalog observable without importing observed particle catalogs, physical Standard Model content, physical particle excitations, continuum QFT, simulation-only signals, fit shortcuts, physical quantum dynamics, or unified-field promotion"
+  "next_research_move": "SMC-003: define finite candidate interaction-family signatures over local transition neighborhoods without importing physical scattering theory, Standard Model Lagrangians, continuum gauge groups, S-matrix structure, external dynamics, simulation-only signals, fit shortcuts, physical quantum dynamics, or unified-field promotion"
 }

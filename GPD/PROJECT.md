@@ -8,6 +8,7 @@ catalogs, physical Standard Model content, physical particle excitations,
 physical matter fields, physical gauge fields, continuum QFT, physical
 quantum dynamics, or unified-field promotion.
 
-The current closed rung is `SMC-001`: upstream binding and claim boundary.
-The current active obligation is `SMC-002`: define a finite intrinsic
-candidate sector-family catalog observable.
+The current closed rungs are `SMC-001`: upstream binding and claim boundary,
+and `SMC-002`: finite intrinsic candidate sector-family catalog observable.
+The current active obligation is `SMC-003`: define finite candidate
+interaction-family signatures.

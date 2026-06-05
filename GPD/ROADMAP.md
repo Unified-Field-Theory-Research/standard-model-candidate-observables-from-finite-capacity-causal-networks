@@ -19,12 +19,12 @@ unless a future paper-specific certificate explicitly closes them.
   isolated repo, manuscript skeleton, upstream binding, Lean scaffold, and
   Rust nonpromotion gate. `SMC-001` records the upstream binding and claim
   boundary through the closed Paper 7 result.
-- [ ] **Phase 2: Define Finite Candidate Sector-Family Catalog Observable** -
-  `SMC-002` should define finite intrinsic candidate family rows with finite
-  family labels, finite excitation labels, finite charge/gauge signatures,
-  finite local support/readout boundaries, and no observed particle catalog,
-  physical Standard Model, continuum QFT, simulation-only signal, or fit
-  shortcut imports.
+- [x] **Phase 2: Define Finite Candidate Sector-Family Catalog Observable** -
+  `SMC-002` defines finite intrinsic candidate family rows with finite family
+  labels, finite excitation labels, finite charge/gauge signatures, finite
+  local support/readout boundaries, compatibility with Paper 7 excitation and
+  transition rows, and no observed particle catalog, physical Standard Model,
+  continuum QFT, simulation-only signal, or fit shortcut imports.
 - [ ] **Phase 3: Define Finite Candidate Interaction-Family Signature** -
   `SMC-003` should define finite candidate interaction-family rows over local
   transition neighborhoods without importing physical scattering theory,

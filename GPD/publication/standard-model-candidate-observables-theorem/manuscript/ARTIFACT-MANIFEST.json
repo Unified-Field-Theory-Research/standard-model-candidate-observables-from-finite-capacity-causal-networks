@@ -10,6 +10,7 @@
     "docs/open_proof_obligations.md",
     "docs/proof_log.md",
     "GPD/formal/FiniteCapacity/StandardModelCandidateObservables.lean",
+    "rust/cclab_accel/src/lib.rs",
     "rust/cclab_accel/tests/standard_model_candidate_observables_gate.rs"
   ]
 }

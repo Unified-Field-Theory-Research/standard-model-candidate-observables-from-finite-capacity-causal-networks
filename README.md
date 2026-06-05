@@ -32,15 +32,15 @@ This repo is intentionally separate from the upstream theorem repositories:
   `../particle-excitation-observables-from-finite-capacity-causal-networks`
 - Upstream binding file: `UPSTREAM-PAPERS.json`
 
-The current theorem package is an initial scaffold only. `SMC-001` records
-the upstream binding and claim boundary through the closed Paper 7 result. The
-next active obligation is `SMC-002`: define a finite intrinsic candidate
-sector-family catalog observable. This does not prove
-Standard-Model-candidate observable recovery, observed particle catalog
-recovery, physical Standard Model content, physical particle excitations,
-physical matter fields, physical gauge fields, physical quantum dynamics,
-continuum quantum field theory, physical nature realization, or a unified
-field theory.
+The current theorem package is non-promoting. `SMC-001` records the upstream
+binding and claim boundary through the closed Paper 7 result. `SMC-002`
+closes the finite candidate sector-family catalog observable row.
+The next active obligation is `SMC-003`: define finite candidate
+interaction-family signatures. This does not prove Standard-Model-candidate
+observable recovery, observed particle catalog recovery, physical Standard Model
+content, physical particle excitations, physical matter fields, physical gauge
+fields, physical quantum dynamics, continuum quantum field theory, physical
+nature realization, or a unified field theory.
 
 Persistent boundary tokens: observed particle catalogs; physical Standard
 Model content; physical particle excitations; physical matter fields;

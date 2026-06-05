@@ -2,11 +2,12 @@
 
 ## Current Position
 
-**Current Phase:** 2
-**Current Phase Name:** Define Finite Candidate Sector-Family Catalog Observable
+**Current Phase:** 3
+**Current Phase Name:** Define Finite Candidate Interaction-Family Signature
 **Status:** `SMC-001` upstream binding and claim-boundary scaffold closed;
-`SMC-002` finite intrinsic candidate sector-family catalog observable is open;
-physical promotion remains false
+`SMC-002` finite intrinsic candidate sector-family catalog observable closed;
+`SMC-003` finite candidate interaction-family signature is open; physical
+promotion remains false
 
 Closed rung summary: `SMC-001` records the upstream binding through the
 closed Paper 7 conditional particle-excitation observables theorem at commit
@@ -35,14 +36,22 @@ higher-dimensional geometry theorem at commit
 conditional theorem commit `3a9637c65f783ca35e77118f83560290f42f3085`.
 
 The repo is non-promoting. `SMC-001` records the upstream binding and claim
-boundary only.
+boundary only. `SMC-002` records a finite intrinsic candidate sector-family
+catalog observable with finite family labels, finite occupied candidate
+families, finite excitation-label support inherited from Paper 7, finite
+charge/gauge signature support inherited from Paper 6, finite local
+support/readout boundaries, finite-capacity and bounded-transfer
+compatibility, and compatibility with Paper 7 excitation-sector and
+transition/interaction rows.
 
-Next stable target phrase: `SMC-002`: define a finite intrinsic candidate
-sector-family catalog observable without importing observed particle catalogs,
-physical Standard Model content, physical particle excitations, continuum
-QFT, external Hilbert bundles, physical matter fields, physical gauge fields,
-physical quantum dynamics, simulation-only signals, fit shortcuts, or
-unified-field promotion.
+Next stable target phrase: `SMC-003`: define finite candidate
+interaction-family signatures over local transition neighborhoods without
+importing physical scattering theory, Standard Model Lagrangians, continuum
+gauge groups, S-matrix structure, external dynamics, observed particle
+catalogs, physical Standard Model content, physical particle excitations,
+continuum QFT, external Hilbert bundles, physical matter fields, physical
+gauge fields, physical quantum dynamics, simulation-only signals, fit
+shortcuts, or unified-field promotion.
 
 Stable nonpromotion tokens: observed particle catalogs; physical Standard
 Model content; physical particle excitations; physical matter fields;
@@ -56,26 +65,37 @@ theory; unified-field promotion.
   commit chain, reject upstream mutation, and keep all observed-particle,
   physical Standard Model, physical-particle, QFT, physical-nature, and
   unified-field promotion flags false.
+- `SMC-002` rows define finite candidate sector-family catalog data with
+  finite family-label, excitation-label, charge-signature, gauge-signature,
+  local support, local readout, finite-capacity, and bounded-transfer
+  witnesses; bind the row to closed Paper 7 excitation-sector and
+  transition/interaction rows; inherit Paper 6 charge/gauge signature
+  support; and reject observed-particle, physical Standard Model,
+  physical-particle, external-field, continuum-QFT, background-Hilbert,
+  simulation-only, fit-only, physical-promotion, and unified-field imports.
 
 ## Open Questions
 
-- `SMC-002`: What finite candidate sector-family catalog observable can be
-  defined using only Paper 7 finite particle-excitation observables plus
-  Paper 6 matter/gauge observables, without importing observed particle
-  catalogs, physical Standard Model content, continuum QFT, external-field
-  premises, or simulation-only/fit-only signals?
+- `SMC-003`: What finite candidate interaction-family signature can be
+  defined over Paper 7 local transition neighborhoods without importing
+  physical scattering theory, Standard Model Lagrangians, continuum gauge
+  groups, S-matrix structure, external dynamics, observed particle catalogs,
+  physical Standard Model content, continuum QFT, external-field premises, or
+  simulation-only/fit-only signals?
 
 ## Pending Todos
 
-- Define finite family-label, excitation-label, charge-signature, and
-  gauge-signature data for `SMC-002`.
-- Add Rust and Lean fail-closed checks for `SMC-002`.
-- Update theorem docs, proof log, and publication skeleton after `SMC-002`
+- Define finite source/target candidate-family, excitation-channel,
+  charge-delta, gauge-delta, local transition-neighborhood, and transfer
+  signature data for `SMC-003`.
+- Add Rust and Lean fail-closed checks for `SMC-003`.
+- Update theorem docs, proof log, and publication skeleton after `SMC-003`
   closes.
 
 ## Blockers/Concerns
 
 - `SMC-001` is an upstream-binding and claim-boundary contract only.
+- `SMC-002` is a finite candidate sector-family catalog contract only.
 - Standard-Model-candidate observable recovery remains open.
 - Observed particle catalogs, physical Standard Model content, physical
   particle excitations, physical matter fields, physical gauge fields,

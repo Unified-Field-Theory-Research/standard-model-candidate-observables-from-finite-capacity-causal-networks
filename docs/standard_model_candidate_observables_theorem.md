@@ -18,11 +18,12 @@ Paper 8 aims at the following internal conditional theorem:
 ## Claim Boundary
 
 The theorem target is open. `SMC-001` closes only the upstream binding and
-claim-boundary scaffold. This is not observed particle catalog recovery, not
-physical Standard Model recovery, not a physical particle-excitation claim,
-not a physical matter-field claim, not a physical gauge-field claim, not
-physical quantum dynamics, not continuum quantum field theory, and not a
-unified field theory.
+claim-boundary scaffold. `SMC-002` closes only the finite candidate
+sector-family catalog observable row. This is not observed particle catalog
+recovery, not physical Standard Model recovery, not a physical
+particle-excitation claim, not a physical matter-field claim, not a physical
+gauge-field claim, not physical quantum dynamics, not continuum quantum field
+theory, and not a unified field theory.
 
 ## Upstream Binding
 
@@ -91,21 +92,54 @@ unified field theory.
 
 ### SMC-002: Finite Candidate Sector-Family Catalog Observable
 
-Status: open.
+Status: closed as a finite candidate sector-family catalog observable.
 
-Target: define finite intrinsic candidate sector-family catalog rows with
-finite family labels, finite excitation labels, finite charge/gauge
-signatures, finite local support, local readout boundaries, finite-capacity
-and bounded-transfer compatibility, and compatibility with Paper 7
-excitation-sector and transition/interaction rows, while rejecting observed
-particle catalogs, physical Standard Model content, physical particle
-excitations, continuum QFT, external matter fields, external gauge fields,
-background Hilbert bundles, simulation-only signals, fit shortcuts, physical
-promotion, and unified-field promotion.
+`SMC-002` defines finite intrinsic candidate sector-family catalog rows by
+requiring a closed `SMC-001` upstream binding, finite candidate family labels,
+finite occupied candidate families, finite excitation-label support inherited
+from Paper 7, finite charge-signature support inherited from Paper 6, finite
+gauge-signature support inherited from Paper 6, finite local support, local
+readout boundaries, finite-capacity compatibility, bounded-transfer
+compatibility, compatibility with Paper 7 excitation-sector rows, and
+compatibility with Paper 7 transition/interaction rows.
+
+It rejects observed particle catalogs, physical Standard Model content,
+physical particle excitations, continuum QFT, external matter fields,
+external gauge fields, background Hilbert bundles, simulation-only signals,
+fit shortcuts, physical promotion, and unified-field promotion.
+
+Rust anchors:
+
+- `FiniteCandidateSectorFamilyCatalogObservable`
+- `FiniteCandidateSectorFamilyCatalogObservable::canonical_smc002`
+- `FiniteCandidateSectorFamilyCatalogObservable::closes_smc002`
+- `Paper8SkeletonCertificate::with_smc002_catalog_closed`
+- `smc002_finite_candidate_sector_family_catalog_marker`
+
+Lean anchors:
+
+- `SMC002FiniteCandidateSectorFamilyCatalogObservableContract`
+- `SMC002FiniteCandidateSectorFamilyCatalogObservableContract.closed`
+- `smc002_finite_candidate_sector_family_catalog_closed_from_fields`
+- `smc002_missing_finite_family_label_bound_not_closed`
+- `smc002_missing_paper7_excitation_rows_not_closed`
+- `smc002_observed_particle_catalog_import_not_closed`
+- `smc002_physical_standard_model_content_import_not_closed`
+- `smc002_canonical_finite_candidate_sector_family_catalog_closed`
+- `paper8_smc002_catalog_does_not_close_standard_model_candidate_observables_theorem`
+
+Boundary: `SMC-002` closes only the finite candidate sector-family catalog
+observable row. It does not close finite candidate interaction-family
+signatures, full Paper 7 compatibility, catalog conservation/coarse-graining
+stability, Paper 7 regime consistency, the no-hidden-observed-catalog import
+audit, the final Paper 8 theorem, observed particle catalogs, physical
+Standard Model content, physical particle excitations, physical matter fields,
+physical gauge fields, physical quantum dynamics, continuum QFT, physical
+nature promotion, or unified-field promotion.
 
 ### SMC-003: Finite Candidate Interaction-Family Signature
 
-Status: planned.
+Status: open.
 
 ### SMC-004: Particle-Excitation Observable Compatibility
 

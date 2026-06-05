@@ -122,7 +122,7 @@
   "paper8_dependency_policy": "Paper 8 depends on the recorded Paper 7 commit and its recorded Paper 6/Paper 5/Paper 4/Paper 3/Paper 2/Paper 1 upstream bindings unless an explicit upstream revision is approved and recorded.",
   "paper8_current_claims": {
     "smc001_upstream_binding_closed": true,
-    "smc002_finite_candidate_sector_family_catalog_closed": false,
+    "smc002_finite_candidate_sector_family_catalog_closed": true,
     "smc003_finite_candidate_interaction_family_signature_closed": false,
     "smc004_particle_excitation_compatibility_closed": false,
     "smc005_catalog_conservation_coarse_graining_closed": false,
