@@ -300,12 +300,69 @@ physical particle excitations, physical matter fields, physical gauge fields,
 physical quantum dynamics, continuum QFT, physical nature promotion, or
 unified-field promotion.
 
+## SMC-006: Paper 7 Regime Consistency
+
+Status: closed as Paper 7 regime consistency and upstream-bypass rejection.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/standard_model_candidate_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/StandardModelCandidateObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/standard_model_candidate_observables_gate.rs`
+- `GPD/publication/standard-model-candidate-observables-theorem/manuscript/standard_model_candidate_observables_theorem.tex`
+- `GPD/publication/standard-model-candidate-observables-theorem/manuscript/PAPER-CONFIG.json`
+
+Rust anchors:
+
+- `Paper7RegimeConsistency`
+- `Paper7RegimeConsistency::canonical_smc006`
+- `Paper7RegimeConsistency::closes_smc006`
+- `Paper8SkeletonCertificate::with_smc006_paper7_regime_consistency_closed`
+- `smc006_paper7_regime_consistency_marker`
+
+Lean anchors:
+
+- `SMC006Paper7RegimeConsistencyContract`
+- `SMC006Paper7RegimeConsistencyContract.closed`
+- `smc006_paper7_regime_consistency_closed_from_fields`
+- `smc006_missing_smc005_stability_not_closed`
+- `smc006_missing_recorded_paper7_commit_not_closed`
+- `smc006_upstream_mutation_attempt_not_closed`
+- `smc006_canonical_paper7_regime_consistency_closed`
+- `paper8_smc006_regime_does_not_close_standard_model_candidate_observables_theorem`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`SMC-006` closes only Paper 7 regime consistency and upstream-bypass
+rejection for the closed `SMC-001` through `SMC-005` rows. It consumes the
+recorded Paper 7 final conditional certificate, enforces the frozen Paper 1
+through Paper 7 commit chain and closed upstream theorem flags, and rejects
+upstream mutation, Paper 7 bypass, unapproved Paper 7 revisions, and
+unrecorded upstream revisions. It does not close the no-hidden-observed
+catalog import audit, the final Paper 8 theorem, observed particle catalogs,
+physical Standard Model content, physical particle excitations, physical
+matter fields, physical gauge fields, physical quantum dynamics, continuum
+QFT, physical nature promotion, or unified-field promotion.
+
 ## Active Next Obligation
 
-`SMC-006`: bind the closed `SMC-001` through `SMC-005` rows to the recorded
-Paper 7 final conditional certificate and frozen Paper 1 through Paper 7
-commit chain while rejecting upstream bypass, upstream mutation, unapproved
-Paper 7 revisions, observed particle catalogs, physical Standard Model
-content, physical particle excitations, continuum QFT, external Hilbert
-bundles, simulation-only signals, fit shortcuts, physical quantum dynamics,
-or unified-field promotion.
+`SMC-007`: close a fail-closed no-hidden-observed-catalog/physical Standard
+Model import audit across Paper 8 artifacts and `SMC-001` through `SMC-006`
+rows while rejecting observed particle catalogs, physical Standard Model
+content, physical particle excitations, external fields, continuum QFT,
+background Hilbert bundles, simulation-only signals, fit shortcuts, physical
+promotion, and unified-field promotion.

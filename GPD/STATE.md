@@ -2,14 +2,15 @@
 
 ## Current Position
 
-**Current Phase:** 6
-**Current Phase Name:** Bind To Paper 7 Regime
+**Current Phase:** 7
+**Current Phase Name:** Close No-Hidden-Observed-Catalog Import Audit
 **Status:** `SMC-001` upstream binding and claim-boundary scaffold closed;
 `SMC-002` finite intrinsic candidate sector-family catalog observable closed;
 `SMC-003` finite candidate interaction-family signature closed; `SMC-004`
 particle-excitation observable compatibility closed; `SMC-005` catalog
 conservation/coarse-graining stability closed; `SMC-006` Paper 7 regime
-consistency is open; physical promotion remains false
+consistency closed; `SMC-007` no-hidden-observed-catalog import audit is open;
+physical promotion remains false
 
 Closed rung summary: `SMC-001` records the upstream binding through the
 closed Paper 7 conditional particle-excitation observables theorem at commit
@@ -69,14 +70,20 @@ interaction label bounds, non-growing coarse support/transfer bounds, and
 coarse compatibility with `SMC-002`, `SMC-003`, `SMC-004`, and Paper 7
 conservation/coarse-graining rows.
 
-Next stable target phrase: `SMC-006`: bind the closed `SMC-001` through
-`SMC-005` rows to the recorded Paper 7 final conditional certificate and the
-frozen Paper 1 through Paper 7 commit chain while rejecting upstream bypass,
-upstream mutation, unapproved Paper 7 revisions, observed particle catalogs,
-physical Standard Model content, physical particle excitations, continuum
-QFT, external Hilbert bundles, physical matter fields, physical gauge fields,
-physical quantum dynamics, simulation-only signals, fit shortcuts, or
-unified-field promotion.
+`SMC-006` records Paper 7 regime consistency: closed `SMC-001` through
+`SMC-005` dependencies, recorded Paper 7 final conditional certificate
+consumption, frozen Paper 1 through Paper 7 commit-chain consistency, closed
+upstream theorem flags, and fail-closed rejection of upstream mutation, Paper
+7 bypass, unapproved Paper 7 revisions, unrecorded upstream revisions, and
+observed/physical/continuum/simulation/fit/unified imports.
+
+Next stable target phrase: `SMC-007`: close a fail-closed
+no-hidden-observed-catalog/physical Standard Model import audit across Paper
+8 artifacts and `SMC-001` through `SMC-006` rows while rejecting observed
+particle catalogs, physical Standard Model content, physical particle
+excitations, continuum QFT, external Hilbert bundles, physical matter fields,
+physical gauge fields, physical quantum dynamics, simulation-only signals,
+fit shortcuts, physical promotion, and unified-field promotion.
 
 Stable nonpromotion tokens: observed particle catalogs; physical Standard
 Model content; physical particle excitations; physical matter fields;
@@ -127,23 +134,30 @@ theory; unified-field promotion.
   observed-particle, physical Standard Model, physical-particle,
   external-field, continuum-QFT, background-Hilbert, simulation-only,
   fit-only, physical-promotion, and unified-field imports.
+- `SMC-006` rows enforce recorded Paper 1 through Paper 7 commit consistency,
+  closed Paper 1 through Paper 7 theorem flags, consumption of the recorded
+  Paper 7 final certificate, no upstream mutation, no Paper 7 bypass, no
+  unapproved Paper 7 revision, no unrecorded upstream revision, and
+  fail-closed rejection of observed-particle, physical Standard Model,
+  physical-particle, external-field, continuum-QFT, background-Hilbert,
+  simulation-only, fit-only, physical-promotion, and unified-field imports.
 
 ## Open Questions
 
-- `SMC-006`: How do the closed `SMC-001` through `SMC-005` rows bind to the
-  recorded Paper 7 final conditional certificate and frozen Paper 1 through
-  Paper 7 commit chain without bypassing Paper 7, mutating upstream repos, or
-  importing observed particle catalogs, physical Standard Model content,
-  continuum QFT, external-field premises, or simulation-only/fit-only
-  signals?
+- `SMC-007`: How can Paper 8 artifacts and closed `SMC-001` through
+  `SMC-006` rows be audited fail-closed for no hidden observed particle
+  catalogs, physical Standard Model content, physical particle excitations,
+  external fields, continuum QFT, background Hilbert bundles,
+  simulation-only signals, fit shortcuts, physical promotion, or
+  unified-field promotion?
 
 ## Pending Todos
 
-- Define recorded Paper 7 certificate consumption, frozen Paper 1 through
-  Paper 7 commit-chain consistency, no-upstream-mutation, and no-Paper-7
-  bypass witnesses for `SMC-006`.
-- Add Rust and Lean fail-closed checks for `SMC-006`.
-- Update theorem docs, proof log, and publication skeleton after `SMC-006`
+- Define audit coverage, Rust-only artifact/proof-gate coverage,
+  fail-closed audit certificate emission, and no-hidden-import witnesses for
+  `SMC-007`.
+- Add Rust and Lean fail-closed checks for `SMC-007`.
+- Update theorem docs, proof log, and publication skeleton after `SMC-007`
   closes.
 
 ## Blockers/Concerns
@@ -153,6 +167,7 @@ theory; unified-field promotion.
 - `SMC-003` is a finite candidate interaction-family signature contract only.
 - `SMC-004` is a Paper 7 particle-excitation compatibility contract only.
 - `SMC-005` is a catalog conservation/coarse-graining stability contract only.
+- `SMC-006` is a Paper 7 regime-consistency/no-upstream-bypass contract only.
 - Standard-Model-candidate observable recovery remains open.
 - Observed particle catalogs, physical Standard Model content, physical
   particle excitations, physical matter fields, physical gauge fields,

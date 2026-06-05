@@ -2,13 +2,14 @@
   "schema_version": 1,
   "paper": 8,
   "title": "Standard-Model-Candidate Observables From Finite-Capacity Causal Networks",
-  "active_rung": "SMC-006",
+  "active_rung": "SMC-007",
   "closed_rungs": [
     "SMC-001",
     "SMC-002",
     "SMC-003",
     "SMC-004",
-    "SMC-005"
+    "SMC-005",
+    "SMC-006"
   ],
-  "claim_boundary": "SMC-005 closes only finite catalog conservation/coarse-graining stability; no full Standard-Model-candidate observable recovery, observed particle catalog, physical Standard Model, continuum QFT, or unified-field promotion."
+  "claim_boundary": "SMC-006 closes only Paper 7 regime consistency/no-upstream-bypass; no full Standard-Model-candidate observable recovery, observed particle catalog, physical Standard Model, continuum QFT, or unified-field promotion."
 }

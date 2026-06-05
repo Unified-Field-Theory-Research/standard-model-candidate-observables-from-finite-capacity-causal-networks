@@ -22,11 +22,12 @@ claim-boundary scaffold. `SMC-002` closes only the finite candidate
 sector-family catalog observable row. `SMC-003` closes only finite candidate
 interaction-family signatures. `SMC-004` closes only compatibility with
 closed Paper 7 particle-excitation observable rows. `SMC-005` closes only
-catalog conservation/coarse-graining stability. This is not observed particle
-catalog recovery, not physical Standard Model recovery, not a physical
-particle-excitation claim, not a physical matter-field claim, not a physical
-gauge-field claim, not physical quantum dynamics, not continuum quantum field
-theory, and not a unified field theory.
+catalog conservation/coarse-graining stability. `SMC-006` closes only Paper 7
+regime consistency and upstream-bypass rejection. This is not observed
+particle catalog recovery, not physical Standard Model recovery, not a
+physical particle-excitation claim, not a physical matter-field claim, not a
+physical gauge-field claim, not physical quantum dynamics, not continuum
+quantum field theory, and not a unified field theory.
 
 ## Upstream Binding
 
@@ -292,11 +293,48 @@ unified-field promotion.
 
 ### SMC-006: Paper 7 Regime Consistency
 
-Status: open.
+Status: closed as Paper 7 regime consistency and upstream-bypass rejection.
+
+`SMC-006` requires closed `SMC-001` through `SMC-005` dependencies, recorded
+Paper 7 final conditional certificate consumption, frozen Paper 1 through
+Paper 7 commit-chain consistency, closed Paper 1 through Paper 7 theorem
+flags, no upstream repository mutation, no Paper 7 bypass, no unapproved
+Paper 7 revision, and no unrecorded upstream revision.
+
+It rejects observed particle catalogs, physical Standard Model content,
+physical particle excitations, external matter fields, external gauge fields,
+continuum QFT, background Hilbert bundles, simulation-only signals, fit
+shortcuts, physical promotion, and unified-field promotion.
+
+Rust anchors:
+
+- `Paper7RegimeConsistency`
+- `Paper7RegimeConsistency::canonical_smc006`
+- `Paper7RegimeConsistency::closes_smc006`
+- `Paper8SkeletonCertificate::with_smc006_paper7_regime_consistency_closed`
+- `smc006_paper7_regime_consistency_marker`
+
+Lean anchors:
+
+- `SMC006Paper7RegimeConsistencyContract`
+- `SMC006Paper7RegimeConsistencyContract.closed`
+- `smc006_paper7_regime_consistency_closed_from_fields`
+- `smc006_missing_smc005_stability_not_closed`
+- `smc006_missing_recorded_paper7_commit_not_closed`
+- `smc006_upstream_mutation_attempt_not_closed`
+- `smc006_canonical_paper7_regime_consistency_closed`
+- `paper8_smc006_regime_does_not_close_standard_model_candidate_observables_theorem`
+
+Boundary: `SMC-006` closes only Paper 7 regime consistency and
+upstream-bypass rejection. It does not close the no-hidden-observed-catalog
+import audit, the final Paper 8 theorem, observed particle catalogs, physical
+Standard Model content, physical particle excitations, physical matter fields,
+physical gauge fields, physical quantum dynamics, continuum QFT, physical
+nature promotion, or unified-field promotion.
 
 ### SMC-007: No-Hidden-Observed-Catalog Import Audit
 
-Status: planned.
+Status: open.
 
 ### SMC-008: Final Conditional Standard-Model-Candidate Observables Certificate
 

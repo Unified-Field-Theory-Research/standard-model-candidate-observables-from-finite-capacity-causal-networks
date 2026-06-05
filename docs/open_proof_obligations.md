@@ -1,6 +1,6 @@
 # Open Proof Obligations
 
-## Closed Dependencies: SMC-001 Through SMC-005
+## Closed Dependencies: SMC-001 Through SMC-006
 
 `SMC-001` closes the upstream binding and claim-boundary contract through the
 recorded Paper 7 final conditional particle-excitation observables
@@ -55,9 +55,19 @@ excitations, external fields, continuum QFT, background Hilbert bundles,
 simulation-only signals, fit shortcuts, physical promotion, and unified-field
 promotion.
 
+`SMC-006` closes Paper 7 regime consistency and upstream-bypass rejection. It
+binds `SMC-001` through `SMC-005` to the recorded Paper 7 final conditional
+certificate, frozen Paper 1 through Paper 7 commit-chain consistency, closed
+Paper 1 through Paper 7 theorem flags, no upstream mutation, no Paper 7
+bypass, no unapproved Paper 7 revision, and no unrecorded upstream revision,
+while rejecting observed particle catalogs, physical Standard Model content,
+physical particle excitations, external fields, continuum QFT, background
+Hilbert bundles, simulation-only signals, fit shortcuts, physical promotion,
+and unified-field promotion.
+
 ## Active Obligation
 
-`SMC-006` is open.
+`SMC-007` is open.
 
 Required row shape:
 
@@ -66,17 +76,12 @@ Required row shape:
 - closed `SMC-003` finite candidate interaction-family signature;
 - closed `SMC-004` particle-excitation compatibility;
 - closed `SMC-005` catalog conservation/coarse-graining stability;
-- recorded Paper 7 final conditional certificate consumed;
-- recorded Paper 7 frozen commit equals `UPSTREAM-PAPERS.json`;
-- recorded Paper 6 frozen commit equals `UPSTREAM-PAPERS.json`;
-- recorded Paper 5 frozen commit equals `UPSTREAM-PAPERS.json`;
-- recorded Paper 4 frozen commit equals `UPSTREAM-PAPERS.json`;
-- recorded Paper 3 frozen commit equals `UPSTREAM-PAPERS.json`;
-- recorded Paper 2 frozen commit equals `UPSTREAM-PAPERS.json`;
-- recorded Paper 1 frozen commit equals `UPSTREAM-PAPERS.json`;
-- no unapproved Paper 7 revision;
-- no upstream repository mutation;
-- no Paper 7 bypass;
+- closed `SMC-006` Paper 7 regime consistency;
+- audit covers `SMC-001` through `SMC-006`;
+- audit covers Paper 8 theorem docs, proof log, state, upstream manifest,
+  Lean gate, Rust gate, and publication skeleton;
+- Rust-only runtime/proof-gate artifacts;
+- fail-closed audit certificate emitted;
 - no observed particle catalog;
 - no physical Standard Model content;
 - no physical particle-excitation import;
@@ -91,7 +96,6 @@ Required row shape:
 
 ## Future Obligations
 
-- `SMC-007`: no-hidden-observed-catalog/physical Standard Model import audit.
 - `SMC-008`: final internal conditional certificate, if all prior obligations
   close.
 
@@ -113,6 +117,36 @@ promotion remain out of scope and false.
 - compatibility with bounded transfer;
 - compatibility with Paper 7 excitation-sector rows;
 - compatibility with Paper 7 transition/interaction rows;
+- no observed particle catalog;
+- no physical Standard Model content;
+- no physical particle-excitation import;
+- no external matter field;
+- no external gauge field;
+- no continuum QFT import;
+- no background Hilbert bundle import;
+- no simulation-only signal;
+- no fit shortcut;
+- no physical promotion;
+- no unified-field promotion.
+
+## Closed SMC-006 Row Shape
+
+- closed `SMC-001` upstream binding;
+- closed `SMC-002` finite candidate sector-family catalog observable;
+- closed `SMC-003` finite candidate interaction-family signature;
+- closed `SMC-004` particle-excitation compatibility;
+- closed `SMC-005` catalog conservation/coarse-graining stability;
+- recorded Paper 7 final conditional certificate consumed;
+- recorded Paper 7 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 6 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 5 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 4 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 3 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 2 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 1 frozen commit equals `UPSTREAM-PAPERS.json`;
+- no unapproved Paper 7 revision;
+- no upstream repository mutation;
+- no Paper 7 bypass;
 - no observed particle catalog;
 - no physical Standard Model content;
 - no physical particle-excitation import;

@@ -2,12 +2,12 @@ use cclab_accel::{
     paper8_skeleton_marker, smc002_finite_candidate_sector_family_catalog_marker,
     smc003_finite_candidate_interaction_family_signature_marker,
     smc004_particle_excitation_compatibility_marker,
-    smc005_catalog_conservation_coarse_graining_marker,
+    smc005_catalog_conservation_coarse_graining_marker, smc006_paper7_regime_consistency_marker,
     CandidateCatalogConservationCoarseGrainingStability, CandidateParticleExcitationCompatibility,
     FiniteCandidateInteractionFamilySignature, FiniteCandidateSectorFamilyCatalogObservable,
-    Paper8SkeletonCertificate, Paper8UpstreamBinding, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT,
-    PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT,
-    PAPER7_FINAL_CERTIFICATE, PAPER7_FROZEN_COMMIT,
+    Paper7RegimeConsistency, Paper8SkeletonCertificate, Paper8UpstreamBinding,
+    PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT,
+    PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT, PAPER7_FINAL_CERTIFICATE, PAPER7_FROZEN_COMMIT,
 };
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -543,6 +543,94 @@ fn smc005_catalog_conservation_coarse_graining_fails_closed_on_growth_or_imports
 }
 
 #[test]
+fn smc006_paper7_regime_consistency_closes_only_regime_rung() {
+    let regime = Paper7RegimeConsistency::canonical_smc006();
+
+    assert!(regime.smc001_upstream_binding_closed);
+    assert!(regime.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(regime.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(regime.smc004_particle_excitation_compatibility_closed);
+    assert!(regime.smc005_catalog_conservation_coarse_graining_closed);
+    assert_eq!(regime.paper1_commit, PAPER1_FROZEN_COMMIT);
+    assert_eq!(regime.paper2_commit, PAPER2_FROZEN_COMMIT);
+    assert_eq!(regime.paper3_commit, PAPER3_FROZEN_COMMIT);
+    assert_eq!(regime.paper4_commit, PAPER4_FROZEN_COMMIT);
+    assert_eq!(regime.paper5_commit, PAPER5_FROZEN_COMMIT);
+    assert_eq!(regime.paper6_commit, PAPER6_FROZEN_COMMIT);
+    assert_eq!(regime.paper7_commit, PAPER7_FROZEN_COMMIT);
+    assert_eq!(regime.paper7_final_certificate, PAPER7_FINAL_CERTIFICATE);
+    assert!(regime.paper7_final_certificate_consumed);
+    assert!(regime.paper7_particle_excitation_observables_closed);
+    assert!(regime.closes_smc006());
+    assert!(!regime.upstream_mutation_attempt);
+    assert!(!regime.paper7_bypass_attempt);
+    assert!(!regime.unapproved_paper7_revision);
+    assert_eq!(
+        smc006_paper7_regime_consistency_marker(),
+        "smc006-paper7-regime-consistency-no-upstream-bypass-closed"
+    );
+
+    let certificate = Paper8SkeletonCertificate::with_smc006_paper7_regime_consistency_closed();
+    assert!(certificate.smc001_upstream_binding_closed);
+    assert!(certificate.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(certificate.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(certificate.smc004_particle_excitation_compatibility_closed);
+    assert!(certificate.smc005_catalog_conservation_coarse_graining_closed);
+    assert!(certificate.smc006_paper7_regime_consistency_closed);
+    assert!(!certificate.smc007_no_hidden_observed_catalog_import_audit_closed);
+    assert!(!certificate.smc008_final_conditional_certificate_closed);
+    assert!(!certificate.paper8_theorem_closed);
+    assert!(!certificate.closes_paper8_theorem());
+}
+
+#[test]
+fn smc006_paper7_regime_consistency_fails_closed_on_bypass_or_revision() {
+    let regime = Paper7RegimeConsistency::canonical_smc006();
+
+    let missing_smc005 = Paper7RegimeConsistency {
+        smc005_catalog_conservation_coarse_graining_closed: false,
+        ..regime
+    };
+    assert!(!missing_smc005.closes_smc006());
+
+    let wrong_paper7_commit = Paper7RegimeConsistency {
+        paper7_commit: "unapproved-paper7-revision",
+        ..regime
+    };
+    assert!(!wrong_paper7_commit.closes_smc006());
+
+    let missing_certificate = Paper7RegimeConsistency {
+        paper7_final_certificate_consumed: false,
+        ..regime
+    };
+    assert!(!missing_certificate.closes_smc006());
+
+    let upstream_mutation = Paper7RegimeConsistency {
+        upstream_mutation_attempt: true,
+        ..regime
+    };
+    assert!(!upstream_mutation.closes_smc006());
+
+    let paper7_bypass = Paper7RegimeConsistency {
+        paper7_bypass_attempt: true,
+        ..regime
+    };
+    assert!(!paper7_bypass.closes_smc006());
+
+    let unapproved_revision = Paper7RegimeConsistency {
+        unapproved_paper7_revision: true,
+        ..regime
+    };
+    assert!(!unapproved_revision.closes_smc006());
+
+    let hidden_observed_catalog = Paper7RegimeConsistency {
+        observed_particle_catalog_import: true,
+        ..regime
+    };
+    assert!(!hidden_observed_catalog.closes_smc006());
+}
+
+#[test]
 fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -577,6 +665,11 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     );
     assert_contains(
         &upstream,
+        "\"smc006_paper7_regime_consistency_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
         "\"standard_model_candidate_observables_theorem_closed\": false",
         "UPSTREAM-PAPERS.json",
     );
@@ -598,7 +691,7 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
 }
 
 #[test]
-fn docs_record_smc005_closed_smc006_active_and_physical_claims_false() {
+fn docs_record_smc006_closed_smc007_active_and_physical_claims_false() {
     let root = project_root();
     let theorem = read(
         &root,
@@ -620,6 +713,7 @@ fn docs_record_smc005_closed_smc006_active_and_physical_claims_false() {
         assert_contains(artifact.1, "SMC-004", artifact.0);
         assert_contains(artifact.1, "SMC-005", artifact.0);
         assert_contains(artifact.1, "SMC-006", artifact.0);
+        assert_contains(artifact.1, "SMC-007", artifact.0);
         assert_contains(artifact.1, "finite candidate sector-family", artifact.0);
         assert_contains(
             artifact.1,

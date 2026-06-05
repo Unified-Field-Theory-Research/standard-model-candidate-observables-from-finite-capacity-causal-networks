@@ -41,9 +41,9 @@ unless a future paper-specific certificate explicitly closes them.
   `SMC-005` states finite catalog continuity/stability rows and shows
   coherent transport under finite intrinsic coarse-graining with non-growing
   coarse family, interaction, support, and transfer bounds.
-- [ ] **Phase 6: Bind To Paper 7 Regime** - `SMC-006` should consume the
-  recorded Paper 7 final conditional certificate and reject bypasses of Paper
-  7, Paper 6, Paper 5, Paper 4, Paper 3, Paper 2, or Paper 1 assumptions.
+- [x] **Phase 6: Bind To Paper 7 Regime** - `SMC-006` consumes the recorded
+  Paper 7 final conditional certificate and rejects bypasses of Paper 7,
+  Paper 6, Paper 5, Paper 4, Paper 3, Paper 2, or Paper 1 assumptions.
 - [ ] **Phase 7: Close No-Hidden-Observed-Catalog Import Audit** -
   `SMC-007` should fail closed when the construction assumes observed
   particle catalogs, physical Standard Model content, physical particles,

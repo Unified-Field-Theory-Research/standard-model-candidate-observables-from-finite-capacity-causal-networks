@@ -13,5 +13,6 @@ The current closed rungs are `SMC-001`: upstream binding and claim boundary,
 `SMC-003`: finite candidate interaction-family signatures, and `SMC-004`:
 compatibility with the closed Paper 7 particle-excitation observable rows,
 and `SMC-005`: catalog conservation and coarse-graining stability. The
-current active obligation is `SMC-006`: bind to the recorded Paper 7 regime
-and reject upstream bypass.
+current closed rung also includes `SMC-006`: Paper 7 regime consistency and
+upstream-bypass rejection. The current active obligation is `SMC-007`: close
+the no-hidden-observed-catalog/physical Standard Model import audit.

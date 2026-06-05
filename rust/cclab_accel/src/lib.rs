@@ -564,6 +564,134 @@ impl CandidateCatalogConservationCoarseGrainingStability {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct Paper7RegimeConsistency {
+    pub smc001_upstream_binding_closed: bool,
+    pub smc002_finite_candidate_sector_family_catalog_closed: bool,
+    pub smc003_finite_candidate_interaction_family_signature_closed: bool,
+    pub smc004_particle_excitation_compatibility_closed: bool,
+    pub smc005_catalog_conservation_coarse_graining_closed: bool,
+    pub paper1_commit: &'static str,
+    pub paper2_commit: &'static str,
+    pub paper3_commit: &'static str,
+    pub paper4_commit: &'static str,
+    pub paper5_commit: &'static str,
+    pub paper6_commit: &'static str,
+    pub paper7_commit: &'static str,
+    pub paper7_final_certificate: &'static str,
+    pub paper1_internal_conditional_closed: bool,
+    pub paper2_geometry_closed: bool,
+    pub paper3_curvature_closed: bool,
+    pub paper4_dynamics_closed: bool,
+    pub paper5_quantum_compatible_local_dynamics_closed: bool,
+    pub paper6_matter_gauge_observables_closed: bool,
+    pub paper7_particle_excitation_observables_closed: bool,
+    pub paper7_final_certificate_consumed: bool,
+    pub upstream_mutation_attempt: bool,
+    pub paper7_bypass_attempt: bool,
+    pub unapproved_paper7_revision: bool,
+    pub unrecorded_upstream_revision: bool,
+    pub observed_particle_catalog_import: bool,
+    pub physical_standard_model_content_import: bool,
+    pub physical_particle_excitation_import: bool,
+    pub external_matter_field_import: bool,
+    pub external_gauge_field_import: bool,
+    pub continuum_qft_import: bool,
+    pub background_hilbert_bundle_import: bool,
+    pub simulation_only_signal: bool,
+    pub fit_shortcut: bool,
+    pub physical_promotion: bool,
+    pub unified_field_promotion: bool,
+}
+
+impl Paper7RegimeConsistency {
+    pub fn canonical_smc006() -> Self {
+        Self {
+            smc001_upstream_binding_closed: Paper8UpstreamBinding::canonical_smc001()
+                .closes_smc001(),
+            smc002_finite_candidate_sector_family_catalog_closed:
+                FiniteCandidateSectorFamilyCatalogObservable::canonical_smc002().closes_smc002(),
+            smc003_finite_candidate_interaction_family_signature_closed:
+                FiniteCandidateInteractionFamilySignature::canonical_smc003().closes_smc003(),
+            smc004_particle_excitation_compatibility_closed:
+                CandidateParticleExcitationCompatibility::canonical_smc004().closes_smc004(),
+            smc005_catalog_conservation_coarse_graining_closed:
+                CandidateCatalogConservationCoarseGrainingStability::canonical_smc005()
+                    .closes_smc005(),
+            paper1_commit: PAPER1_FROZEN_COMMIT,
+            paper2_commit: PAPER2_FROZEN_COMMIT,
+            paper3_commit: PAPER3_FROZEN_COMMIT,
+            paper4_commit: PAPER4_FROZEN_COMMIT,
+            paper5_commit: PAPER5_FROZEN_COMMIT,
+            paper6_commit: PAPER6_FROZEN_COMMIT,
+            paper7_commit: PAPER7_FROZEN_COMMIT,
+            paper7_final_certificate: PAPER7_FINAL_CERTIFICATE,
+            paper1_internal_conditional_closed: true,
+            paper2_geometry_closed: true,
+            paper3_curvature_closed: true,
+            paper4_dynamics_closed: true,
+            paper5_quantum_compatible_local_dynamics_closed: true,
+            paper6_matter_gauge_observables_closed: true,
+            paper7_particle_excitation_observables_closed: true,
+            paper7_final_certificate_consumed: true,
+            upstream_mutation_attempt: false,
+            paper7_bypass_attempt: false,
+            unapproved_paper7_revision: false,
+            unrecorded_upstream_revision: false,
+            observed_particle_catalog_import: false,
+            physical_standard_model_content_import: false,
+            physical_particle_excitation_import: false,
+            external_matter_field_import: false,
+            external_gauge_field_import: false,
+            continuum_qft_import: false,
+            background_hilbert_bundle_import: false,
+            simulation_only_signal: false,
+            fit_shortcut: false,
+            physical_promotion: false,
+            unified_field_promotion: false,
+        }
+    }
+
+    pub fn closes_smc006(&self) -> bool {
+        self.smc001_upstream_binding_closed
+            && self.smc002_finite_candidate_sector_family_catalog_closed
+            && self.smc003_finite_candidate_interaction_family_signature_closed
+            && self.smc004_particle_excitation_compatibility_closed
+            && self.smc005_catalog_conservation_coarse_graining_closed
+            && self.paper1_commit == PAPER1_FROZEN_COMMIT
+            && self.paper2_commit == PAPER2_FROZEN_COMMIT
+            && self.paper3_commit == PAPER3_FROZEN_COMMIT
+            && self.paper4_commit == PAPER4_FROZEN_COMMIT
+            && self.paper5_commit == PAPER5_FROZEN_COMMIT
+            && self.paper6_commit == PAPER6_FROZEN_COMMIT
+            && self.paper7_commit == PAPER7_FROZEN_COMMIT
+            && self.paper7_final_certificate == PAPER7_FINAL_CERTIFICATE
+            && self.paper1_internal_conditional_closed
+            && self.paper2_geometry_closed
+            && self.paper3_curvature_closed
+            && self.paper4_dynamics_closed
+            && self.paper5_quantum_compatible_local_dynamics_closed
+            && self.paper6_matter_gauge_observables_closed
+            && self.paper7_particle_excitation_observables_closed
+            && self.paper7_final_certificate_consumed
+            && !self.upstream_mutation_attempt
+            && !self.paper7_bypass_attempt
+            && !self.unapproved_paper7_revision
+            && !self.unrecorded_upstream_revision
+            && !self.observed_particle_catalog_import
+            && !self.physical_standard_model_content_import
+            && !self.physical_particle_excitation_import
+            && !self.external_matter_field_import
+            && !self.external_gauge_field_import
+            && !self.continuum_qft_import
+            && !self.background_hilbert_bundle_import
+            && !self.simulation_only_signal
+            && !self.fit_shortcut
+            && !self.physical_promotion
+            && !self.unified_field_promotion
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Paper8SkeletonCertificate {
     pub smc001_upstream_binding_closed: bool,
     pub smc002_finite_candidate_sector_family_catalog_closed: bool,
@@ -719,6 +847,36 @@ impl Paper8SkeletonCertificate {
         }
     }
 
+    pub fn with_smc006_paper7_regime_consistency_closed() -> Self {
+        let binding = Paper8UpstreamBinding::canonical_smc001();
+        let catalog = FiniteCandidateSectorFamilyCatalogObservable::canonical_smc002();
+        let interaction = FiniteCandidateInteractionFamilySignature::canonical_smc003();
+        let compatibility = CandidateParticleExcitationCompatibility::canonical_smc004();
+        let conservation = CandidateCatalogConservationCoarseGrainingStability::canonical_smc005();
+        let regime = Paper7RegimeConsistency::canonical_smc006();
+        Self {
+            smc001_upstream_binding_closed: binding.closes_smc001(),
+            smc002_finite_candidate_sector_family_catalog_closed: catalog.closes_smc002(),
+            smc003_finite_candidate_interaction_family_signature_closed: interaction
+                .closes_smc003(),
+            smc004_particle_excitation_compatibility_closed: compatibility.closes_smc004(),
+            smc005_catalog_conservation_coarse_graining_closed: conservation.closes_smc005(),
+            smc006_paper7_regime_consistency_closed: regime.closes_smc006(),
+            smc007_no_hidden_observed_catalog_import_audit_closed: false,
+            smc008_final_conditional_certificate_closed: false,
+            paper8_theorem_closed: false,
+            physical_nature_claim: false,
+            observed_particle_catalog_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
     pub fn closes_paper8_theorem(&self) -> bool {
         self.smc001_upstream_binding_closed
             && self.smc002_finite_candidate_sector_family_catalog_closed
@@ -759,4 +917,8 @@ pub fn smc004_particle_excitation_compatibility_marker() -> &'static str {
 
 pub fn smc005_catalog_conservation_coarse_graining_marker() -> &'static str {
     "smc005-catalog-conservation-coarse-graining-stability-closed"
+}
+
+pub fn smc006_paper7_regime_consistency_marker() -> &'static str {
+    "smc006-paper7-regime-consistency-no-upstream-bypass-closed"
 }

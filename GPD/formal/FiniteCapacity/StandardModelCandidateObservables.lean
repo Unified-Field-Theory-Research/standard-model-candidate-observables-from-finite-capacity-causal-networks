@@ -924,6 +924,197 @@ theorem smc005_canonical_catalog_conservation_coarse_graining_closed :
   unfold smc005CanonicalCatalogConservationCoarseGrainingStabilityContract
   simp
 
+structure SMC006Paper7RegimeConsistencyContract where
+  smc001UpstreamBindingClosed : Prop
+  smc002FiniteCandidateSectorFamilyCatalogClosed : Prop
+  smc003FiniteCandidateInteractionFamilySignatureClosed : Prop
+  smc004ParticleExcitationCompatibilityClosed : Prop
+  smc005CatalogConservationCoarseGrainingClosed : Prop
+  recordedPaper1CommitConsistent : Prop
+  recordedPaper2CommitConsistent : Prop
+  recordedPaper3CommitConsistent : Prop
+  recordedPaper4CommitConsistent : Prop
+  recordedPaper5CommitConsistent : Prop
+  recordedPaper6CommitConsistent : Prop
+  recordedPaper7CommitConsistent : Prop
+  paper1InternalConditionalClosed : Prop
+  paper2HigherDimGeometryClosed : Prop
+  paper3CurvatureClosed : Prop
+  paper4DynamicsClosed : Prop
+  paper5QuantumCompatibleLocalDynamicsClosed : Prop
+  paper6MatterGaugeObservablesClosed : Prop
+  paper7ParticleExcitationObservablesClosed : Prop
+  paper7FinalCertificateConsumed : Prop
+  upstreamMutationAttempt : Prop
+  paper7BypassAttempt : Prop
+  unapprovedPaper7Revision : Prop
+  unrecordedUpstreamRevision : Prop
+  observedParticleCatalogImport : Prop
+  physicalStandardModelContentImport : Prop
+  physicalParticleExcitationImport : Prop
+  externalMatterFieldImport : Prop
+  externalGaugeFieldImport : Prop
+  continuumQFTImport : Prop
+  backgroundHilbertBundleImport : Prop
+  simulationOnlySignal : Prop
+  fitShortcut : Prop
+  physicalPromotion : Prop
+  unifiedFieldPromotion : Prop
+
+def SMC006Paper7RegimeConsistencyContract.closed
+    (c : SMC006Paper7RegimeConsistencyContract) : Prop :=
+  c.smc001UpstreamBindingClosed ∧
+  c.smc002FiniteCandidateSectorFamilyCatalogClosed ∧
+  c.smc003FiniteCandidateInteractionFamilySignatureClosed ∧
+  c.smc004ParticleExcitationCompatibilityClosed ∧
+  c.smc005CatalogConservationCoarseGrainingClosed ∧
+  c.recordedPaper1CommitConsistent ∧
+  c.recordedPaper2CommitConsistent ∧
+  c.recordedPaper3CommitConsistent ∧
+  c.recordedPaper4CommitConsistent ∧
+  c.recordedPaper5CommitConsistent ∧
+  c.recordedPaper6CommitConsistent ∧
+  c.recordedPaper7CommitConsistent ∧
+  c.paper1InternalConditionalClosed ∧
+  c.paper2HigherDimGeometryClosed ∧
+  c.paper3CurvatureClosed ∧
+  c.paper4DynamicsClosed ∧
+  c.paper5QuantumCompatibleLocalDynamicsClosed ∧
+  c.paper6MatterGaugeObservablesClosed ∧
+  c.paper7ParticleExcitationObservablesClosed ∧
+  c.paper7FinalCertificateConsumed ∧
+  ¬ c.upstreamMutationAttempt ∧
+  ¬ c.paper7BypassAttempt ∧
+  ¬ c.unapprovedPaper7Revision ∧
+  ¬ c.unrecordedUpstreamRevision ∧
+  ¬ c.observedParticleCatalogImport ∧
+  ¬ c.physicalStandardModelContentImport ∧
+  ¬ c.physicalParticleExcitationImport ∧
+  ¬ c.externalMatterFieldImport ∧
+  ¬ c.externalGaugeFieldImport ∧
+  ¬ c.continuumQFTImport ∧
+  ¬ c.backgroundHilbertBundleImport ∧
+  ¬ c.simulationOnlySignal ∧
+  ¬ c.fitShortcut ∧
+  ¬ c.physicalPromotion ∧
+  ¬ c.unifiedFieldPromotion
+
+theorem smc006_paper7_regime_consistency_closed_from_fields
+    (c : SMC006Paper7RegimeConsistencyContract)
+    (hSMC001 : c.smc001UpstreamBindingClosed)
+    (hSMC002 : c.smc002FiniteCandidateSectorFamilyCatalogClosed)
+    (hSMC003 : c.smc003FiniteCandidateInteractionFamilySignatureClosed)
+    (hSMC004 : c.smc004ParticleExcitationCompatibilityClosed)
+    (hSMC005 : c.smc005CatalogConservationCoarseGrainingClosed)
+    (hPaper1Commit : c.recordedPaper1CommitConsistent)
+    (hPaper2Commit : c.recordedPaper2CommitConsistent)
+    (hPaper3Commit : c.recordedPaper3CommitConsistent)
+    (hPaper4Commit : c.recordedPaper4CommitConsistent)
+    (hPaper5Commit : c.recordedPaper5CommitConsistent)
+    (hPaper6Commit : c.recordedPaper6CommitConsistent)
+    (hPaper7Commit : c.recordedPaper7CommitConsistent)
+    (hPaper1Closed : c.paper1InternalConditionalClosed)
+    (hPaper2Closed : c.paper2HigherDimGeometryClosed)
+    (hPaper3Closed : c.paper3CurvatureClosed)
+    (hPaper4Closed : c.paper4DynamicsClosed)
+    (hPaper5Closed : c.paper5QuantumCompatibleLocalDynamicsClosed)
+    (hPaper6Closed : c.paper6MatterGaugeObservablesClosed)
+    (hPaper7Closed : c.paper7ParticleExcitationObservablesClosed)
+    (hPaper7Cert : c.paper7FinalCertificateConsumed)
+    (hNoMutation : ¬ c.upstreamMutationAttempt)
+    (hNoBypass : ¬ c.paper7BypassAttempt)
+    (hNoUnapprovedPaper7 : ¬ c.unapprovedPaper7Revision)
+    (hNoUnrecordedUpstream : ¬ c.unrecordedUpstreamRevision)
+    (hNoObserved : ¬ c.observedParticleCatalogImport)
+    (hNoPhysicalSM : ¬ c.physicalStandardModelContentImport)
+    (hNoPhysicalParticle : ¬ c.physicalParticleExcitationImport)
+    (hNoMatter : ¬ c.externalMatterFieldImport)
+    (hNoGaugeField : ¬ c.externalGaugeFieldImport)
+    (hNoQFT : ¬ c.continuumQFTImport)
+    (hNoHilbert : ¬ c.backgroundHilbertBundleImport)
+    (hNoSimulation : ¬ c.simulationOnlySignal)
+    (hNoFit : ¬ c.fitShortcut)
+    (hNoPhysicalPromotion : ¬ c.physicalPromotion)
+    (hNoUnified : ¬ c.unifiedFieldPromotion) :
+    c.closed := by
+  exact ⟨hSMC001, hSMC002, hSMC003, hSMC004, hSMC005, hPaper1Commit,
+    hPaper2Commit, hPaper3Commit, hPaper4Commit, hPaper5Commit,
+    hPaper6Commit, hPaper7Commit, hPaper1Closed, hPaper2Closed,
+    hPaper3Closed, hPaper4Closed, hPaper5Closed, hPaper6Closed,
+    hPaper7Closed, hPaper7Cert, hNoMutation, hNoBypass, hNoUnapprovedPaper7,
+    hNoUnrecordedUpstream, hNoObserved, hNoPhysicalSM, hNoPhysicalParticle,
+    hNoMatter, hNoGaugeField, hNoQFT, hNoHilbert, hNoSimulation, hNoFit,
+    hNoPhysicalPromotion, hNoUnified⟩
+
+theorem smc006_missing_smc005_stability_not_closed
+    (c : SMC006Paper7RegimeConsistencyContract)
+    (hClosed : c.closed)
+    (hMissingSMC005 : ¬ c.smc005CatalogConservationCoarseGrainingClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, hSMC005, _⟩
+  exact hMissingSMC005 hSMC005
+
+theorem smc006_missing_recorded_paper7_commit_not_closed
+    (c : SMC006Paper7RegimeConsistencyContract)
+    (hClosed : c.closed)
+    (hMissingPaper7Commit : ¬ c.recordedPaper7CommitConsistent) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, _, _, _, _, _, _, hPaper7Commit, _⟩
+  exact hMissingPaper7Commit hPaper7Commit
+
+theorem smc006_upstream_mutation_attempt_not_closed
+    (c : SMC006Paper7RegimeConsistencyContract)
+    (hClosed : c.closed)
+    (hMutation : c.upstreamMutationAttempt) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, hNoMutation, _⟩
+  exact hNoMutation hMutation
+
+def smc006CanonicalPaper7RegimeConsistencyContract :
+    SMC006Paper7RegimeConsistencyContract :=
+  { smc001UpstreamBindingClosed := True,
+    smc002FiniteCandidateSectorFamilyCatalogClosed := True,
+    smc003FiniteCandidateInteractionFamilySignatureClosed := True,
+    smc004ParticleExcitationCompatibilityClosed := True,
+    smc005CatalogConservationCoarseGrainingClosed := True,
+    recordedPaper1CommitConsistent := True,
+    recordedPaper2CommitConsistent := True,
+    recordedPaper3CommitConsistent := True,
+    recordedPaper4CommitConsistent := True,
+    recordedPaper5CommitConsistent := True,
+    recordedPaper6CommitConsistent := True,
+    recordedPaper7CommitConsistent := True,
+    paper1InternalConditionalClosed := True,
+    paper2HigherDimGeometryClosed := True,
+    paper3CurvatureClosed := True,
+    paper4DynamicsClosed := True,
+    paper5QuantumCompatibleLocalDynamicsClosed := True,
+    paper6MatterGaugeObservablesClosed := True,
+    paper7ParticleExcitationObservablesClosed := True,
+    paper7FinalCertificateConsumed := True,
+    upstreamMutationAttempt := False,
+    paper7BypassAttempt := False,
+    unapprovedPaper7Revision := False,
+    unrecordedUpstreamRevision := False,
+    observedParticleCatalogImport := False,
+    physicalStandardModelContentImport := False,
+    physicalParticleExcitationImport := False,
+    externalMatterFieldImport := False,
+    externalGaugeFieldImport := False,
+    continuumQFTImport := False,
+    backgroundHilbertBundleImport := False,
+    simulationOnlySignal := False,
+    fitShortcut := False,
+    physicalPromotion := False,
+    unifiedFieldPromotion := False }
+
+theorem smc006_canonical_paper7_regime_consistency_closed :
+    smc006CanonicalPaper7RegimeConsistencyContract.closed := by
+  unfold SMC006Paper7RegimeConsistencyContract.closed
+  unfold smc006CanonicalPaper7RegimeConsistencyContract
+  simp
+
 structure Paper8StandardModelCandidateObservablesTheoremContract where
   smc001UpstreamBindingClosed : Prop
   smc002FiniteCandidateSectorFamilyCatalogClosed : Prop
@@ -998,5 +1189,13 @@ theorem paper8_smc005_conservation_does_not_close_standard_model_candidate_obser
     False := by
   rcases hClosed with ⟨_, _, _, _, _, hSMC006, _⟩
   exact hMissingSMC006 hSMC006
+
+theorem paper8_smc006_regime_does_not_close_standard_model_candidate_observables_theorem
+    (c : Paper8StandardModelCandidateObservablesTheoremContract)
+    (hClosed : c.closed)
+    (hMissingSMC007 : ¬ c.smc007NoHiddenObservedCatalogImportAuditClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, _, hSMC007, _⟩
+  exact hMissingSMC007 hSMC007
 
 end FiniteCapacity

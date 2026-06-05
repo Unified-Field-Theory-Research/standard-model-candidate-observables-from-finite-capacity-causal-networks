@@ -1,15 +1,16 @@
 {
   "schema_version": 1,
   "paper": 8,
-  "current_phase": 6,
-  "current_phase_name": "Bind To Paper 7 Regime",
-  "active_obligation": "SMC-006",
+  "current_phase": 7,
+  "current_phase_name": "Close No-Hidden-Observed-Catalog Import Audit",
+  "active_obligation": "SMC-007",
   "closed_obligations": [
     "SMC-001",
     "SMC-002",
     "SMC-003",
     "SMC-004",
-    "SMC-005"
+    "SMC-005",
+    "SMC-006"
   ],
   "upstream_binding": {
     "paper1_commit": "3a9637c65f783ca35e77118f83560290f42f3085",
@@ -28,7 +29,7 @@
     "smc003_finite_candidate_interaction_family_signature_closed": true,
     "smc004_particle_excitation_compatibility_closed": true,
     "smc005_catalog_conservation_coarse_graining_closed": true,
-    "smc006_paper7_regime_consistency_closed": false,
+    "smc006_paper7_regime_consistency_closed": true,
     "smc007_no_hidden_observed_catalog_import_audit_closed": false,
     "smc008_final_conditional_certificate_closed": false,
     "standard_model_candidate_observables_theorem_closed": false,
@@ -42,5 +43,5 @@
     "continuum_quantum_field_theory_claim": false,
     "unified_field_theory_claim": false
   },
-  "next_research_move": "SMC-006: bind the closed SMC-001 through SMC-005 rows to the recorded Paper 7 final conditional certificate and frozen Paper 1 through Paper 7 commit chain while rejecting upstream bypass, upstream mutation, unapproved Paper 7 revisions, observed particle catalogs, physical Standard Model content, physical particle-excitation imports, simulation-only signals, fit shortcuts, physical quantum dynamics, or unified-field promotion"
+  "next_research_move": "SMC-007: close a fail-closed no-hidden-observed-catalog/physical Standard Model import audit across Paper 8 artifacts and SMC-001 through SMC-006 rows while rejecting observed particle catalogs, physical Standard Model content, physical particle-excitation imports, external fields, continuum QFT, background Hilbert bundles, simulation-only signals, fit shortcuts, physical quantum dynamics, physical promotion, and unified-field promotion"
 }
