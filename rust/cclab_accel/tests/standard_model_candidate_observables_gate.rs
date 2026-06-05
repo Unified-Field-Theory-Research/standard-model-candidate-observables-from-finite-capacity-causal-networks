@@ -1,7 +1,9 @@
 use cclab_accel::{
     paper8_skeleton_marker, smc002_finite_candidate_sector_family_catalog_marker,
     smc003_finite_candidate_interaction_family_signature_marker,
-    smc004_particle_excitation_compatibility_marker, CandidateParticleExcitationCompatibility,
+    smc004_particle_excitation_compatibility_marker,
+    smc005_catalog_conservation_coarse_graining_marker,
+    CandidateCatalogConservationCoarseGrainingStability, CandidateParticleExcitationCompatibility,
     FiniteCandidateInteractionFamilySignature, FiniteCandidateSectorFamilyCatalogObservable,
     Paper8SkeletonCertificate, Paper8UpstreamBinding, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT,
     PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT,
@@ -445,6 +447,102 @@ fn smc004_particle_excitation_compatibility_fails_closed_on_missing_rows_or_impo
 }
 
 #[test]
+fn smc005_catalog_conservation_coarse_graining_closes_only_stability_rung() {
+    let stability = CandidateCatalogConservationCoarseGrainingStability::canonical_smc005();
+
+    assert!(stability.smc001_upstream_binding_closed);
+    assert!(stability.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(stability.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(stability.smc004_particle_excitation_compatibility_closed);
+    assert!(stability.closes_smc005());
+    assert!(stability.finite_catalog_continuity_witness);
+    assert!(stability.finite_interaction_conservation_witness);
+    assert!(stability.bounded_catalog_flux_transfer_witness);
+    assert!(stability.intrinsic_coarse_graining_map);
+    assert!(stability.coarse_family_label_bound <= stability.family_label_bound);
+    assert!(
+        stability.coarse_interaction_family_label_bound <= stability.interaction_family_label_bound
+    );
+    assert!(stability.coarse_local_support_bound <= stability.local_support_bound);
+    assert!(stability.coarse_transfer_bound <= stability.transfer_bound);
+    assert!(stability.coarse_catalog_rows_compatible_with_smc002);
+    assert!(stability.coarse_interaction_rows_compatible_with_smc003);
+    assert!(stability.coarse_paper7_compatibility_rows_compatible_with_smc004);
+    assert!(stability.paper7_conservation_coarse_graining_rows_compatible);
+    assert!(!stability.external_conservation_law_import);
+    assert!(!stability.continuum_current_import);
+    assert!(!stability.continuum_limit_oracle_import);
+    assert_eq!(
+        smc005_catalog_conservation_coarse_graining_marker(),
+        "smc005-catalog-conservation-coarse-graining-stability-closed"
+    );
+
+    let certificate = Paper8SkeletonCertificate::with_smc005_conservation_coarse_graining_closed();
+    assert!(certificate.smc001_upstream_binding_closed);
+    assert!(certificate.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(certificate.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(certificate.smc004_particle_excitation_compatibility_closed);
+    assert!(certificate.smc005_catalog_conservation_coarse_graining_closed);
+    assert!(!certificate.smc006_paper7_regime_consistency_closed);
+    assert!(!certificate.smc008_final_conditional_certificate_closed);
+    assert!(!certificate.paper8_theorem_closed);
+    assert!(!certificate.closes_paper8_theorem());
+}
+
+#[test]
+fn smc005_catalog_conservation_coarse_graining_fails_closed_on_growth_or_imports() {
+    let stability = CandidateCatalogConservationCoarseGrainingStability::canonical_smc005();
+
+    let missing_smc004 = CandidateCatalogConservationCoarseGrainingStability {
+        smc004_particle_excitation_compatibility_closed: false,
+        ..stability
+    };
+    assert!(!missing_smc004.closes_smc005());
+
+    let coarse_family_growth = CandidateCatalogConservationCoarseGrainingStability {
+        coarse_family_label_bound: stability.family_label_bound + 1,
+        ..stability
+    };
+    assert!(!coarse_family_growth.closes_smc005());
+
+    let coarse_transfer_growth = CandidateCatalogConservationCoarseGrainingStability {
+        coarse_transfer_bound: stability.transfer_bound + 1,
+        ..stability
+    };
+    assert!(!coarse_transfer_growth.closes_smc005());
+
+    let missing_coarse_catalog_compat = CandidateCatalogConservationCoarseGrainingStability {
+        coarse_catalog_rows_compatible_with_smc002: false,
+        ..stability
+    };
+    assert!(!missing_coarse_catalog_compat.closes_smc005());
+
+    let external_conservation = CandidateCatalogConservationCoarseGrainingStability {
+        external_conservation_law_import: true,
+        ..stability
+    };
+    assert!(!external_conservation.closes_smc005());
+
+    let continuum_current = CandidateCatalogConservationCoarseGrainingStability {
+        continuum_current_import: true,
+        ..stability
+    };
+    assert!(!continuum_current.closes_smc005());
+
+    let continuum_limit_oracle = CandidateCatalogConservationCoarseGrainingStability {
+        continuum_limit_oracle_import: true,
+        ..stability
+    };
+    assert!(!continuum_limit_oracle.closes_smc005());
+
+    let hidden_physical_standard_model = CandidateCatalogConservationCoarseGrainingStability {
+        physical_standard_model_content_import: true,
+        ..stability
+    };
+    assert!(!hidden_physical_standard_model.closes_smc005());
+}
+
+#[test]
 fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -474,6 +572,11 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     );
     assert_contains(
         &upstream,
+        "\"smc005_catalog_conservation_coarse_graining_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
         "\"standard_model_candidate_observables_theorem_closed\": false",
         "UPSTREAM-PAPERS.json",
     );
@@ -495,7 +598,7 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
 }
 
 #[test]
-fn docs_record_smc004_closed_smc005_active_and_physical_claims_false() {
+fn docs_record_smc005_closed_smc006_active_and_physical_claims_false() {
     let root = project_root();
     let theorem = read(
         &root,
@@ -516,6 +619,7 @@ fn docs_record_smc004_closed_smc005_active_and_physical_claims_false() {
         assert_contains(artifact.1, "SMC-003", artifact.0);
         assert_contains(artifact.1, "SMC-004", artifact.0);
         assert_contains(artifact.1, "SMC-005", artifact.0);
+        assert_contains(artifact.1, "SMC-006", artifact.0);
         assert_contains(artifact.1, "finite candidate sector-family", artifact.0);
         assert_contains(
             artifact.1,
@@ -523,6 +627,7 @@ fn docs_record_smc004_closed_smc005_active_and_physical_claims_false() {
             artifact.0,
         );
         assert_contains(artifact.1, "Paper 7", artifact.0);
+        assert_contains(artifact.1, "coarse-graining", artifact.0);
         assert_contains(artifact.1, "observed particle", artifact.0);
         assert_contains(artifact.1, "physical Standard Model", artifact.0);
         assert_contains(artifact.1, "continuum quantum field theory", artifact.0);

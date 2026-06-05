@@ -1,6 +1,6 @@
 # Open Proof Obligations
 
-## Closed Dependencies: SMC-001 Through SMC-004
+## Closed Dependencies: SMC-001 Through SMC-005
 
 `SMC-001` closes the upstream binding and claim-boundary contract through the
 recorded Paper 7 final conditional particle-excitation observables
@@ -41,9 +41,23 @@ physical particle excitations, external fields, continuum QFT, background
 Hilbert bundles, simulation-only signals, fit shortcuts, physical promotion,
 and unified-field promotion.
 
+`SMC-005` closes finite catalog conservation/continuity and intrinsic
+coarse-graining stability. It binds to `SMC-001` through `SMC-004`, enforces
+finite catalog continuity, finite interaction/transition conservation,
+bounded catalog flux/transfer, intrinsic coarse-graining maps, non-growing
+coarse family, interaction, local support, and transfer bounds, compatibility
+of coarse catalog rows with `SMC-002`, coarse interaction rows with
+`SMC-003`, coarse Paper 7 compatibility rows with `SMC-004`, and Paper 7
+conservation/coarse-graining row compatibility, while rejecting external
+conservation laws, continuum currents, continuum-limit oracles, observed
+particle catalogs, physical Standard Model content, physical particle
+excitations, external fields, continuum QFT, background Hilbert bundles,
+simulation-only signals, fit shortcuts, physical promotion, and unified-field
+promotion.
+
 ## Active Obligation
 
-`SMC-005` is open.
+`SMC-006` is open.
 
 Required row shape:
 
@@ -51,20 +65,18 @@ Required row shape:
 - closed `SMC-002` finite candidate sector-family catalog observable;
 - closed `SMC-003` finite candidate interaction-family signature;
 - closed `SMC-004` particle-excitation compatibility;
-- finite catalog continuity witness;
-- finite interaction/transition conservation witness;
-- bounded catalog flux or transfer witness;
-- intrinsic coarse-graining map over finite candidate families;
-- non-growing coarse candidate-family label bound;
-- non-growing coarse interaction-family label bound;
-- non-growing coarse local support bound;
-- non-growing coarse transfer bound;
-- coarse-grained catalog rows compatible with `SMC-002`;
-- coarse-grained interaction rows compatible with `SMC-003`;
-- coarse-grained Paper 7 compatibility rows compatible with `SMC-004`;
-- no external conservation-law import;
-- no continuum current import;
-- no continuum-limit oracle;
+- closed `SMC-005` catalog conservation/coarse-graining stability;
+- recorded Paper 7 final conditional certificate consumed;
+- recorded Paper 7 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 6 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 5 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 4 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 3 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 2 frozen commit equals `UPSTREAM-PAPERS.json`;
+- recorded Paper 1 frozen commit equals `UPSTREAM-PAPERS.json`;
+- no unapproved Paper 7 revision;
+- no upstream repository mutation;
+- no Paper 7 bypass;
 - no observed particle catalog;
 - no physical Standard Model content;
 - no physical particle-excitation import;
@@ -79,7 +91,6 @@ Required row shape:
 
 ## Future Obligations
 
-- `SMC-006`: Paper 7 regime consistency and no upstream bypass.
 - `SMC-007`: no-hidden-observed-catalog/physical Standard Model import audit.
 - `SMC-008`: final internal conditional certificate, if all prior obligations
   close.
@@ -102,6 +113,38 @@ promotion remain out of scope and false.
 - compatibility with bounded transfer;
 - compatibility with Paper 7 excitation-sector rows;
 - compatibility with Paper 7 transition/interaction rows;
+- no observed particle catalog;
+- no physical Standard Model content;
+- no physical particle-excitation import;
+- no external matter field;
+- no external gauge field;
+- no continuum QFT import;
+- no background Hilbert bundle import;
+- no simulation-only signal;
+- no fit shortcut;
+- no physical promotion;
+- no unified-field promotion.
+
+## Closed SMC-005 Row Shape
+
+- closed `SMC-001` upstream binding;
+- closed `SMC-002` finite candidate sector-family catalog observable;
+- closed `SMC-003` finite candidate interaction-family signature;
+- closed `SMC-004` particle-excitation compatibility;
+- finite catalog continuity witness;
+- finite interaction/transition conservation witness;
+- bounded catalog flux or transfer witness;
+- intrinsic coarse-graining map over finite candidate families;
+- non-growing coarse candidate-family label bound;
+- non-growing coarse interaction-family label bound;
+- non-growing coarse local support bound;
+- non-growing coarse transfer bound;
+- coarse-grained catalog rows compatible with `SMC-002`;
+- coarse-grained interaction rows compatible with `SMC-003`;
+- coarse-grained Paper 7 compatibility rows compatible with `SMC-004`;
+- no external conservation-law import;
+- no continuum current import;
+- no continuum-limit oracle;
 - no observed particle catalog;
 - no physical Standard Model content;
 - no physical particle-excitation import;

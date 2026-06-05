@@ -21,11 +21,12 @@ The theorem target is open. `SMC-001` closes only the upstream binding and
 claim-boundary scaffold. `SMC-002` closes only the finite candidate
 sector-family catalog observable row. `SMC-003` closes only finite candidate
 interaction-family signatures. `SMC-004` closes only compatibility with
-closed Paper 7 particle-excitation observable rows. This is not observed
-particle catalog recovery, not physical Standard Model recovery, not a
-physical particle-excitation claim, not a physical matter-field claim, not a
-physical gauge-field claim, not physical quantum dynamics, not continuum
-quantum field theory, and not a unified field theory.
+closed Paper 7 particle-excitation observable rows. `SMC-005` closes only
+catalog conservation/coarse-graining stability. This is not observed particle
+catalog recovery, not physical Standard Model recovery, not a physical
+particle-excitation claim, not a physical matter-field claim, not a physical
+gauge-field claim, not physical quantum dynamics, not continuum quantum field
+theory, and not a unified field theory.
 
 ## Upstream Binding
 
@@ -242,11 +243,56 @@ promotion.
 
 ### SMC-005: Catalog Conservation And Coarse-Graining Stability
 
-Status: open.
+Status: closed as finite catalog conservation/continuity and intrinsic
+coarse-graining stability.
+
+`SMC-005` requires closed `SMC-001` through `SMC-004` dependencies, a finite
+catalog continuity witness, a finite interaction/transition conservation
+witness, a bounded catalog flux/transfer witness, an intrinsic
+coarse-graining map over finite candidate families, non-growing coarse
+candidate-family label bounds, non-growing coarse interaction-family label
+bounds, non-growing coarse local support bounds, non-growing coarse transfer
+bounds, coarse-grained catalog rows compatible with `SMC-002`,
+coarse-grained interaction rows compatible with `SMC-003`, coarse-grained
+Paper 7 compatibility rows compatible with `SMC-004`, and Paper 7
+conservation/coarse-graining row compatibility.
+
+It rejects external conservation-law imports, continuum current imports,
+continuum-limit oracles, observed particle catalogs, physical Standard Model
+content, physical particle excitations, external matter fields, external
+gauge fields, continuum QFT, background Hilbert bundles, simulation-only
+signals, fit shortcuts, physical promotion, and unified-field promotion.
+
+Rust anchors:
+
+- `CandidateCatalogConservationCoarseGrainingStability`
+- `CandidateCatalogConservationCoarseGrainingStability::canonical_smc005`
+- `CandidateCatalogConservationCoarseGrainingStability::closes_smc005`
+- `Paper8SkeletonCertificate::with_smc005_conservation_coarse_graining_closed`
+- `smc005_catalog_conservation_coarse_graining_marker`
+
+Lean anchors:
+
+- `SMC005CatalogConservationCoarseGrainingStabilityContract`
+- `SMC005CatalogConservationCoarseGrainingStabilityContract.closed`
+- `smc005_catalog_conservation_coarse_graining_closed_from_fields`
+- `smc005_missing_smc004_compatibility_not_closed`
+- `smc005_coarse_family_growth_not_closed`
+- `smc005_external_conservation_law_import_not_closed`
+- `smc005_canonical_catalog_conservation_coarse_graining_closed`
+- `paper8_smc005_conservation_does_not_close_standard_model_candidate_observables_theorem`
+
+Boundary: `SMC-005` closes only finite catalog conservation/continuity and
+intrinsic coarse-graining stability. It does not close Paper 7 regime
+consistency, the no-hidden-observed-catalog import audit, the final Paper 8
+theorem, observed particle catalogs, physical Standard Model content,
+physical particle excitations, physical matter fields, physical gauge fields,
+physical quantum dynamics, continuum QFT, physical nature promotion, or
+unified-field promotion.
 
 ### SMC-006: Paper 7 Regime Consistency
 
-Status: planned.
+Status: open.
 
 ### SMC-007: No-Hidden-Observed-Catalog Import Audit
 

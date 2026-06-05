@@ -239,12 +239,73 @@ particle excitations, physical matter fields, physical gauge fields, physical
 quantum dynamics, continuum QFT, physical nature promotion, or unified-field
 promotion.
 
+## SMC-005: Catalog Conservation And Coarse-Graining Stability
+
+Status: closed as finite catalog conservation/continuity and intrinsic
+coarse-graining stability.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/standard_model_candidate_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/StandardModelCandidateObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/standard_model_candidate_observables_gate.rs`
+- `GPD/publication/standard-model-candidate-observables-theorem/manuscript/standard_model_candidate_observables_theorem.tex`
+- `GPD/publication/standard-model-candidate-observables-theorem/manuscript/PAPER-CONFIG.json`
+
+Rust anchors:
+
+- `CandidateCatalogConservationCoarseGrainingStability`
+- `CandidateCatalogConservationCoarseGrainingStability::canonical_smc005`
+- `CandidateCatalogConservationCoarseGrainingStability::closes_smc005`
+- `Paper8SkeletonCertificate::with_smc005_conservation_coarse_graining_closed`
+- `smc005_catalog_conservation_coarse_graining_marker`
+
+Lean anchors:
+
+- `SMC005CatalogConservationCoarseGrainingStabilityContract`
+- `SMC005CatalogConservationCoarseGrainingStabilityContract.closed`
+- `smc005_catalog_conservation_coarse_graining_closed_from_fields`
+- `smc005_missing_smc004_compatibility_not_closed`
+- `smc005_coarse_family_growth_not_closed`
+- `smc005_external_conservation_law_import_not_closed`
+- `smc005_canonical_catalog_conservation_coarse_graining_closed`
+- `paper8_smc005_conservation_does_not_close_standard_model_candidate_observables_theorem`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`SMC-005` closes only finite catalog conservation/continuity and intrinsic
+coarse-graining stability for the closed `SMC-002` through `SMC-004` rows. It
+records finite catalog continuity, finite interaction conservation, bounded
+catalog flux/transfer, intrinsic coarse-graining, non-growing coarse family,
+interaction, local support, and transfer bounds, and coarse-row compatibility
+with `SMC-002`, `SMC-003`, `SMC-004`, and Paper 7
+conservation/coarse-graining rows. It does not close Paper 7 regime
+consistency, the no-hidden-observed-catalog import audit, the final Paper 8
+theorem, observed particle catalogs, physical Standard Model content,
+physical particle excitations, physical matter fields, physical gauge fields,
+physical quantum dynamics, continuum QFT, physical nature promotion, or
+unified-field promotion.
+
 ## Active Next Obligation
 
-`SMC-005`: prove finite catalog conservation/continuity and intrinsic
-coarse-graining stability for the closed `SMC-002` through `SMC-004` rows
-without importing external conservation laws, continuum currents,
-continuum-limit oracles, observed particle catalogs, physical Standard Model
+`SMC-006`: bind the closed `SMC-001` through `SMC-005` rows to the recorded
+Paper 7 final conditional certificate and frozen Paper 1 through Paper 7
+commit chain while rejecting upstream bypass, upstream mutation, unapproved
+Paper 7 revisions, observed particle catalogs, physical Standard Model
 content, physical particle excitations, continuum QFT, external Hilbert
 bundles, simulation-only signals, fit shortcuts, physical quantum dynamics,
 or unified-field promotion.

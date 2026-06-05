@@ -725,6 +725,205 @@ theorem smc004_canonical_particle_excitation_compatibility_closed :
   unfold smc004CanonicalParticleExcitationCompatibilityContract
   simp
 
+structure SMC005CatalogConservationCoarseGrainingStabilityContract where
+  smc001UpstreamBindingClosed : Prop
+  smc002FiniteCandidateSectorFamilyCatalogClosed : Prop
+  smc003FiniteCandidateInteractionFamilySignatureClosed : Prop
+  smc004ParticleExcitationCompatibilityClosed : Prop
+  finiteCatalogContinuityWitness : Prop
+  finiteInteractionConservationWitness : Prop
+  boundedCatalogFluxTransferWitness : Prop
+  intrinsicCoarseGrainingMap : Prop
+  familyLabelBound : Nat
+  coarseFamilyLabelBound : Nat
+  interactionFamilyLabelBound : Nat
+  coarseInteractionFamilyLabelBound : Nat
+  localSupportBound : Nat
+  coarseLocalSupportBound : Nat
+  transferBound : Nat
+  coarseTransferBound : Nat
+  coarseCatalogRowsCompatibleWithSMC002 : Prop
+  coarseInteractionRowsCompatibleWithSMC003 : Prop
+  coarsePaper7CompatibilityRowsCompatibleWithSMC004 : Prop
+  paper7ConservationCoarseGrainingRowsCompatible : Prop
+  externalConservationLawImport : Prop
+  continuumCurrentImport : Prop
+  continuumLimitOracleImport : Prop
+  observedParticleCatalogImport : Prop
+  physicalStandardModelContentImport : Prop
+  physicalParticleExcitationImport : Prop
+  externalMatterFieldImport : Prop
+  externalGaugeFieldImport : Prop
+  continuumQFTImport : Prop
+  backgroundHilbertBundleImport : Prop
+  simulationOnlySignal : Prop
+  fitShortcut : Prop
+  physicalPromotion : Prop
+  unifiedFieldPromotion : Prop
+
+def SMC005CatalogConservationCoarseGrainingStabilityContract.closed
+    (c : SMC005CatalogConservationCoarseGrainingStabilityContract) : Prop :=
+  c.smc001UpstreamBindingClosed ∧
+  c.smc002FiniteCandidateSectorFamilyCatalogClosed ∧
+  c.smc003FiniteCandidateInteractionFamilySignatureClosed ∧
+  c.smc004ParticleExcitationCompatibilityClosed ∧
+  c.finiteCatalogContinuityWitness ∧
+  c.finiteInteractionConservationWitness ∧
+  c.boundedCatalogFluxTransferWitness ∧
+  c.intrinsicCoarseGrainingMap ∧
+  0 < c.familyLabelBound ∧
+  0 < c.coarseFamilyLabelBound ∧
+  c.coarseFamilyLabelBound ≤ c.familyLabelBound ∧
+  0 < c.interactionFamilyLabelBound ∧
+  0 < c.coarseInteractionFamilyLabelBound ∧
+  c.coarseInteractionFamilyLabelBound ≤ c.interactionFamilyLabelBound ∧
+  0 < c.localSupportBound ∧
+  0 < c.coarseLocalSupportBound ∧
+  c.coarseLocalSupportBound ≤ c.localSupportBound ∧
+  0 < c.transferBound ∧
+  0 < c.coarseTransferBound ∧
+  c.coarseTransferBound ≤ c.transferBound ∧
+  c.coarseCatalogRowsCompatibleWithSMC002 ∧
+  c.coarseInteractionRowsCompatibleWithSMC003 ∧
+  c.coarsePaper7CompatibilityRowsCompatibleWithSMC004 ∧
+  c.paper7ConservationCoarseGrainingRowsCompatible ∧
+  ¬ c.externalConservationLawImport ∧
+  ¬ c.continuumCurrentImport ∧
+  ¬ c.continuumLimitOracleImport ∧
+  ¬ c.observedParticleCatalogImport ∧
+  ¬ c.physicalStandardModelContentImport ∧
+  ¬ c.physicalParticleExcitationImport ∧
+  ¬ c.externalMatterFieldImport ∧
+  ¬ c.externalGaugeFieldImport ∧
+  ¬ c.continuumQFTImport ∧
+  ¬ c.backgroundHilbertBundleImport ∧
+  ¬ c.simulationOnlySignal ∧
+  ¬ c.fitShortcut ∧
+  ¬ c.physicalPromotion ∧
+  ¬ c.unifiedFieldPromotion
+
+theorem smc005_catalog_conservation_coarse_graining_closed_from_fields
+    (c : SMC005CatalogConservationCoarseGrainingStabilityContract)
+    (hSMC001 : c.smc001UpstreamBindingClosed)
+    (hSMC002 : c.smc002FiniteCandidateSectorFamilyCatalogClosed)
+    (hSMC003 : c.smc003FiniteCandidateInteractionFamilySignatureClosed)
+    (hSMC004 : c.smc004ParticleExcitationCompatibilityClosed)
+    (hContinuity : c.finiteCatalogContinuityWitness)
+    (hConservation : c.finiteInteractionConservationWitness)
+    (hFlux : c.boundedCatalogFluxTransferWitness)
+    (hCoarseMap : c.intrinsicCoarseGrainingMap)
+    (hFamilyPositive : 0 < c.familyLabelBound)
+    (hCoarseFamilyPositive : 0 < c.coarseFamilyLabelBound)
+    (hCoarseFamilyLe : c.coarseFamilyLabelBound ≤ c.familyLabelBound)
+    (hInteractionPositive : 0 < c.interactionFamilyLabelBound)
+    (hCoarseInteractionPositive : 0 < c.coarseInteractionFamilyLabelBound)
+    (hCoarseInteractionLe :
+      c.coarseInteractionFamilyLabelBound ≤ c.interactionFamilyLabelBound)
+    (hSupportPositive : 0 < c.localSupportBound)
+    (hCoarseSupportPositive : 0 < c.coarseLocalSupportBound)
+    (hCoarseSupportLe : c.coarseLocalSupportBound ≤ c.localSupportBound)
+    (hTransferPositive : 0 < c.transferBound)
+    (hCoarseTransferPositive : 0 < c.coarseTransferBound)
+    (hCoarseTransferLe : c.coarseTransferBound ≤ c.transferBound)
+    (hCoarseCatalog : c.coarseCatalogRowsCompatibleWithSMC002)
+    (hCoarseInteraction : c.coarseInteractionRowsCompatibleWithSMC003)
+    (hCoarsePaper7 : c.coarsePaper7CompatibilityRowsCompatibleWithSMC004)
+    (hPaper7Conservation : c.paper7ConservationCoarseGrainingRowsCompatible)
+    (hNoExternalConservation : ¬ c.externalConservationLawImport)
+    (hNoContinuumCurrent : ¬ c.continuumCurrentImport)
+    (hNoContinuumLimit : ¬ c.continuumLimitOracleImport)
+    (hNoObserved : ¬ c.observedParticleCatalogImport)
+    (hNoPhysicalSM : ¬ c.physicalStandardModelContentImport)
+    (hNoPhysicalParticle : ¬ c.physicalParticleExcitationImport)
+    (hNoMatter : ¬ c.externalMatterFieldImport)
+    (hNoGaugeField : ¬ c.externalGaugeFieldImport)
+    (hNoQFT : ¬ c.continuumQFTImport)
+    (hNoHilbert : ¬ c.backgroundHilbertBundleImport)
+    (hNoSimulation : ¬ c.simulationOnlySignal)
+    (hNoFit : ¬ c.fitShortcut)
+    (hNoPhysicalPromotion : ¬ c.physicalPromotion)
+    (hNoUnified : ¬ c.unifiedFieldPromotion) :
+    c.closed := by
+  exact ⟨hSMC001, hSMC002, hSMC003, hSMC004, hContinuity, hConservation,
+    hFlux, hCoarseMap, hFamilyPositive, hCoarseFamilyPositive,
+    hCoarseFamilyLe, hInteractionPositive, hCoarseInteractionPositive,
+    hCoarseInteractionLe, hSupportPositive, hCoarseSupportPositive,
+    hCoarseSupportLe, hTransferPositive, hCoarseTransferPositive,
+    hCoarseTransferLe, hCoarseCatalog, hCoarseInteraction, hCoarsePaper7,
+    hPaper7Conservation, hNoExternalConservation, hNoContinuumCurrent,
+    hNoContinuumLimit, hNoObserved, hNoPhysicalSM, hNoPhysicalParticle,
+    hNoMatter, hNoGaugeField, hNoQFT, hNoHilbert, hNoSimulation, hNoFit,
+    hNoPhysicalPromotion, hNoUnified⟩
+
+theorem smc005_missing_smc004_compatibility_not_closed
+    (c : SMC005CatalogConservationCoarseGrainingStabilityContract)
+    (hClosed : c.closed)
+    (hMissingSMC004 : ¬ c.smc004ParticleExcitationCompatibilityClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, hSMC004, _⟩
+  exact hMissingSMC004 hSMC004
+
+theorem smc005_coarse_family_growth_not_closed
+    (c : SMC005CatalogConservationCoarseGrainingStabilityContract)
+    (hClosed : c.closed)
+    (hGrowth : ¬ c.coarseFamilyLabelBound ≤ c.familyLabelBound) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, _, _, _, _, _, hCoarseFamilyLe, _⟩
+  exact hGrowth hCoarseFamilyLe
+
+theorem smc005_external_conservation_law_import_not_closed
+    (c : SMC005CatalogConservationCoarseGrainingStabilityContract)
+    (hClosed : c.closed)
+    (hExternalConservation : c.externalConservationLawImport) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      _, hNoExternalConservation, _⟩
+  exact hNoExternalConservation hExternalConservation
+
+def smc005CanonicalCatalogConservationCoarseGrainingStabilityContract :
+    SMC005CatalogConservationCoarseGrainingStabilityContract :=
+  { smc001UpstreamBindingClosed := True,
+    smc002FiniteCandidateSectorFamilyCatalogClosed := True,
+    smc003FiniteCandidateInteractionFamilySignatureClosed := True,
+    smc004ParticleExcitationCompatibilityClosed := True,
+    finiteCatalogContinuityWitness := True,
+    finiteInteractionConservationWitness := True,
+    boundedCatalogFluxTransferWitness := True,
+    intrinsicCoarseGrainingMap := True,
+    familyLabelBound := 8,
+    coarseFamilyLabelBound := 4,
+    interactionFamilyLabelBound := 8,
+    coarseInteractionFamilyLabelBound := 4,
+    localSupportBound := 5,
+    coarseLocalSupportBound := 3,
+    transferBound := 4,
+    coarseTransferBound := 2,
+    coarseCatalogRowsCompatibleWithSMC002 := True,
+    coarseInteractionRowsCompatibleWithSMC003 := True,
+    coarsePaper7CompatibilityRowsCompatibleWithSMC004 := True,
+    paper7ConservationCoarseGrainingRowsCompatible := True,
+    externalConservationLawImport := False,
+    continuumCurrentImport := False,
+    continuumLimitOracleImport := False,
+    observedParticleCatalogImport := False,
+    physicalStandardModelContentImport := False,
+    physicalParticleExcitationImport := False,
+    externalMatterFieldImport := False,
+    externalGaugeFieldImport := False,
+    continuumQFTImport := False,
+    backgroundHilbertBundleImport := False,
+    simulationOnlySignal := False,
+    fitShortcut := False,
+    physicalPromotion := False,
+    unifiedFieldPromotion := False }
+
+theorem smc005_canonical_catalog_conservation_coarse_graining_closed :
+    smc005CanonicalCatalogConservationCoarseGrainingStabilityContract.closed := by
+  unfold SMC005CatalogConservationCoarseGrainingStabilityContract.closed
+  unfold smc005CanonicalCatalogConservationCoarseGrainingStabilityContract
+  simp
+
 structure Paper8StandardModelCandidateObservablesTheoremContract where
   smc001UpstreamBindingClosed : Prop
   smc002FiniteCandidateSectorFamilyCatalogClosed : Prop
@@ -791,5 +990,13 @@ theorem paper8_smc004_compatibility_does_not_close_standard_model_candidate_obse
     False := by
   rcases hClosed with ⟨_, _, _, _, hSMC005, _⟩
   exact hMissingSMC005 hSMC005
+
+theorem paper8_smc005_conservation_does_not_close_standard_model_candidate_observables_theorem
+    (c : Paper8StandardModelCandidateObservablesTheoremContract)
+    (hClosed : c.closed)
+    (hMissingSMC006 : ¬ c.smc006Paper7RegimeConsistencyClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, hSMC006, _⟩
+  exact hMissingSMC006 hSMC006
 
 end FiniteCapacity

@@ -37,8 +37,9 @@ binding and claim boundary through the closed Paper 7 result. `SMC-002`
 closes the finite candidate sector-family catalog observable row. `SMC-003`
 closes the finite candidate interaction-family signature row. `SMC-004`
 closes compatibility with the closed Paper 7 particle-excitation observable
-rows. The next active obligation is `SMC-005`: prove catalog conservation and
-coarse-graining stability. This does not prove Standard-Model-candidate
+rows. `SMC-005` closes catalog conservation and coarse-graining stability.
+The next active obligation is `SMC-006`: bind to the recorded Paper 7 regime
+and reject upstream bypass. This does not prove Standard-Model-candidate
 observable recovery, observed particle catalog recovery, physical Standard Model
 content, physical particle excitations, physical matter fields, physical gauge
 fields, physical quantum dynamics, continuum quantum field theory, physical

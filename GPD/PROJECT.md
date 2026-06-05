@@ -11,6 +11,7 @@ quantum dynamics, or unified-field promotion.
 The current closed rungs are `SMC-001`: upstream binding and claim boundary,
 `SMC-002`: finite intrinsic candidate sector-family catalog observable, and
 `SMC-003`: finite candidate interaction-family signatures, and `SMC-004`:
-compatibility with the closed Paper 7 particle-excitation observable rows.
-The current active obligation is `SMC-005`: prove catalog conservation and
-coarse-graining stability.
+compatibility with the closed Paper 7 particle-excitation observable rows,
+and `SMC-005`: catalog conservation and coarse-graining stability. The
+current active obligation is `SMC-006`: bind to the recorded Paper 7 regime
+and reject upstream bypass.

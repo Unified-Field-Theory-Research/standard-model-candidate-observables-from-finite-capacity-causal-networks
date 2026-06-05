@@ -37,9 +37,10 @@ unless a future paper-specific certificate explicitly closes them.
   excitation-sector, transition/interaction, matter/gauge compatibility,
   conservation, and coarse-graining rows while preserving finite capacity,
   bounded transfer, local readout, and causal-cone/no-signaling constraints.
-- [ ] **Phase 5: Prove Catalog Conservation And Coarse-Graining Stability** -
-  `SMC-005` should state finite catalog continuity/stability rows and show
-  coherent transport under finite intrinsic coarse-graining.
+- [x] **Phase 5: Prove Catalog Conservation And Coarse-Graining Stability** -
+  `SMC-005` states finite catalog continuity/stability rows and shows
+  coherent transport under finite intrinsic coarse-graining with non-growing
+  coarse family, interaction, support, and transfer bounds.
 - [ ] **Phase 6: Bind To Paper 7 Regime** - `SMC-006` should consume the
   recorded Paper 7 final conditional certificate and reject bypasses of Paper
   7, Paper 6, Paper 5, Paper 4, Paper 3, Paper 2, or Paper 1 assumptions.
