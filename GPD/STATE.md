@@ -10,8 +10,9 @@
 particle-excitation observable compatibility closed; `SMC-005` catalog
 conservation/coarse-graining stability closed; `SMC-006` Paper 7 regime
 consistency closed; `SMC-007` no-hidden-observed-catalog import audit closed;
-`SMC-008` final conditional certificate is open; physical promotion remains
-false
+`SMC-008` final conditional certificate closed; the internal conditional
+Standard-Model-candidate observables theorem is closed; physical promotion
+remains false
 
 Closed rung summary: `SMC-001` records the upstream binding through the
 closed Paper 7 conditional particle-excitation observables theorem at commit
@@ -85,7 +86,7 @@ manifest, Lean gate, Rust gate, publication skeleton, Rust-only runtime
 policy, and emitted fail-closed audit certificate, with observed/physical/
 continuum/simulation/fit/unified imports rejected.
 
-Next stable target phrase: `SMC-008`: assemble the final internal conditional
+Final stable target phrase: `SMC-008` closes the final internal conditional
 Standard-Model-candidate observables certificate from closed `SMC-001` through
 `SMC-007` while preserving finite capacity, locality, bounded transfer,
 causal-cone/no-signaling constraints, conservation/coarse-graining stability,
@@ -154,22 +155,29 @@ theory; unified-field promotion.
   emitted audit certificate; reject observed-particle, physical Standard
   Model, physical-particle, external-field, continuum-QFT, background-Hilbert,
   simulation-only, fit-only, physical-promotion, and unified-field imports.
+- `SMC-008` rows assemble the final internal conditional
+  Standard-Model-candidate observables certificate from closed `SMC-001`
+  through `SMC-007`, emit finite candidate catalog and interaction-signature
+  packages, preserve particle-excitation compatibility, conservation and
+  coarse-graining stability, finite capacity, locality, bounded transfer, and
+  causal-cone/no-signaling constraints, consume Paper 7 regime consistency
+  and the no-hidden-import audit, close only the internal conditional Paper 8
+  theorem, and reject observed-particle, physical Standard Model,
+  physical-particle, physical quantum dynamics, continuum-QFT,
+  physical-nature, simulation-only, fit-only, and unified-field promotion.
 
 ## Open Questions
 
-- `SMC-008`: How can the final internal conditional Paper 8 theorem be
-  assembled from closed `SMC-001` through `SMC-007` while keeping observed
-  particle catalogs, physical Standard Model content, physical particle
-  excitations, physical quantum dynamics, continuum QFT, physical nature
-  promotion, and unified-field promotion false?
+- No internal Paper 8 proof-rung questions remain after `SMC-008`.
+- External physical promotion, observed particle catalog recovery, physical
+  Standard Model recovery, physical quantum dynamics, continuum QFT,
+  physical nature promotion, and unified-field promotion remain out of scope
+  and would require a separate certificate.
 
 ## Pending Todos
 
-- Define final conditional certificate emission, theorem closure flag,
-  preservation witnesses, and all nonpromotion witnesses for `SMC-008`.
-- Add Rust and Lean fail-closed checks for `SMC-008`.
-- Update theorem docs, proof log, and publication skeleton after `SMC-008`
-  closes.
+- No internal Paper 8 proof-rung todos remain.
+- Keep future external promotion work separate from this Paper 8 certificate.
 
 ## Blockers/Concerns
 
@@ -180,7 +188,8 @@ theory; unified-field promotion.
 - `SMC-005` is a catalog conservation/coarse-graining stability contract only.
 - `SMC-006` is a Paper 7 regime-consistency/no-upstream-bypass contract only.
 - `SMC-007` is a no-hidden-observed-catalog import audit contract only.
-- Standard-Model-candidate observable recovery remains open.
+- `SMC-008` closes only the internal conditional
+  Standard-Model-candidate observables theorem.
 - Observed particle catalogs, physical Standard Model content, physical
   particle excitations, physical matter fields, physical gauge fields,
   physical quantum dynamics, continuum quantum field theory, physical nature

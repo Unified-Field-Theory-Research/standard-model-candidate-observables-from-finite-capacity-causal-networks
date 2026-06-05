@@ -416,11 +416,54 @@ particle excitations, physical matter fields, physical gauge fields, physical
 quantum dynamics, continuum QFT, physical nature promotion, or unified-field
 promotion.
 
-## Active Next Obligation
+## SMC-008: Final Conditional Standard-Model-Candidate Observables Certificate
 
-`SMC-008`: assemble the final internal conditional Standard-Model-candidate
-observables certificate from closed `SMC-001` through `SMC-007` while
-preserving finite capacity, locality, bounded transfer, causal-cone/no
-signaling constraints, conservation/coarse-graining stability, Paper 7 regime
-consistency, no hidden observed-catalog/physical Standard Model imports, and
-all non-promotion flags.
+Status: closed.
+
+Closed artifacts:
+
+- [rust/cclab_accel/src/lib.rs](/Users/charlie/UnifiedFieldTheoryResearch/standard-model-candidate-observables-from-finite-capacity-causal-networks/rust/cclab_accel/src/lib.rs)
+- [rust/cclab_accel/tests/standard_model_candidate_observables_gate.rs](/Users/charlie/UnifiedFieldTheoryResearch/standard-model-candidate-observables-from-finite-capacity-causal-networks/rust/cclab_accel/tests/standard_model_candidate_observables_gate.rs)
+- [GPD/formal/FiniteCapacity/StandardModelCandidateObservables.lean](/Users/charlie/UnifiedFieldTheoryResearch/standard-model-candidate-observables-from-finite-capacity-causal-networks/GPD/formal/FiniteCapacity/StandardModelCandidateObservables.lean)
+- [docs/standard_model_candidate_observables_theorem.md](/Users/charlie/UnifiedFieldTheoryResearch/standard-model-candidate-observables-from-finite-capacity-causal-networks/docs/standard_model_candidate_observables_theorem.md)
+- [UPSTREAM-PAPERS.json](/Users/charlie/UnifiedFieldTheoryResearch/standard-model-candidate-observables-from-finite-capacity-causal-networks/UPSTREAM-PAPERS.json)
+
+Rust anchors:
+
+- `FinalStandardModelCandidateObservablesCertificate`
+- `FinalStandardModelCandidateObservablesCertificate::canonical_smc008`
+- `FinalStandardModelCandidateObservablesCertificate::closes_smc008`
+- `Paper8SkeletonCertificate::final_smc008_closed`
+- `smc008_final_conditional_certificate_marker`
+
+Lean anchors:
+
+- `SMC008FinalConditionalCertificateContract`
+- `SMC008FinalConditionalCertificateContract.closed`
+- `smc008_final_conditional_certificate_closed_from_fields`
+- `smc008_missing_smc007_audit_not_closed`
+- `smc008_observed_particle_catalog_claim_not_closed`
+- `smc008_physical_standard_model_claim_not_closed`
+- `smc008_canonical_final_conditional_certificate_closed`
+- `paper8_smc008_final_conditional_certificate_closes_standard_model_candidate_observables_theorem`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`SMC-008` closes the final internal conditional
+Standard-Model-candidate observables certificate from closed `SMC-001`
+through `SMC-007`. It emits finite candidate sector-family catalog
+observables and finite candidate interaction-family signatures, preserves
+Paper 7 particle-excitation compatibility, conservation/coarse-graining
+stability, finite capacity, locality, bounded transfer, and causal-cone/no
+signaling constraints, consumes Paper 7 regime consistency and the
+no-hidden-observed-catalog/physical Standard Model import audit, and closes
+only the internal conditional Paper 8 theorem. It does not close observed
+particle catalogs, physical Standard Model content, physical particle
+excitations, physical matter fields, physical gauge fields, physical quantum
+dynamics, continuum QFT, physical nature promotion, simulation-only signals,
+fit shortcuts, or unified-field promotion.

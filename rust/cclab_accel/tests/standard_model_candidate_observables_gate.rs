@@ -4,12 +4,13 @@ use cclab_accel::{
     smc004_particle_excitation_compatibility_marker,
     smc005_catalog_conservation_coarse_graining_marker, smc006_paper7_regime_consistency_marker,
     smc007_no_hidden_observed_catalog_import_audit_marker,
+    smc008_final_conditional_certificate_marker,
     CandidateCatalogConservationCoarseGrainingStability, CandidateParticleExcitationCompatibility,
-    FiniteCandidateInteractionFamilySignature, FiniteCandidateSectorFamilyCatalogObservable,
-    NoHiddenObservedCatalogImportAudit, Paper7RegimeConsistency, Paper8SkeletonCertificate,
-    Paper8UpstreamBinding, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT,
-    PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT, PAPER7_FINAL_CERTIFICATE,
-    PAPER7_FROZEN_COMMIT,
+    FinalStandardModelCandidateObservablesCertificate, FiniteCandidateInteractionFamilySignature,
+    FiniteCandidateSectorFamilyCatalogObservable, NoHiddenObservedCatalogImportAudit,
+    Paper7RegimeConsistency, Paper8SkeletonCertificate, Paper8UpstreamBinding,
+    PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT,
+    PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT, PAPER7_FINAL_CERTIFICATE, PAPER7_FROZEN_COMMIT,
 };
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -723,6 +724,106 @@ fn smc007_no_hidden_import_audit_fails_closed_on_missing_coverage_or_imports() {
 }
 
 #[test]
+fn smc008_final_certificate_closes_internal_paper8_theorem_only() {
+    let final_certificate = FinalStandardModelCandidateObservablesCertificate::canonical_smc008();
+
+    assert!(final_certificate.smc001_upstream_binding_closed);
+    assert!(final_certificate.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(final_certificate.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(final_certificate.smc004_particle_excitation_compatibility_closed);
+    assert!(final_certificate.smc005_catalog_conservation_coarse_graining_closed);
+    assert!(final_certificate.smc006_paper7_regime_consistency_closed);
+    assert!(final_certificate.smc007_no_hidden_observed_catalog_import_audit_closed);
+    assert!(final_certificate.finite_candidate_catalog_observable_package_emitted);
+    assert!(final_certificate.finite_candidate_interaction_signature_package_emitted);
+    assert!(final_certificate.particle_excitation_compatibility_preserved);
+    assert!(final_certificate.conservation_coarse_graining_stability_preserved);
+    assert!(final_certificate.paper7_regime_consistency_consumed);
+    assert!(final_certificate.no_hidden_import_audit_consumed);
+    assert!(final_certificate.finite_capacity_preserved);
+    assert!(final_certificate.locality_preserved);
+    assert!(final_certificate.bounded_transfer_preserved);
+    assert!(final_certificate.causal_cone_no_signaling_preserved);
+    assert!(final_certificate.final_conditional_certificate_emitted);
+    assert!(final_certificate.paper8_theorem_closed);
+    assert!(final_certificate.closes_smc008());
+    assert!(!final_certificate.observed_particle_catalog_claim);
+    assert!(!final_certificate.physical_standard_model_claim);
+    assert!(!final_certificate.physical_particle_excitation_claim);
+    assert!(!final_certificate.physical_quantum_dynamics_claim);
+    assert!(!final_certificate.continuum_qft_claim);
+    assert!(!final_certificate.physical_nature_claim);
+    assert!(!final_certificate.unified_field_theory_claim);
+    assert_eq!(
+        smc008_final_conditional_certificate_marker(),
+        "smc008-final-conditional-standard-model-candidate-observables-certificate-closed"
+    );
+
+    let certificate = Paper8SkeletonCertificate::final_smc008_closed();
+    assert!(certificate.smc001_upstream_binding_closed);
+    assert!(certificate.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(certificate.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(certificate.smc004_particle_excitation_compatibility_closed);
+    assert!(certificate.smc005_catalog_conservation_coarse_graining_closed);
+    assert!(certificate.smc006_paper7_regime_consistency_closed);
+    assert!(certificate.smc007_no_hidden_observed_catalog_import_audit_closed);
+    assert!(certificate.smc008_final_conditional_certificate_closed);
+    assert!(certificate.paper8_theorem_closed);
+    assert!(certificate.closes_paper8_theorem());
+    assert!(!certificate.observed_particle_catalog_claim);
+    assert!(!certificate.physical_standard_model_claim);
+    assert!(!certificate.continuum_qft_claim);
+    assert!(!certificate.unified_field_theory_claim);
+}
+
+#[test]
+fn smc008_final_certificate_fails_closed_on_missing_rungs_or_promotions() {
+    let final_certificate = FinalStandardModelCandidateObservablesCertificate::canonical_smc008();
+
+    let missing_smc007 = FinalStandardModelCandidateObservablesCertificate {
+        smc007_no_hidden_observed_catalog_import_audit_closed: false,
+        ..final_certificate
+    };
+    assert!(!missing_smc007.closes_smc008());
+
+    let missing_final_certificate = FinalStandardModelCandidateObservablesCertificate {
+        final_conditional_certificate_emitted: false,
+        ..final_certificate
+    };
+    assert!(!missing_final_certificate.closes_smc008());
+
+    let theorem_flag_missing = FinalStandardModelCandidateObservablesCertificate {
+        paper8_theorem_closed: false,
+        ..final_certificate
+    };
+    assert!(!theorem_flag_missing.closes_smc008());
+
+    let observed_catalog_claim = FinalStandardModelCandidateObservablesCertificate {
+        observed_particle_catalog_claim: true,
+        ..final_certificate
+    };
+    assert!(!observed_catalog_claim.closes_smc008());
+
+    let physical_standard_model_claim = FinalStandardModelCandidateObservablesCertificate {
+        physical_standard_model_claim: true,
+        ..final_certificate
+    };
+    assert!(!physical_standard_model_claim.closes_smc008());
+
+    let continuum_qft_claim = FinalStandardModelCandidateObservablesCertificate {
+        continuum_qft_claim: true,
+        ..final_certificate
+    };
+    assert!(!continuum_qft_claim.closes_smc008());
+
+    let unified_claim = FinalStandardModelCandidateObservablesCertificate {
+        unified_field_theory_claim: true,
+        ..final_certificate
+    };
+    assert!(!unified_claim.closes_smc008());
+}
+
+#[test]
 fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -767,7 +868,12 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     );
     assert_contains(
         &upstream,
-        "\"standard_model_candidate_observables_theorem_closed\": false",
+        "\"smc008_final_conditional_certificate_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
+        "\"standard_model_candidate_observables_theorem_closed\": true",
         "UPSTREAM-PAPERS.json",
     );
     assert_contains(
@@ -788,7 +894,7 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
 }
 
 #[test]
-fn docs_record_smc007_closed_smc008_active_and_physical_claims_false() {
+fn docs_record_smc008_closed_and_physical_claims_false() {
     let root = project_root();
     let theorem = read(
         &root,
@@ -812,6 +918,7 @@ fn docs_record_smc007_closed_smc008_active_and_physical_claims_false() {
         assert_contains(artifact.1, "SMC-006", artifact.0);
         assert_contains(artifact.1, "SMC-007", artifact.0);
         assert_contains(artifact.1, "SMC-008", artifact.0);
+        assert_contains(artifact.1, "internal conditional", artifact.0);
         assert_contains(artifact.1, "finite candidate sector-family", artifact.0);
         assert_contains(
             artifact.1,

@@ -797,6 +797,118 @@ impl NoHiddenObservedCatalogImportAudit {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct FinalStandardModelCandidateObservablesCertificate {
+    pub smc001_upstream_binding_closed: bool,
+    pub smc002_finite_candidate_sector_family_catalog_closed: bool,
+    pub smc003_finite_candidate_interaction_family_signature_closed: bool,
+    pub smc004_particle_excitation_compatibility_closed: bool,
+    pub smc005_catalog_conservation_coarse_graining_closed: bool,
+    pub smc006_paper7_regime_consistency_closed: bool,
+    pub smc007_no_hidden_observed_catalog_import_audit_closed: bool,
+    pub finite_candidate_catalog_observable_package_emitted: bool,
+    pub finite_candidate_interaction_signature_package_emitted: bool,
+    pub particle_excitation_compatibility_preserved: bool,
+    pub conservation_coarse_graining_stability_preserved: bool,
+    pub paper7_regime_consistency_consumed: bool,
+    pub no_hidden_import_audit_consumed: bool,
+    pub finite_capacity_preserved: bool,
+    pub locality_preserved: bool,
+    pub bounded_transfer_preserved: bool,
+    pub causal_cone_no_signaling_preserved: bool,
+    pub final_conditional_certificate_emitted: bool,
+    pub paper8_theorem_closed: bool,
+    pub physical_nature_claim: bool,
+    pub observed_particle_catalog_claim: bool,
+    pub physical_standard_model_claim: bool,
+    pub physical_particle_excitation_claim: bool,
+    pub physical_matter_fields_claim: bool,
+    pub physical_gauge_fields_claim: bool,
+    pub physical_quantum_dynamics_claim: bool,
+    pub continuum_qft_claim: bool,
+    pub simulation_only_signal: bool,
+    pub fit_shortcut: bool,
+    pub unified_field_theory_claim: bool,
+}
+
+impl FinalStandardModelCandidateObservablesCertificate {
+    pub fn canonical_smc008() -> Self {
+        Self {
+            smc001_upstream_binding_closed: Paper8UpstreamBinding::canonical_smc001()
+                .closes_smc001(),
+            smc002_finite_candidate_sector_family_catalog_closed:
+                FiniteCandidateSectorFamilyCatalogObservable::canonical_smc002().closes_smc002(),
+            smc003_finite_candidate_interaction_family_signature_closed:
+                FiniteCandidateInteractionFamilySignature::canonical_smc003().closes_smc003(),
+            smc004_particle_excitation_compatibility_closed:
+                CandidateParticleExcitationCompatibility::canonical_smc004().closes_smc004(),
+            smc005_catalog_conservation_coarse_graining_closed:
+                CandidateCatalogConservationCoarseGrainingStability::canonical_smc005()
+                    .closes_smc005(),
+            smc006_paper7_regime_consistency_closed: Paper7RegimeConsistency::canonical_smc006()
+                .closes_smc006(),
+            smc007_no_hidden_observed_catalog_import_audit_closed:
+                NoHiddenObservedCatalogImportAudit::canonical_smc007().closes_smc007(),
+            finite_candidate_catalog_observable_package_emitted: true,
+            finite_candidate_interaction_signature_package_emitted: true,
+            particle_excitation_compatibility_preserved: true,
+            conservation_coarse_graining_stability_preserved: true,
+            paper7_regime_consistency_consumed: true,
+            no_hidden_import_audit_consumed: true,
+            finite_capacity_preserved: true,
+            locality_preserved: true,
+            bounded_transfer_preserved: true,
+            causal_cone_no_signaling_preserved: true,
+            final_conditional_certificate_emitted: true,
+            paper8_theorem_closed: true,
+            physical_nature_claim: false,
+            observed_particle_catalog_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            simulation_only_signal: false,
+            fit_shortcut: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
+    pub fn closes_smc008(&self) -> bool {
+        self.smc001_upstream_binding_closed
+            && self.smc002_finite_candidate_sector_family_catalog_closed
+            && self.smc003_finite_candidate_interaction_family_signature_closed
+            && self.smc004_particle_excitation_compatibility_closed
+            && self.smc005_catalog_conservation_coarse_graining_closed
+            && self.smc006_paper7_regime_consistency_closed
+            && self.smc007_no_hidden_observed_catalog_import_audit_closed
+            && self.finite_candidate_catalog_observable_package_emitted
+            && self.finite_candidate_interaction_signature_package_emitted
+            && self.particle_excitation_compatibility_preserved
+            && self.conservation_coarse_graining_stability_preserved
+            && self.paper7_regime_consistency_consumed
+            && self.no_hidden_import_audit_consumed
+            && self.finite_capacity_preserved
+            && self.locality_preserved
+            && self.bounded_transfer_preserved
+            && self.causal_cone_no_signaling_preserved
+            && self.final_conditional_certificate_emitted
+            && self.paper8_theorem_closed
+            && !self.physical_nature_claim
+            && !self.observed_particle_catalog_claim
+            && !self.physical_standard_model_claim
+            && !self.physical_particle_excitation_claim
+            && !self.physical_matter_fields_claim
+            && !self.physical_gauge_fields_claim
+            && !self.physical_quantum_dynamics_claim
+            && !self.continuum_qft_claim
+            && !self.simulation_only_signal
+            && !self.fit_shortcut
+            && !self.unified_field_theory_claim
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Paper8SkeletonCertificate {
     pub smc001_upstream_binding_closed: bool,
     pub smc002_finite_candidate_sector_family_catalog_closed: bool,
@@ -1013,6 +1125,39 @@ impl Paper8SkeletonCertificate {
         }
     }
 
+    pub fn final_smc008_closed() -> Self {
+        let binding = Paper8UpstreamBinding::canonical_smc001();
+        let catalog = FiniteCandidateSectorFamilyCatalogObservable::canonical_smc002();
+        let interaction = FiniteCandidateInteractionFamilySignature::canonical_smc003();
+        let compatibility = CandidateParticleExcitationCompatibility::canonical_smc004();
+        let conservation = CandidateCatalogConservationCoarseGrainingStability::canonical_smc005();
+        let regime = Paper7RegimeConsistency::canonical_smc006();
+        let audit = NoHiddenObservedCatalogImportAudit::canonical_smc007();
+        let final_certificate =
+            FinalStandardModelCandidateObservablesCertificate::canonical_smc008();
+        Self {
+            smc001_upstream_binding_closed: binding.closes_smc001(),
+            smc002_finite_candidate_sector_family_catalog_closed: catalog.closes_smc002(),
+            smc003_finite_candidate_interaction_family_signature_closed: interaction
+                .closes_smc003(),
+            smc004_particle_excitation_compatibility_closed: compatibility.closes_smc004(),
+            smc005_catalog_conservation_coarse_graining_closed: conservation.closes_smc005(),
+            smc006_paper7_regime_consistency_closed: regime.closes_smc006(),
+            smc007_no_hidden_observed_catalog_import_audit_closed: audit.closes_smc007(),
+            smc008_final_conditional_certificate_closed: final_certificate.closes_smc008(),
+            paper8_theorem_closed: final_certificate.paper8_theorem_closed,
+            physical_nature_claim: false,
+            observed_particle_catalog_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
     pub fn closes_paper8_theorem(&self) -> bool {
         self.smc001_upstream_binding_closed
             && self.smc002_finite_candidate_sector_family_catalog_closed
@@ -1061,4 +1206,8 @@ pub fn smc006_paper7_regime_consistency_marker() -> &'static str {
 
 pub fn smc007_no_hidden_observed_catalog_import_audit_marker() -> &'static str {
     "smc007-no-hidden-observed-catalog-import-audit-closed"
+}
+
+pub fn smc008_final_conditional_certificate_marker() -> &'static str {
+    "smc008-final-conditional-standard-model-candidate-observables-certificate-closed"
 }

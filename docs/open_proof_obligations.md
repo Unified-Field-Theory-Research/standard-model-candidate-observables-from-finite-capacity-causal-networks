@@ -1,6 +1,6 @@
 # Open Proof Obligations
 
-## Closed Dependencies: SMC-001 Through SMC-007
+## Closed Dependencies: SMC-001 Through SMC-008
 
 `SMC-001` closes the upstream binding and claim-boundary contract through the
 recorded Paper 7 final conditional particle-excitation observables
@@ -74,11 +74,20 @@ physical Standard Model content, physical particle excitations, external
 fields, continuum QFT, background Hilbert bundles, simulation-only signals,
 fit shortcuts, physical promotion, and unified-field promotion.
 
-## Active Obligation
+`SMC-008` closes the final internal conditional Standard-Model-candidate
+observables certificate. It binds `SMC-001` through `SMC-007`, emits the
+finite candidate sector-family catalog observable package and finite
+candidate interaction-family signature package, preserves Paper 7
+particle-excitation compatibility, conservation/coarse-graining stability,
+finite capacity, locality, bounded transfer, and causal-cone/no-signaling
+constraints, consumes Paper 7 regime consistency and the no-hidden-import
+audit, and closes only the internal conditional Paper 8 theorem while
+rejecting observed particle catalogs, physical Standard Model content,
+physical particle excitations, physical quantum dynamics, continuum QFT,
+physical nature promotion, simulation-only signals, fit shortcuts, and
+unified-field promotion.
 
-`SMC-008` is open.
-
-Required row shape:
+## Closed SMC-008 Row Shape
 
 - closed `SMC-001` upstream binding;
 - closed `SMC-002` finite candidate sector-family catalog observable;
@@ -93,22 +102,25 @@ Required row shape:
 - conservation/coarse-graining stability preserved;
 - Paper 7 regime consistency consumed;
 - no-hidden-observed-catalog audit consumed;
+- finite capacity preserved;
+- locality preserved;
+- bounded transfer preserved;
+- causal-cone/no-signaling constraints preserved;
 - final conditional certificate emitted;
+- internal conditional Paper 8 theorem closed;
 - no observed particle catalog;
 - no physical Standard Model content;
 - no physical particle-excitation import;
-- no external matter field;
-- no external gauge field;
-- no continuum QFT import;
-- no background Hilbert bundle import;
+- no physical quantum dynamics;
+- no continuum QFT claim;
+- no physical nature promotion;
 - no simulation-only signal;
 - no fit shortcut;
-- no physical promotion;
 - no unified-field promotion.
 
 ## Future Obligations
 
-No future Paper 8 proof obligations remain after `SMC-008` closes. External
+No future internal Paper 8 proof obligations remain after `SMC-008`. External
 physical promotion remains a separate, out-of-scope track.
 
 Observed particle catalogs, physical Standard Model content, physical

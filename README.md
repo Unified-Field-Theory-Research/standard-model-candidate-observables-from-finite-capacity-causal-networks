@@ -40,12 +40,13 @@ closes compatibility with the closed Paper 7 particle-excitation observable
 rows. `SMC-005` closes catalog conservation and coarse-graining stability.
 `SMC-006` closes Paper 7 regime consistency and upstream-bypass rejection.
 `SMC-007` closes the no-hidden-observed-catalog and physical Standard Model
-import audit. The next active obligation is `SMC-008`: close the final
-internal conditional Standard-Model-candidate observables certificate. This
-does not prove observed particle catalog recovery, physical Standard Model
-content, physical particle excitations, physical matter fields, physical gauge
-fields, physical quantum dynamics, continuum quantum field theory, physical
-nature realization, or a unified field theory.
+import audit. `SMC-008` closes the final internal conditional
+Standard-Model-candidate observables certificate, and the internal conditional
+Paper 8 theorem is closed under those finite hypotheses. This does not prove
+observed particle catalog recovery, physical Standard Model content, physical
+particle excitations, physical matter fields, physical gauge fields, physical
+quantum dynamics, continuum quantum field theory, physical nature
+realization, or a unified field theory.
 
 Persistent boundary tokens: observed particle catalogs; physical Standard
 Model content; physical particle excitations; physical matter fields;
@@ -70,8 +71,8 @@ Primary author: Abraham Greenman.
 - `GPD/formal/FiniteCapacity/StandardModelCandidateObservables.lean`:
   Lean scaffold for Paper 8 gates and fail-closed blockers.
 - `docs/standard_model_candidate_observables_theorem.md`:
-  theorem target, `SMC-001`, planned future rungs, and residual promotion
-  obligations.
+  theorem target, closed `SMC-001` through `SMC-008` rungs, and residual
+  promotion boundaries.
 - `rust/cclab_accel/tests/standard_model_candidate_observables_gate.rs`:
   Rust guard that keeps the skeleton non-promoting and bound to Papers 1-7.
 

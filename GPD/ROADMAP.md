@@ -7,7 +7,8 @@ the closed Paper 7 conditional particle-excitation observables theorem and
 does not modify Paper 1, Paper 2, Paper 3, Paper 4, Paper 5, Paper 6, or
 Paper 7.
 
-Standard-Model-candidate observable recovery is open. Observed particle
+The internal conditional Standard-Model-candidate observable theorem is
+closed by `SMC-008` under the finite Paper 8 hypotheses. Observed particle
 catalogs, physical Standard Model content, physical particle excitations,
 physical matter fields, physical gauge fields, physical quantum dynamics,
 continuum quantum field theory, and unified-field promotion are out of scope
@@ -50,8 +51,8 @@ unless a future paper-specific certificate explicitly closes them.
   QFT, background Hilbert bundles, external matter or gauge fields,
   simulation-only promotion, fit-only calibration, physical nature promotion,
   or unified-field promotion.
-- [ ] **Phase 8: Final Conditional Standard-Model-Candidate Observables
-  Certificate** - `SMC-008` may promote only a closed internal conditional
-  Paper 8 theorem under explicit hypotheses and no nature-level, observed
-  catalog, physical Standard Model, physical-particle, or unified-field
-  overclaim.
+- [x] **Phase 8: Final Conditional Standard-Model-Candidate Observables
+  Certificate** - `SMC-008` closes only the internal conditional Paper 8
+  theorem under explicit finite hypotheses and no nature-level, observed
+  catalog, physical Standard Model, physical-particle, continuum-QFT, or
+  unified-field overclaim.

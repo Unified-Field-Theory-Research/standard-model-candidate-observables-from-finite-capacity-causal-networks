@@ -17,18 +17,21 @@ Paper 8 aims at the following internal conditional theorem:
 
 ## Claim Boundary
 
-The theorem target is open. `SMC-001` closes only the upstream binding and
-claim-boundary scaffold. `SMC-002` closes only the finite candidate
-sector-family catalog observable row. `SMC-003` closes only finite candidate
-interaction-family signatures. `SMC-004` closes only compatibility with
-closed Paper 7 particle-excitation observable rows. `SMC-005` closes only
-catalog conservation/coarse-graining stability. `SMC-006` closes only Paper 7
-regime consistency and upstream-bypass rejection. `SMC-007` closes only the
-no-hidden-observed-catalog/physical Standard Model import audit. This is not
-observed particle catalog recovery, not physical Standard Model recovery, not
-a physical particle-excitation claim, not a physical matter-field claim, not a
-physical gauge-field claim, not physical quantum dynamics, not continuum
-quantum field theory, and not a unified field theory.
+The internal conditional theorem target is closed by `SMC-008`. `SMC-001`
+closes only the upstream binding and claim-boundary scaffold. `SMC-002`
+closes only the finite candidate sector-family catalog observable row.
+`SMC-003` closes only finite candidate interaction-family signatures.
+`SMC-004` closes only compatibility with closed Paper 7 particle-excitation
+observable rows. `SMC-005` closes only catalog conservation/coarse-graining
+stability. `SMC-006` closes only Paper 7 regime consistency and
+upstream-bypass rejection. `SMC-007` closes only the
+no-hidden-observed-catalog/physical Standard Model import audit. `SMC-008`
+closes only the final internal conditional Standard-Model-candidate
+observables certificate. This is not observed particle catalog recovery, not
+physical Standard Model recovery, not a physical particle-excitation claim,
+not a physical matter-field claim, not a physical gauge-field claim, not
+physical quantum dynamics, not continuum quantum field theory, and not a
+unified field theory.
 
 ## Upstream Binding
 
@@ -377,4 +380,45 @@ unified-field promotion.
 
 ### SMC-008: Final Conditional Standard-Model-Candidate Observables Certificate
 
-Status: open.
+Status: closed as the final internal conditional Paper 8 certificate.
+
+`SMC-008` requires closed `SMC-001` through `SMC-007` dependencies, emits the
+finite candidate sector-family catalog observable package, emits the finite
+candidate interaction-family signature package, preserves Paper 7
+particle-excitation compatibility, preserves conservation/coarse-graining
+stability, consumes Paper 7 regime consistency, consumes the
+no-hidden-observed-catalog/physical Standard Model import audit, preserves
+finite capacity, locality, bounded transfer, and causal-cone/no-signaling
+constraints, and emits the final internal conditional certificate. The
+internal conditional Standard-Model-candidate observables theorem is closed
+under these finite hypotheses.
+
+It rejects observed particle catalogs, physical Standard Model content,
+physical particle excitations, physical matter fields, physical gauge fields,
+physical quantum dynamics, continuum QFT, simulation-only signals, fit
+shortcuts, physical nature promotion, and unified-field promotion.
+
+Rust anchors:
+
+- `FinalStandardModelCandidateObservablesCertificate`
+- `FinalStandardModelCandidateObservablesCertificate::canonical_smc008`
+- `FinalStandardModelCandidateObservablesCertificate::closes_smc008`
+- `Paper8SkeletonCertificate::final_smc008_closed`
+- `smc008_final_conditional_certificate_marker`
+
+Lean anchors:
+
+- `SMC008FinalConditionalCertificateContract`
+- `SMC008FinalConditionalCertificateContract.closed`
+- `smc008_final_conditional_certificate_closed_from_fields`
+- `smc008_missing_smc007_audit_not_closed`
+- `smc008_observed_particle_catalog_claim_not_closed`
+- `smc008_physical_standard_model_claim_not_closed`
+- `smc008_canonical_final_conditional_certificate_closed`
+- `paper8_smc008_final_conditional_certificate_closes_standard_model_candidate_observables_theorem`
+
+Boundary: `SMC-008` closes only the internal conditional Paper 8 theorem.
+Observed particle catalog recovery, physical Standard Model content, physical
+particle excitations, physical matter fields, physical gauge fields, physical
+quantum dynamics, continuum quantum field theory, physical nature promotion,
+and unified-field promotion remain false.

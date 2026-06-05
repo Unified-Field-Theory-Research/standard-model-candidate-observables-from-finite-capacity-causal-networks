@@ -2,7 +2,7 @@
   "schema_version": 1,
   "paper": 8,
   "title": "Standard-Model-Candidate Observables From Finite-Capacity Causal Networks",
-  "active_rung": "SMC-008",
+  "active_rung": "none",
   "closed_rungs": [
     "SMC-001",
     "SMC-002",
@@ -10,7 +10,8 @@
     "SMC-004",
     "SMC-005",
     "SMC-006",
-    "SMC-007"
+    "SMC-007",
+    "SMC-008"
   ],
-  "claim_boundary": "SMC-007 closes only the no-hidden-observed-catalog/physical Standard Model import audit; final Paper 8 theorem remains open until SMC-008 closes."
+  "claim_boundary": "SMC-008 closes the internal conditional Standard-Model-candidate observables theorem only; observed particle catalogs, physical Standard Model content, physical particle excitations, continuum QFT, physical nature promotion, and unified-field promotion remain false."
 }
