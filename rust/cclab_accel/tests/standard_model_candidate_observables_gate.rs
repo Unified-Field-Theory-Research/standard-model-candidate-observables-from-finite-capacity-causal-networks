@@ -1,8 +1,10 @@
 use cclab_accel::{
     paper8_skeleton_marker, smc002_finite_candidate_sector_family_catalog_marker,
-    FiniteCandidateSectorFamilyCatalogObservable, Paper8SkeletonCertificate, Paper8UpstreamBinding,
-    PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT,
-    PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT, PAPER7_FINAL_CERTIFICATE, PAPER7_FROZEN_COMMIT,
+    smc003_finite_candidate_interaction_family_signature_marker,
+    FiniteCandidateInteractionFamilySignature, FiniteCandidateSectorFamilyCatalogObservable,
+    Paper8SkeletonCertificate, Paper8UpstreamBinding, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT,
+    PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT,
+    PAPER7_FINAL_CERTIFICATE, PAPER7_FROZEN_COMMIT,
 };
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -239,6 +241,116 @@ fn smc002_catalog_fails_closed_on_nonfinite_or_imported_structure() {
 }
 
 #[test]
+fn smc003_finite_candidate_interaction_family_signature_closes_only_signature_rung() {
+    let interaction = FiniteCandidateInteractionFamilySignature::canonical_smc003();
+
+    assert!(interaction.smc001_upstream_binding_closed);
+    assert!(interaction.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(interaction.closes_smc003());
+    assert!(
+        interaction.occupied_interaction_family_count <= interaction.interaction_family_label_bound
+    );
+    assert!(interaction.source_candidate_family_label < interaction.candidate_family_label_bound);
+    assert!(interaction.target_candidate_family_label < interaction.candidate_family_label_bound);
+    assert!(interaction.source_excitation_label < interaction.excitation_label_bound);
+    assert!(interaction.target_excitation_label < interaction.excitation_label_bound);
+    assert!(
+        interaction.occupied_charge_delta_signature_count
+            <= interaction.charge_delta_signature_label_bound
+    );
+    assert!(
+        interaction.occupied_gauge_delta_signature_count
+            <= interaction.gauge_delta_signature_label_bound
+    );
+    assert!(
+        interaction.local_transition_readout_boundary_size
+            <= interaction.local_transition_neighborhood_size
+    );
+    assert!(interaction.local_transition_neighborhood_size <= interaction.finite_capacity_bound);
+    assert!(interaction.bounded_transfer_bound <= interaction.finite_capacity_bound);
+    assert!(interaction.paper7_excitation_sector_rows_compatible);
+    assert!(interaction.paper7_transition_interaction_rows_compatible);
+    assert!(interaction.paper6_charge_delta_signature_support_inherited);
+    assert!(interaction.paper6_gauge_delta_signature_support_inherited);
+    assert!(!interaction.physical_scattering_theory_import);
+    assert!(!interaction.standard_model_lagrangian_import);
+    assert!(!interaction.s_matrix_import);
+    assert!(!interaction.physical_standard_model_content_import);
+    assert_eq!(
+        smc003_finite_candidate_interaction_family_signature_marker(),
+        "smc003-finite-candidate-interaction-family-signature-closed"
+    );
+
+    let certificate = Paper8SkeletonCertificate::with_smc003_interaction_signature_closed();
+    assert!(certificate.smc001_upstream_binding_closed);
+    assert!(certificate.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(certificate.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(!certificate.smc004_particle_excitation_compatibility_closed);
+    assert!(!certificate.smc008_final_conditional_certificate_closed);
+    assert!(!certificate.paper8_theorem_closed);
+    assert!(!certificate.closes_paper8_theorem());
+}
+
+#[test]
+fn smc003_interaction_signature_fails_closed_on_nonfinite_or_imported_structure() {
+    let interaction = FiniteCandidateInteractionFamilySignature::canonical_smc003();
+
+    let missing_smc002 = FiniteCandidateInteractionFamilySignature {
+        smc002_finite_candidate_sector_family_catalog_closed: false,
+        ..interaction
+    };
+    assert!(!missing_smc002.closes_smc003());
+
+    let zero_interaction_bound = FiniteCandidateInteractionFamilySignature {
+        interaction_family_label_bound: 0,
+        ..interaction
+    };
+    assert!(!zero_interaction_bound.closes_smc003());
+
+    let source_family_out_of_range = FiniteCandidateInteractionFamilySignature {
+        source_candidate_family_label: interaction.candidate_family_label_bound,
+        ..interaction
+    };
+    assert!(!source_family_out_of_range.closes_smc003());
+
+    let readout_exceeds_transition_neighborhood = FiniteCandidateInteractionFamilySignature {
+        local_transition_readout_boundary_size: interaction.local_transition_neighborhood_size + 1,
+        ..interaction
+    };
+    assert!(!readout_exceeds_transition_neighborhood.closes_smc003());
+
+    let missing_paper7_transition_rows = FiniteCandidateInteractionFamilySignature {
+        paper7_transition_interaction_rows_compatible: false,
+        ..interaction
+    };
+    assert!(!missing_paper7_transition_rows.closes_smc003());
+
+    let physical_scattering = FiniteCandidateInteractionFamilySignature {
+        physical_scattering_theory_import: true,
+        ..interaction
+    };
+    assert!(!physical_scattering.closes_smc003());
+
+    let standard_model_lagrangian = FiniteCandidateInteractionFamilySignature {
+        standard_model_lagrangian_import: true,
+        ..interaction
+    };
+    assert!(!standard_model_lagrangian.closes_smc003());
+
+    let s_matrix_import = FiniteCandidateInteractionFamilySignature {
+        s_matrix_import: true,
+        ..interaction
+    };
+    assert!(!s_matrix_import.closes_smc003());
+
+    let hidden_observed_catalog = FiniteCandidateInteractionFamilySignature {
+        observed_particle_catalog_import: true,
+        ..interaction
+    };
+    assert!(!hidden_observed_catalog.closes_smc003());
+}
+
+#[test]
 fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -254,6 +366,11 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     assert_contains(
         &upstream,
         "\"smc002_finite_candidate_sector_family_catalog_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
+        "\"smc003_finite_candidate_interaction_family_signature_closed\": true",
         "UPSTREAM-PAPERS.json",
     );
     assert_contains(
@@ -279,7 +396,7 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
 }
 
 #[test]
-fn docs_record_smc002_closed_smc003_active_and_physical_claims_false() {
+fn docs_record_smc003_closed_smc004_active_and_physical_claims_false() {
     let root = project_root();
     let theorem = read(
         &root,
@@ -298,7 +415,13 @@ fn docs_record_smc002_closed_smc003_active_and_physical_claims_false() {
         assert_contains(artifact.1, "SMC-001", artifact.0);
         assert_contains(artifact.1, "SMC-002", artifact.0);
         assert_contains(artifact.1, "SMC-003", artifact.0);
+        assert_contains(artifact.1, "SMC-004", artifact.0);
         assert_contains(artifact.1, "finite candidate sector-family", artifact.0);
+        assert_contains(
+            artifact.1,
+            "finite candidate interaction-family",
+            artifact.0,
+        );
         assert_contains(artifact.1, "observed particle", artifact.0);
         assert_contains(artifact.1, "physical Standard Model", artifact.0);
         assert_contains(artifact.1, "continuum quantum field theory", artifact.0);

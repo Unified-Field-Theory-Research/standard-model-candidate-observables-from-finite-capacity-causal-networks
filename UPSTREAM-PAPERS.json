@@ -123,7 +123,7 @@
   "paper8_current_claims": {
     "smc001_upstream_binding_closed": true,
     "smc002_finite_candidate_sector_family_catalog_closed": true,
-    "smc003_finite_candidate_interaction_family_signature_closed": false,
+    "smc003_finite_candidate_interaction_family_signature_closed": true,
     "smc004_particle_excitation_compatibility_closed": false,
     "smc005_catalog_conservation_coarse_graining_closed": false,
     "smc006_paper7_regime_consistency_closed": false,

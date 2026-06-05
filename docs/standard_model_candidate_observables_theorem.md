@@ -19,7 +19,8 @@ Paper 8 aims at the following internal conditional theorem:
 
 The theorem target is open. `SMC-001` closes only the upstream binding and
 claim-boundary scaffold. `SMC-002` closes only the finite candidate
-sector-family catalog observable row. This is not observed particle catalog
+sector-family catalog observable row. `SMC-003` closes only finite candidate
+interaction-family signatures. This is not observed particle catalog
 recovery, not physical Standard Model recovery, not a physical
 particle-excitation claim, not a physical matter-field claim, not a physical
 gauge-field claim, not physical quantum dynamics, not continuum quantum field
@@ -139,11 +140,59 @@ nature promotion, or unified-field promotion.
 
 ### SMC-003: Finite Candidate Interaction-Family Signature
 
-Status: open.
+Status: closed as finite candidate interaction-family signatures.
+
+`SMC-003` defines finite candidate interaction-family signature rows by
+requiring closed `SMC-001` and `SMC-002` dependencies, finite interaction
+family labels, finite occupied candidate interaction families, finite
+source/target candidate-family label support, finite source/target
+excitation-label support inherited from Paper 7, finite charge-delta
+signature support inherited from Paper 6/Paper 7 rows, finite gauge-delta
+signature support inherited from Paper 6/Paper 7 rows, finite local
+transition-neighborhood support, finite local transition readout boundaries,
+finite-capacity compatibility, bounded-transfer compatibility, compatibility
+with Paper 7 excitation-sector rows, and compatibility with Paper 7
+transition/interaction rows.
+
+It rejects physical scattering theory, Standard Model Lagrangians, continuum
+gauge groups, asymptotic states, S-matrix structure, external dynamics,
+observed particle catalogs, physical Standard Model content, physical
+particle excitations, continuum QFT, external matter fields, external gauge
+fields, background Hilbert bundles, simulation-only signals, fit shortcuts,
+physical promotion, and unified-field promotion.
+
+Rust anchors:
+
+- `FiniteCandidateInteractionFamilySignature`
+- `FiniteCandidateInteractionFamilySignature::canonical_smc003`
+- `FiniteCandidateInteractionFamilySignature::closes_smc003`
+- `Paper8SkeletonCertificate::with_smc003_interaction_signature_closed`
+- `smc003_finite_candidate_interaction_family_signature_marker`
+
+Lean anchors:
+
+- `SMC003FiniteCandidateInteractionFamilySignatureContract`
+- `SMC003FiniteCandidateInteractionFamilySignatureContract.closed`
+- `smc003_finite_candidate_interaction_family_signature_closed_from_fields`
+- `smc003_missing_smc002_catalog_not_closed`
+- `smc003_physical_scattering_theory_import_not_closed`
+- `smc003_standard_model_lagrangian_import_not_closed`
+- `smc003_s_matrix_import_not_closed`
+- `smc003_canonical_finite_candidate_interaction_family_signature_closed`
+- `paper8_smc003_signature_does_not_close_standard_model_candidate_observables_theorem`
+
+Boundary: `SMC-003` closes only finite candidate interaction-family
+signature rows. It does not close Paper 7 compatibility as a whole, catalog
+conservation/coarse-graining stability, Paper 7 regime consistency, the
+no-hidden-observed-catalog import audit, the final Paper 8 theorem, observed
+particle catalogs, physical Standard Model content, physical particle
+excitations, physical matter fields, physical gauge fields, physical quantum
+dynamics, continuum QFT, physical nature promotion, or unified-field
+promotion.
 
 ### SMC-004: Particle-Excitation Observable Compatibility
 
-Status: planned.
+Status: open.
 
 ### SMC-005: Catalog Conservation And Coarse-Graining Stability
 

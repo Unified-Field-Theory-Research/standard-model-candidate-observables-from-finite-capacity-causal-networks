@@ -117,12 +117,72 @@ excitations, physical matter fields, physical gauge fields, physical quantum
 dynamics, continuum QFT, physical nature promotion, or unified-field
 promotion.
 
+## SMC-003: Finite Candidate Interaction-Family Signature
+
+Status: closed as finite candidate interaction-family signatures.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/standard_model_candidate_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/StandardModelCandidateObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/standard_model_candidate_observables_gate.rs`
+- `GPD/publication/standard-model-candidate-observables-theorem/manuscript/standard_model_candidate_observables_theorem.tex`
+- `GPD/publication/standard-model-candidate-observables-theorem/manuscript/PAPER-CONFIG.json`
+
+Rust anchors:
+
+- `FiniteCandidateInteractionFamilySignature`
+- `FiniteCandidateInteractionFamilySignature::canonical_smc003`
+- `FiniteCandidateInteractionFamilySignature::closes_smc003`
+- `Paper8SkeletonCertificate::with_smc003_interaction_signature_closed`
+- `smc003_finite_candidate_interaction_family_signature_marker`
+
+Lean anchors:
+
+- `SMC003FiniteCandidateInteractionFamilySignatureContract`
+- `SMC003FiniteCandidateInteractionFamilySignatureContract.closed`
+- `smc003_finite_candidate_interaction_family_signature_closed_from_fields`
+- `smc003_missing_smc002_catalog_not_closed`
+- `smc003_physical_scattering_theory_import_not_closed`
+- `smc003_standard_model_lagrangian_import_not_closed`
+- `smc003_s_matrix_import_not_closed`
+- `smc003_canonical_finite_candidate_interaction_family_signature_closed`
+- `paper8_smc003_signature_does_not_close_standard_model_candidate_observables_theorem`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`SMC-003` closes only finite candidate interaction-family signatures over
+local transition neighborhoods: finite interaction-family labels, finite
+source/target family labels, finite source/target excitation labels, finite
+charge/gauge delta signature support, local transition support/readout,
+finite-capacity compatibility, bounded-transfer compatibility, and Paper 7
+excitation-sector and transition/interaction row compatibility. It does not
+close Paper 7 compatibility as a whole, conservation/coarse-graining
+stability, Paper 7 regime consistency, the no-hidden-observed-catalog import
+audit, the final Paper 8 theorem, observed particle catalogs, physical
+Standard Model content, physical particle excitations, physical matter
+fields, physical gauge fields, physical quantum dynamics, continuum QFT,
+physical nature promotion, or unified-field promotion.
+
 ## Active Next Obligation
 
-`SMC-003`: define finite candidate interaction-family signatures over local
-transition neighborhoods without importing physical scattering theory,
-Standard Model Lagrangians, continuum gauge groups, asymptotic states,
-S-matrix structure, external dynamics, observed particle catalogs, physical
-Standard Model content, physical particle excitations, continuum QFT,
-external Hilbert bundles, simulation-only signals, fit shortcuts, physical
-quantum dynamics, or unified-field promotion.
+`SMC-004`: prove compatibility of the closed `SMC-002` catalog rows and
+closed `SMC-003` interaction-family signatures with the closed Paper 7
+particle-excitation observable rows without importing observed particle
+catalogs, physical Standard Model content, physical particle excitations,
+continuum QFT, external Hilbert bundles, simulation-only signals, fit
+shortcuts, physical quantum dynamics, or unified-field promotion.

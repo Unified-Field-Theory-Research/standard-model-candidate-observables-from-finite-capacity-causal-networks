@@ -2,12 +2,13 @@
 
 ## Current Position
 
-**Current Phase:** 3
-**Current Phase Name:** Define Finite Candidate Interaction-Family Signature
+**Current Phase:** 4
+**Current Phase Name:** Prove Particle-Excitation Observable Compatibility
 **Status:** `SMC-001` upstream binding and claim-boundary scaffold closed;
 `SMC-002` finite intrinsic candidate sector-family catalog observable closed;
-`SMC-003` finite candidate interaction-family signature is open; physical
-promotion remains false
+`SMC-003` finite candidate interaction-family signature closed; `SMC-004`
+particle-excitation observable compatibility is open; physical promotion
+remains false
 
 Closed rung summary: `SMC-001` records the upstream binding through the
 closed Paper 7 conditional particle-excitation observables theorem at commit
@@ -42,16 +43,22 @@ families, finite excitation-label support inherited from Paper 7, finite
 charge/gauge signature support inherited from Paper 6, finite local
 support/readout boundaries, finite-capacity and bounded-transfer
 compatibility, and compatibility with Paper 7 excitation-sector and
-transition/interaction rows.
+transition/interaction rows. `SMC-003` records finite candidate
+interaction-family signatures over local transition neighborhoods with finite
+interaction labels, finite source/target family labels, finite source/target
+excitation labels, finite charge/gauge delta signature support, finite local
+transition support/readout boundaries, bounded transfer, Paper 7 row
+compatibility, and no physical scattering, Standard Model Lagrangian,
+continuum gauge-group, asymptotic-state, S-matrix, or external-dynamics
+imports.
 
-Next stable target phrase: `SMC-003`: define finite candidate
-interaction-family signatures over local transition neighborhoods without
-importing physical scattering theory, Standard Model Lagrangians, continuum
-gauge groups, S-matrix structure, external dynamics, observed particle
-catalogs, physical Standard Model content, physical particle excitations,
-continuum QFT, external Hilbert bundles, physical matter fields, physical
-gauge fields, physical quantum dynamics, simulation-only signals, fit
-shortcuts, or unified-field promotion.
+Next stable target phrase: `SMC-004`: prove compatibility of the closed
+`SMC-002` catalog rows and closed `SMC-003` interaction-family signatures
+with the closed Paper 7 particle-excitation observable rows without importing
+observed particle catalogs, physical Standard Model content, physical
+particle excitations, continuum QFT, external Hilbert bundles, physical
+matter fields, physical gauge fields, physical quantum dynamics,
+simulation-only signals, fit shortcuts, or unified-field promotion.
 
 Stable nonpromotion tokens: observed particle catalogs; physical Standard
 Model content; physical particle excitations; physical matter fields;
@@ -73,29 +80,41 @@ theory; unified-field promotion.
   support; and reject observed-particle, physical Standard Model,
   physical-particle, external-field, continuum-QFT, background-Hilbert,
   simulation-only, fit-only, physical-promotion, and unified-field imports.
+- `SMC-003` rows define finite candidate interaction-family signature data
+  with finite interaction-family, source/target candidate-family,
+  source/target excitation-label, charge-delta, gauge-delta, local
+  transition-neighborhood, local transition-readout, finite-capacity, and
+  bounded-transfer witnesses; bind the row to Paper 7 excitation-sector and
+  transition/interaction rows; inherit Paper 6 charge/gauge delta signature
+  support; and reject physical scattering, Standard Model Lagrangian,
+  continuum gauge-group, asymptotic-state, S-matrix, external-dynamics,
+  observed-particle, physical Standard Model, physical-particle,
+  external-field, continuum-QFT, background-Hilbert, simulation-only,
+  fit-only, physical-promotion, and unified-field imports.
 
 ## Open Questions
 
-- `SMC-003`: What finite candidate interaction-family signature can be
-  defined over Paper 7 local transition neighborhoods without importing
-  physical scattering theory, Standard Model Lagrangians, continuum gauge
-  groups, S-matrix structure, external dynamics, observed particle catalogs,
-  physical Standard Model content, continuum QFT, external-field premises, or
-  simulation-only/fit-only signals?
+- `SMC-004`: How do the closed `SMC-002` catalog rows and `SMC-003`
+  interaction-family signatures preserve compatibility with the closed Paper
+  7 excitation-sector, transition/interaction, matter/gauge-compatibility,
+  conservation, and coarse-graining rows without importing observed particle
+  catalogs, physical Standard Model content, continuum QFT, external-field
+  premises, or simulation-only/fit-only signals?
 
 ## Pending Todos
 
-- Define finite source/target candidate-family, excitation-channel,
-  charge-delta, gauge-delta, local transition-neighborhood, and transfer
-  signature data for `SMC-003`.
-- Add Rust and Lean fail-closed checks for `SMC-003`.
-- Update theorem docs, proof log, and publication skeleton after `SMC-003`
+- Define Paper 7 excitation-sector, transition/interaction,
+  matter/gauge-compatibility, conservation, and coarse-graining compatibility
+  witnesses for `SMC-004`.
+- Add Rust and Lean fail-closed checks for `SMC-004`.
+- Update theorem docs, proof log, and publication skeleton after `SMC-004`
   closes.
 
 ## Blockers/Concerns
 
 - `SMC-001` is an upstream-binding and claim-boundary contract only.
 - `SMC-002` is a finite candidate sector-family catalog contract only.
+- `SMC-003` is a finite candidate interaction-family signature contract only.
 - Standard-Model-candidate observable recovery remains open.
 - Observed particle catalogs, physical Standard Model content, physical
   particle excitations, physical matter fields, physical gauge fields,

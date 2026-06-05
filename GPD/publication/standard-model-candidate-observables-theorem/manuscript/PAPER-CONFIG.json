@@ -2,10 +2,11 @@
   "schema_version": 1,
   "paper": 8,
   "title": "Standard-Model-Candidate Observables From Finite-Capacity Causal Networks",
-  "active_rung": "SMC-003",
+  "active_rung": "SMC-004",
   "closed_rungs": [
     "SMC-001",
-    "SMC-002"
+    "SMC-002",
+    "SMC-003"
   ],
-  "claim_boundary": "SMC-002 closes only the finite candidate sector-family catalog observable row; no full Standard-Model-candidate observable recovery, observed particle catalog, physical Standard Model, continuum QFT, or unified-field promotion."
+  "claim_boundary": "SMC-003 closes only finite candidate sector-family catalog and interaction-family signature rows; no full Standard-Model-candidate observable recovery, observed particle catalog, physical Standard Model, continuum QFT, or unified-field promotion."
 }

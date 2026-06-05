@@ -330,6 +330,248 @@ theorem smc002_canonical_finite_candidate_sector_family_catalog_closed :
   unfold smc002CanonicalFiniteCandidateSectorFamilyCatalogObservableContract
   simp
 
+structure SMC003FiniteCandidateInteractionFamilySignatureContract where
+  smc001UpstreamBindingClosed : Prop
+  smc002FiniteCandidateSectorFamilyCatalogClosed : Prop
+  interactionFamilyLabelBound : Nat
+  occupiedInteractionFamilyCount : Nat
+  candidateFamilyLabelBound : Nat
+  sourceCandidateFamilyLabel : Nat
+  targetCandidateFamilyLabel : Nat
+  excitationLabelBound : Nat
+  sourceExcitationLabel : Nat
+  targetExcitationLabel : Nat
+  chargeDeltaSignatureLabelBound : Nat
+  occupiedChargeDeltaSignatureCount : Nat
+  gaugeDeltaSignatureLabelBound : Nat
+  occupiedGaugeDeltaSignatureCount : Nat
+  localTransitionNeighborhoodSize : Nat
+  localTransitionReadoutBoundarySize : Nat
+  finiteCapacityBound : Nat
+  boundedTransferBound : Nat
+  paper7ExcitationSectorRowsCompatible : Prop
+  paper7TransitionInteractionRowsCompatible : Prop
+  paper6ChargeDeltaSignatureSupportInherited : Prop
+  paper6GaugeDeltaSignatureSupportInherited : Prop
+  physicalScatteringTheoryImport : Prop
+  standardModelLagrangianImport : Prop
+  continuumGaugeGroupImport : Prop
+  asymptoticStateImport : Prop
+  sMatrixImport : Prop
+  externalDynamicsImport : Prop
+  observedParticleCatalogImport : Prop
+  physicalStandardModelContentImport : Prop
+  physicalParticleExcitationImport : Prop
+  externalMatterFieldImport : Prop
+  externalGaugeFieldImport : Prop
+  continuumQFTImport : Prop
+  backgroundHilbertBundleImport : Prop
+  simulationOnlySignal : Prop
+  fitShortcut : Prop
+  physicalPromotion : Prop
+  unifiedFieldPromotion : Prop
+
+def SMC003FiniteCandidateInteractionFamilySignatureContract.closed
+    (c : SMC003FiniteCandidateInteractionFamilySignatureContract) : Prop :=
+  c.smc001UpstreamBindingClosed ∧
+  c.smc002FiniteCandidateSectorFamilyCatalogClosed ∧
+  0 < c.interactionFamilyLabelBound ∧
+  0 < c.occupiedInteractionFamilyCount ∧
+  c.occupiedInteractionFamilyCount ≤ c.interactionFamilyLabelBound ∧
+  0 < c.candidateFamilyLabelBound ∧
+  c.sourceCandidateFamilyLabel < c.candidateFamilyLabelBound ∧
+  c.targetCandidateFamilyLabel < c.candidateFamilyLabelBound ∧
+  0 < c.excitationLabelBound ∧
+  c.sourceExcitationLabel < c.excitationLabelBound ∧
+  c.targetExcitationLabel < c.excitationLabelBound ∧
+  0 < c.chargeDeltaSignatureLabelBound ∧
+  0 < c.occupiedChargeDeltaSignatureCount ∧
+  c.occupiedChargeDeltaSignatureCount ≤ c.chargeDeltaSignatureLabelBound ∧
+  0 < c.gaugeDeltaSignatureLabelBound ∧
+  0 < c.occupiedGaugeDeltaSignatureCount ∧
+  c.occupiedGaugeDeltaSignatureCount ≤ c.gaugeDeltaSignatureLabelBound ∧
+  0 < c.localTransitionNeighborhoodSize ∧
+  c.localTransitionNeighborhoodSize ≤ c.finiteCapacityBound ∧
+  0 < c.localTransitionReadoutBoundarySize ∧
+  c.localTransitionReadoutBoundarySize ≤ c.localTransitionNeighborhoodSize ∧
+  0 < c.boundedTransferBound ∧
+  c.boundedTransferBound ≤ c.finiteCapacityBound ∧
+  c.paper7ExcitationSectorRowsCompatible ∧
+  c.paper7TransitionInteractionRowsCompatible ∧
+  c.paper6ChargeDeltaSignatureSupportInherited ∧
+  c.paper6GaugeDeltaSignatureSupportInherited ∧
+  ¬ c.physicalScatteringTheoryImport ∧
+  ¬ c.standardModelLagrangianImport ∧
+  ¬ c.continuumGaugeGroupImport ∧
+  ¬ c.asymptoticStateImport ∧
+  ¬ c.sMatrixImport ∧
+  ¬ c.externalDynamicsImport ∧
+  ¬ c.observedParticleCatalogImport ∧
+  ¬ c.physicalStandardModelContentImport ∧
+  ¬ c.physicalParticleExcitationImport ∧
+  ¬ c.externalMatterFieldImport ∧
+  ¬ c.externalGaugeFieldImport ∧
+  ¬ c.continuumQFTImport ∧
+  ¬ c.backgroundHilbertBundleImport ∧
+  ¬ c.simulationOnlySignal ∧
+  ¬ c.fitShortcut ∧
+  ¬ c.physicalPromotion ∧
+  ¬ c.unifiedFieldPromotion
+
+theorem smc003_finite_candidate_interaction_family_signature_closed_from_fields
+    (c : SMC003FiniteCandidateInteractionFamilySignatureContract)
+    (hSMC001 : c.smc001UpstreamBindingClosed)
+    (hSMC002 : c.smc002FiniteCandidateSectorFamilyCatalogClosed)
+    (hInteractionBoundPositive : 0 < c.interactionFamilyLabelBound)
+    (hOccupiedInteractionPositive : 0 < c.occupiedInteractionFamilyCount)
+    (hOccupiedInteractionLeBound :
+      c.occupiedInteractionFamilyCount ≤ c.interactionFamilyLabelBound)
+    (hFamilyBoundPositive : 0 < c.candidateFamilyLabelBound)
+    (hSourceFamily : c.sourceCandidateFamilyLabel < c.candidateFamilyLabelBound)
+    (hTargetFamily : c.targetCandidateFamilyLabel < c.candidateFamilyLabelBound)
+    (hExcitationBoundPositive : 0 < c.excitationLabelBound)
+    (hSourceExcitation : c.sourceExcitationLabel < c.excitationLabelBound)
+    (hTargetExcitation : c.targetExcitationLabel < c.excitationLabelBound)
+    (hChargeDeltaBoundPositive : 0 < c.chargeDeltaSignatureLabelBound)
+    (hOccupiedChargeDeltaPositive : 0 < c.occupiedChargeDeltaSignatureCount)
+    (hOccupiedChargeDeltaLeBound :
+      c.occupiedChargeDeltaSignatureCount ≤ c.chargeDeltaSignatureLabelBound)
+    (hGaugeDeltaBoundPositive : 0 < c.gaugeDeltaSignatureLabelBound)
+    (hOccupiedGaugeDeltaPositive : 0 < c.occupiedGaugeDeltaSignatureCount)
+    (hOccupiedGaugeDeltaLeBound :
+      c.occupiedGaugeDeltaSignatureCount ≤ c.gaugeDeltaSignatureLabelBound)
+    (hNeighborhoodPositive : 0 < c.localTransitionNeighborhoodSize)
+    (hNeighborhoodLeCapacity :
+      c.localTransitionNeighborhoodSize ≤ c.finiteCapacityBound)
+    (hReadoutPositive : 0 < c.localTransitionReadoutBoundarySize)
+    (hReadoutLeNeighborhood :
+      c.localTransitionReadoutBoundarySize ≤ c.localTransitionNeighborhoodSize)
+    (hTransferPositive : 0 < c.boundedTransferBound)
+    (hTransferLeCapacity : c.boundedTransferBound ≤ c.finiteCapacityBound)
+    (hPaper7Excitation : c.paper7ExcitationSectorRowsCompatible)
+    (hPaper7Transition : c.paper7TransitionInteractionRowsCompatible)
+    (hPaper6ChargeDelta : c.paper6ChargeDeltaSignatureSupportInherited)
+    (hPaper6GaugeDelta : c.paper6GaugeDeltaSignatureSupportInherited)
+    (hNoScattering : ¬ c.physicalScatteringTheoryImport)
+    (hNoSMLagrangian : ¬ c.standardModelLagrangianImport)
+    (hNoContinuumGaugeGroup : ¬ c.continuumGaugeGroupImport)
+    (hNoAsymptotic : ¬ c.asymptoticStateImport)
+    (hNoSMatrix : ¬ c.sMatrixImport)
+    (hNoExternalDynamics : ¬ c.externalDynamicsImport)
+    (hNoObserved : ¬ c.observedParticleCatalogImport)
+    (hNoPhysicalSM : ¬ c.physicalStandardModelContentImport)
+    (hNoPhysicalParticle : ¬ c.physicalParticleExcitationImport)
+    (hNoMatter : ¬ c.externalMatterFieldImport)
+    (hNoGaugeField : ¬ c.externalGaugeFieldImport)
+    (hNoQFT : ¬ c.continuumQFTImport)
+    (hNoHilbert : ¬ c.backgroundHilbertBundleImport)
+    (hNoSimulation : ¬ c.simulationOnlySignal)
+    (hNoFit : ¬ c.fitShortcut)
+    (hNoPhysicalPromotion : ¬ c.physicalPromotion)
+    (hNoUnified : ¬ c.unifiedFieldPromotion) :
+    c.closed := by
+  exact ⟨hSMC001, hSMC002, hInteractionBoundPositive,
+    hOccupiedInteractionPositive, hOccupiedInteractionLeBound,
+    hFamilyBoundPositive, hSourceFamily, hTargetFamily,
+    hExcitationBoundPositive, hSourceExcitation, hTargetExcitation,
+    hChargeDeltaBoundPositive, hOccupiedChargeDeltaPositive,
+    hOccupiedChargeDeltaLeBound, hGaugeDeltaBoundPositive,
+    hOccupiedGaugeDeltaPositive, hOccupiedGaugeDeltaLeBound,
+    hNeighborhoodPositive, hNeighborhoodLeCapacity, hReadoutPositive,
+    hReadoutLeNeighborhood, hTransferPositive, hTransferLeCapacity,
+    hPaper7Excitation, hPaper7Transition, hPaper6ChargeDelta,
+    hPaper6GaugeDelta, hNoScattering, hNoSMLagrangian,
+    hNoContinuumGaugeGroup, hNoAsymptotic, hNoSMatrix, hNoExternalDynamics,
+    hNoObserved, hNoPhysicalSM, hNoPhysicalParticle, hNoMatter, hNoGaugeField,
+    hNoQFT, hNoHilbert, hNoSimulation, hNoFit, hNoPhysicalPromotion,
+    hNoUnified⟩
+
+theorem smc003_missing_smc002_catalog_not_closed
+    (c : SMC003FiniteCandidateInteractionFamilySignatureContract)
+    (hClosed : c.closed)
+    (hMissingSMC002 : ¬ c.smc002FiniteCandidateSectorFamilyCatalogClosed) :
+    False := by
+  rcases hClosed with ⟨_, hSMC002, _⟩
+  exact hMissingSMC002 hSMC002
+
+theorem smc003_physical_scattering_theory_import_not_closed
+    (c : SMC003FiniteCandidateInteractionFamilySignatureContract)
+    (hClosed : c.closed)
+    (hScattering : c.physicalScatteringTheoryImport) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      _, _, _, _, hNoScattering, _⟩
+  exact hNoScattering hScattering
+
+theorem smc003_standard_model_lagrangian_import_not_closed
+    (c : SMC003FiniteCandidateInteractionFamilySignatureContract)
+    (hClosed : c.closed)
+    (hSMLagrangian : c.standardModelLagrangianImport) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      _, _, _, _, _, hNoSMLagrangian, _⟩
+  exact hNoSMLagrangian hSMLagrangian
+
+theorem smc003_s_matrix_import_not_closed
+    (c : SMC003FiniteCandidateInteractionFamilySignatureContract)
+    (hClosed : c.closed)
+    (hSMatrix : c.sMatrixImport) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _,
+      _, _, _, _, _, _, _, _, hNoSMatrix, _⟩
+  exact hNoSMatrix hSMatrix
+
+def smc003CanonicalFiniteCandidateInteractionFamilySignatureContract :
+    SMC003FiniteCandidateInteractionFamilySignatureContract :=
+  { smc001UpstreamBindingClosed := True,
+    smc002FiniteCandidateSectorFamilyCatalogClosed := True,
+    interactionFamilyLabelBound := 8,
+    occupiedInteractionFamilyCount := 3,
+    candidateFamilyLabelBound := 8,
+    sourceCandidateFamilyLabel := 1,
+    targetCandidateFamilyLabel := 2,
+    excitationLabelBound := 8,
+    sourceExcitationLabel := 1,
+    targetExcitationLabel := 2,
+    chargeDeltaSignatureLabelBound := 8,
+    occupiedChargeDeltaSignatureCount := 3,
+    gaugeDeltaSignatureLabelBound := 8,
+    occupiedGaugeDeltaSignatureCount := 3,
+    localTransitionNeighborhoodSize := 5,
+    localTransitionReadoutBoundarySize := 2,
+    finiteCapacityBound := 16,
+    boundedTransferBound := 4,
+    paper7ExcitationSectorRowsCompatible := True,
+    paper7TransitionInteractionRowsCompatible := True,
+    paper6ChargeDeltaSignatureSupportInherited := True,
+    paper6GaugeDeltaSignatureSupportInherited := True,
+    physicalScatteringTheoryImport := False,
+    standardModelLagrangianImport := False,
+    continuumGaugeGroupImport := False,
+    asymptoticStateImport := False,
+    sMatrixImport := False,
+    externalDynamicsImport := False,
+    observedParticleCatalogImport := False,
+    physicalStandardModelContentImport := False,
+    physicalParticleExcitationImport := False,
+    externalMatterFieldImport := False,
+    externalGaugeFieldImport := False,
+    continuumQFTImport := False,
+    backgroundHilbertBundleImport := False,
+    simulationOnlySignal := False,
+    fitShortcut := False,
+    physicalPromotion := False,
+    unifiedFieldPromotion := False }
+
+theorem smc003_canonical_finite_candidate_interaction_family_signature_closed :
+    smc003CanonicalFiniteCandidateInteractionFamilySignatureContract.closed := by
+  unfold SMC003FiniteCandidateInteractionFamilySignatureContract.closed
+  unfold smc003CanonicalFiniteCandidateInteractionFamilySignatureContract
+  simp
+
 structure Paper8StandardModelCandidateObservablesTheoremContract where
   smc001UpstreamBindingClosed : Prop
   smc002FiniteCandidateSectorFamilyCatalogClosed : Prop
@@ -380,5 +622,13 @@ theorem paper8_smc002_catalog_does_not_close_standard_model_candidate_observable
     False := by
   rcases hClosed with ⟨_, _, hSMC003, _⟩
   exact hMissingSMC003 hSMC003
+
+theorem paper8_smc003_signature_does_not_close_standard_model_candidate_observables_theorem
+    (c : Paper8StandardModelCandidateObservablesTheoremContract)
+    (hClosed : c.closed)
+    (hMissingSMC004 : ¬ c.smc004ParticleExcitationCompatibilityClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, hSMC004, _⟩
+  exact hMissingSMC004 hSMC004
 
 end FiniteCapacity

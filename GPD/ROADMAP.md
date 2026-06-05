@@ -25,11 +25,13 @@ unless a future paper-specific certificate explicitly closes them.
   local support/readout boundaries, compatibility with Paper 7 excitation and
   transition rows, and no observed particle catalog, physical Standard Model,
   continuum QFT, simulation-only signal, or fit shortcut imports.
-- [ ] **Phase 3: Define Finite Candidate Interaction-Family Signature** -
-  `SMC-003` should define finite candidate interaction-family rows over local
-  transition neighborhoods without importing physical scattering theory,
-  Standard Model Lagrangians, continuum gauge groups, S-matrix structure, or
-  external dynamics.
+- [x] **Phase 3: Define Finite Candidate Interaction-Family Signature** -
+  `SMC-003` defines finite candidate interaction-family rows over local
+  transition neighborhoods with finite source/target family labels, finite
+  source/target excitation labels, finite charge/gauge delta signatures,
+  bounded transfer, Paper 7 transition-row compatibility, and no physical
+  scattering theory, Standard Model Lagrangian, continuum gauge-group,
+  S-matrix, or external-dynamics imports.
 - [ ] **Phase 4: Prove Particle-Excitation Observable Compatibility** -
   `SMC-004` should show compatibility with the closed Paper 7 finite
   excitation-sector, transition/interaction, matter/gauge compatibility,
