@@ -3,11 +3,13 @@ use cclab_accel::{
     smc003_finite_candidate_interaction_family_signature_marker,
     smc004_particle_excitation_compatibility_marker,
     smc005_catalog_conservation_coarse_graining_marker, smc006_paper7_regime_consistency_marker,
+    smc007_no_hidden_observed_catalog_import_audit_marker,
     CandidateCatalogConservationCoarseGrainingStability, CandidateParticleExcitationCompatibility,
     FiniteCandidateInteractionFamilySignature, FiniteCandidateSectorFamilyCatalogObservable,
-    Paper7RegimeConsistency, Paper8SkeletonCertificate, Paper8UpstreamBinding,
-    PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT, PAPER4_FROZEN_COMMIT,
-    PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT, PAPER7_FINAL_CERTIFICATE, PAPER7_FROZEN_COMMIT,
+    NoHiddenObservedCatalogImportAudit, Paper7RegimeConsistency, Paper8SkeletonCertificate,
+    Paper8UpstreamBinding, PAPER1_FROZEN_COMMIT, PAPER2_FROZEN_COMMIT, PAPER3_FROZEN_COMMIT,
+    PAPER4_FROZEN_COMMIT, PAPER5_FROZEN_COMMIT, PAPER6_FROZEN_COMMIT, PAPER7_FINAL_CERTIFICATE,
+    PAPER7_FROZEN_COMMIT,
 };
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -631,6 +633,96 @@ fn smc006_paper7_regime_consistency_fails_closed_on_bypass_or_revision() {
 }
 
 #[test]
+fn smc007_no_hidden_import_audit_closes_only_audit_rung() {
+    let audit = NoHiddenObservedCatalogImportAudit::canonical_smc007();
+
+    assert!(audit.smc001_upstream_binding_closed);
+    assert!(audit.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(audit.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(audit.smc004_particle_excitation_compatibility_closed);
+    assert!(audit.smc005_catalog_conservation_coarse_graining_closed);
+    assert!(audit.smc006_paper7_regime_consistency_closed);
+    assert!(audit.audited_smc_rung_count >= audit.required_smc_rung_count);
+    assert!(audit.theorem_docs_audited);
+    assert!(audit.proof_log_audited);
+    assert!(audit.state_files_audited);
+    assert!(audit.upstream_manifest_audited);
+    assert!(audit.lean_gate_audited);
+    assert!(audit.rust_gate_audited);
+    assert!(audit.publication_skeleton_audited);
+    assert!(audit.rust_only_runtime_verified);
+    assert!(audit.fail_closed_audit_certificate_emitted);
+    assert!(audit.closes_smc007());
+    assert!(!audit.observed_particle_catalog_import);
+    assert!(!audit.physical_standard_model_content_import);
+    assert!(!audit.physical_particle_excitation_import);
+    assert!(!audit.continuum_qft_import);
+    assert_eq!(
+        smc007_no_hidden_observed_catalog_import_audit_marker(),
+        "smc007-no-hidden-observed-catalog-import-audit-closed"
+    );
+
+    let certificate = Paper8SkeletonCertificate::with_smc007_no_hidden_import_audit_closed();
+    assert!(certificate.smc001_upstream_binding_closed);
+    assert!(certificate.smc002_finite_candidate_sector_family_catalog_closed);
+    assert!(certificate.smc003_finite_candidate_interaction_family_signature_closed);
+    assert!(certificate.smc004_particle_excitation_compatibility_closed);
+    assert!(certificate.smc005_catalog_conservation_coarse_graining_closed);
+    assert!(certificate.smc006_paper7_regime_consistency_closed);
+    assert!(certificate.smc007_no_hidden_observed_catalog_import_audit_closed);
+    assert!(!certificate.smc008_final_conditional_certificate_closed);
+    assert!(!certificate.paper8_theorem_closed);
+    assert!(!certificate.closes_paper8_theorem());
+}
+
+#[test]
+fn smc007_no_hidden_import_audit_fails_closed_on_missing_coverage_or_imports() {
+    let audit = NoHiddenObservedCatalogImportAudit::canonical_smc007();
+
+    let missing_smc006 = NoHiddenObservedCatalogImportAudit {
+        smc006_paper7_regime_consistency_closed: false,
+        ..audit
+    };
+    assert!(!missing_smc006.closes_smc007());
+
+    let too_few_rungs = NoHiddenObservedCatalogImportAudit {
+        audited_smc_rung_count: audit.required_smc_rung_count - 1,
+        ..audit
+    };
+    assert!(!too_few_rungs.closes_smc007());
+
+    let missing_rust_gate = NoHiddenObservedCatalogImportAudit {
+        rust_gate_audited: false,
+        ..audit
+    };
+    assert!(!missing_rust_gate.closes_smc007());
+
+    let missing_fail_closed_certificate = NoHiddenObservedCatalogImportAudit {
+        fail_closed_audit_certificate_emitted: false,
+        ..audit
+    };
+    assert!(!missing_fail_closed_certificate.closes_smc007());
+
+    let hidden_observed_catalog = NoHiddenObservedCatalogImportAudit {
+        observed_particle_catalog_import: true,
+        ..audit
+    };
+    assert!(!hidden_observed_catalog.closes_smc007());
+
+    let hidden_physical_standard_model = NoHiddenObservedCatalogImportAudit {
+        physical_standard_model_content_import: true,
+        ..audit
+    };
+    assert!(!hidden_physical_standard_model.closes_smc007());
+
+    let simulation_signal = NoHiddenObservedCatalogImportAudit {
+        simulation_only_signal: true,
+        ..audit
+    };
+    assert!(!simulation_signal.closes_smc007());
+}
+
+#[test]
 fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     let root = project_root();
     let upstream = read(&root, "UPSTREAM-PAPERS.json");
@@ -670,6 +762,11 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
     );
     assert_contains(
         &upstream,
+        "\"smc007_no_hidden_observed_catalog_import_audit_closed\": true",
+        "UPSTREAM-PAPERS.json",
+    );
+    assert_contains(
+        &upstream,
         "\"standard_model_candidate_observables_theorem_closed\": false",
         "UPSTREAM-PAPERS.json",
     );
@@ -691,7 +788,7 @@ fn upstream_json_records_paper7_certificate_and_nonpromotion() {
 }
 
 #[test]
-fn docs_record_smc006_closed_smc007_active_and_physical_claims_false() {
+fn docs_record_smc007_closed_smc008_active_and_physical_claims_false() {
     let root = project_root();
     let theorem = read(
         &root,
@@ -714,6 +811,7 @@ fn docs_record_smc006_closed_smc007_active_and_physical_claims_false() {
         assert_contains(artifact.1, "SMC-005", artifact.0);
         assert_contains(artifact.1, "SMC-006", artifact.0);
         assert_contains(artifact.1, "SMC-007", artifact.0);
+        assert_contains(artifact.1, "SMC-008", artifact.0);
         assert_contains(artifact.1, "finite candidate sector-family", artifact.0);
         assert_contains(
             artifact.1,

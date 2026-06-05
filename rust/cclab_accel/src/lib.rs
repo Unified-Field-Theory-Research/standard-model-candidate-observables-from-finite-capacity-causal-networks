@@ -692,6 +692,111 @@ impl Paper7RegimeConsistency {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct NoHiddenObservedCatalogImportAudit {
+    pub smc001_upstream_binding_closed: bool,
+    pub smc002_finite_candidate_sector_family_catalog_closed: bool,
+    pub smc003_finite_candidate_interaction_family_signature_closed: bool,
+    pub smc004_particle_excitation_compatibility_closed: bool,
+    pub smc005_catalog_conservation_coarse_graining_closed: bool,
+    pub smc006_paper7_regime_consistency_closed: bool,
+    pub audited_smc_rung_count: u32,
+    pub required_smc_rung_count: u32,
+    pub theorem_docs_audited: bool,
+    pub proof_log_audited: bool,
+    pub state_files_audited: bool,
+    pub upstream_manifest_audited: bool,
+    pub lean_gate_audited: bool,
+    pub rust_gate_audited: bool,
+    pub publication_skeleton_audited: bool,
+    pub rust_only_runtime_verified: bool,
+    pub fail_closed_audit_certificate_emitted: bool,
+    pub observed_particle_catalog_import: bool,
+    pub physical_standard_model_content_import: bool,
+    pub physical_particle_excitation_import: bool,
+    pub external_matter_field_import: bool,
+    pub external_gauge_field_import: bool,
+    pub continuum_qft_import: bool,
+    pub background_hilbert_bundle_import: bool,
+    pub simulation_only_signal: bool,
+    pub fit_shortcut: bool,
+    pub physical_promotion: bool,
+    pub unified_field_promotion: bool,
+}
+
+impl NoHiddenObservedCatalogImportAudit {
+    pub fn canonical_smc007() -> Self {
+        Self {
+            smc001_upstream_binding_closed: Paper8UpstreamBinding::canonical_smc001()
+                .closes_smc001(),
+            smc002_finite_candidate_sector_family_catalog_closed:
+                FiniteCandidateSectorFamilyCatalogObservable::canonical_smc002().closes_smc002(),
+            smc003_finite_candidate_interaction_family_signature_closed:
+                FiniteCandidateInteractionFamilySignature::canonical_smc003().closes_smc003(),
+            smc004_particle_excitation_compatibility_closed:
+                CandidateParticleExcitationCompatibility::canonical_smc004().closes_smc004(),
+            smc005_catalog_conservation_coarse_graining_closed:
+                CandidateCatalogConservationCoarseGrainingStability::canonical_smc005()
+                    .closes_smc005(),
+            smc006_paper7_regime_consistency_closed: Paper7RegimeConsistency::canonical_smc006()
+                .closes_smc006(),
+            audited_smc_rung_count: 6,
+            required_smc_rung_count: 6,
+            theorem_docs_audited: true,
+            proof_log_audited: true,
+            state_files_audited: true,
+            upstream_manifest_audited: true,
+            lean_gate_audited: true,
+            rust_gate_audited: true,
+            publication_skeleton_audited: true,
+            rust_only_runtime_verified: true,
+            fail_closed_audit_certificate_emitted: true,
+            observed_particle_catalog_import: false,
+            physical_standard_model_content_import: false,
+            physical_particle_excitation_import: false,
+            external_matter_field_import: false,
+            external_gauge_field_import: false,
+            continuum_qft_import: false,
+            background_hilbert_bundle_import: false,
+            simulation_only_signal: false,
+            fit_shortcut: false,
+            physical_promotion: false,
+            unified_field_promotion: false,
+        }
+    }
+
+    pub fn closes_smc007(&self) -> bool {
+        self.smc001_upstream_binding_closed
+            && self.smc002_finite_candidate_sector_family_catalog_closed
+            && self.smc003_finite_candidate_interaction_family_signature_closed
+            && self.smc004_particle_excitation_compatibility_closed
+            && self.smc005_catalog_conservation_coarse_graining_closed
+            && self.smc006_paper7_regime_consistency_closed
+            && self.required_smc_rung_count >= 6
+            && self.audited_smc_rung_count >= self.required_smc_rung_count
+            && self.theorem_docs_audited
+            && self.proof_log_audited
+            && self.state_files_audited
+            && self.upstream_manifest_audited
+            && self.lean_gate_audited
+            && self.rust_gate_audited
+            && self.publication_skeleton_audited
+            && self.rust_only_runtime_verified
+            && self.fail_closed_audit_certificate_emitted
+            && !self.observed_particle_catalog_import
+            && !self.physical_standard_model_content_import
+            && !self.physical_particle_excitation_import
+            && !self.external_matter_field_import
+            && !self.external_gauge_field_import
+            && !self.continuum_qft_import
+            && !self.background_hilbert_bundle_import
+            && !self.simulation_only_signal
+            && !self.fit_shortcut
+            && !self.physical_promotion
+            && !self.unified_field_promotion
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Paper8SkeletonCertificate {
     pub smc001_upstream_binding_closed: bool,
     pub smc002_finite_candidate_sector_family_catalog_closed: bool,
@@ -877,6 +982,37 @@ impl Paper8SkeletonCertificate {
         }
     }
 
+    pub fn with_smc007_no_hidden_import_audit_closed() -> Self {
+        let binding = Paper8UpstreamBinding::canonical_smc001();
+        let catalog = FiniteCandidateSectorFamilyCatalogObservable::canonical_smc002();
+        let interaction = FiniteCandidateInteractionFamilySignature::canonical_smc003();
+        let compatibility = CandidateParticleExcitationCompatibility::canonical_smc004();
+        let conservation = CandidateCatalogConservationCoarseGrainingStability::canonical_smc005();
+        let regime = Paper7RegimeConsistency::canonical_smc006();
+        let audit = NoHiddenObservedCatalogImportAudit::canonical_smc007();
+        Self {
+            smc001_upstream_binding_closed: binding.closes_smc001(),
+            smc002_finite_candidate_sector_family_catalog_closed: catalog.closes_smc002(),
+            smc003_finite_candidate_interaction_family_signature_closed: interaction
+                .closes_smc003(),
+            smc004_particle_excitation_compatibility_closed: compatibility.closes_smc004(),
+            smc005_catalog_conservation_coarse_graining_closed: conservation.closes_smc005(),
+            smc006_paper7_regime_consistency_closed: regime.closes_smc006(),
+            smc007_no_hidden_observed_catalog_import_audit_closed: audit.closes_smc007(),
+            smc008_final_conditional_certificate_closed: false,
+            paper8_theorem_closed: false,
+            physical_nature_claim: false,
+            observed_particle_catalog_claim: false,
+            physical_standard_model_claim: false,
+            physical_particle_excitation_claim: false,
+            physical_matter_fields_claim: false,
+            physical_gauge_fields_claim: false,
+            physical_quantum_dynamics_claim: false,
+            continuum_qft_claim: false,
+            unified_field_theory_claim: false,
+        }
+    }
+
     pub fn closes_paper8_theorem(&self) -> bool {
         self.smc001_upstream_binding_closed
             && self.smc002_finite_candidate_sector_family_catalog_closed
@@ -921,4 +1057,8 @@ pub fn smc005_catalog_conservation_coarse_graining_marker() -> &'static str {
 
 pub fn smc006_paper7_regime_consistency_marker() -> &'static str {
     "smc006-paper7-regime-consistency-no-upstream-bypass-closed"
+}
+
+pub fn smc007_no_hidden_observed_catalog_import_audit_marker() -> &'static str {
+    "smc007-no-hidden-observed-catalog-import-audit-closed"
 }

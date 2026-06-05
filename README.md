@@ -39,13 +39,13 @@ closes the finite candidate interaction-family signature row. `SMC-004`
 closes compatibility with the closed Paper 7 particle-excitation observable
 rows. `SMC-005` closes catalog conservation and coarse-graining stability.
 `SMC-006` closes Paper 7 regime consistency and upstream-bypass rejection.
-The next active obligation is `SMC-007`: close the no-hidden-observed-catalog
-and physical Standard Model import audit. This does not prove
-Standard-Model-candidate observable recovery, observed particle catalog
-recovery, physical Standard Model content, physical particle excitations,
-physical matter fields, physical gauge fields, physical quantum dynamics,
-continuum quantum field theory, physical nature realization, or a unified
-field theory.
+`SMC-007` closes the no-hidden-observed-catalog and physical Standard Model
+import audit. The next active obligation is `SMC-008`: close the final
+internal conditional Standard-Model-candidate observables certificate. This
+does not prove observed particle catalog recovery, physical Standard Model
+content, physical particle excitations, physical matter fields, physical gauge
+fields, physical quantum dynamics, continuum quantum field theory, physical
+nature realization, or a unified field theory.
 
 Persistent boundary tokens: observed particle catalogs; physical Standard
 Model content; physical particle excitations; physical matter fields;

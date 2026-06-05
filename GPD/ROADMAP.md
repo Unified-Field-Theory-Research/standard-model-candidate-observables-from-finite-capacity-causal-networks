@@ -44,10 +44,10 @@ unless a future paper-specific certificate explicitly closes them.
 - [x] **Phase 6: Bind To Paper 7 Regime** - `SMC-006` consumes the recorded
   Paper 7 final conditional certificate and rejects bypasses of Paper 7,
   Paper 6, Paper 5, Paper 4, Paper 3, Paper 2, or Paper 1 assumptions.
-- [ ] **Phase 7: Close No-Hidden-Observed-Catalog Import Audit** -
-  `SMC-007` should fail closed when the construction assumes observed
-  particle catalogs, physical Standard Model content, physical particles,
-  continuum QFT, background Hilbert bundles, external matter or gauge fields,
+- [x] **Phase 7: Close No-Hidden-Observed-Catalog Import Audit** -
+  `SMC-007` fails closed when the construction assumes observed particle
+  catalogs, physical Standard Model content, physical particles, continuum
+  QFT, background Hilbert bundles, external matter or gauge fields,
   simulation-only promotion, fit-only calibration, physical nature promotion,
   or unified-field promotion.
 - [ ] **Phase 8: Final Conditional Standard-Model-Candidate Observables

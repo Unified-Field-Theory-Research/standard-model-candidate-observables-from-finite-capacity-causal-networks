@@ -1115,6 +1115,167 @@ theorem smc006_canonical_paper7_regime_consistency_closed :
   unfold smc006CanonicalPaper7RegimeConsistencyContract
   simp
 
+structure SMC007NoHiddenObservedCatalogImportAuditContract where
+  smc001UpstreamBindingClosed : Prop
+  smc002FiniteCandidateSectorFamilyCatalogClosed : Prop
+  smc003FiniteCandidateInteractionFamilySignatureClosed : Prop
+  smc004ParticleExcitationCompatibilityClosed : Prop
+  smc005CatalogConservationCoarseGrainingClosed : Prop
+  smc006Paper7RegimeConsistencyClosed : Prop
+  auditedSMCRungCount : Nat
+  requiredSMCRungCount : Nat
+  theoremDocsAudited : Prop
+  proofLogAudited : Prop
+  stateFilesAudited : Prop
+  upstreamManifestAudited : Prop
+  leanGateAudited : Prop
+  rustGateAudited : Prop
+  publicationSkeletonAudited : Prop
+  rustOnlyRuntimeVerified : Prop
+  failClosedAuditCertificateEmitted : Prop
+  observedParticleCatalogImport : Prop
+  physicalStandardModelContentImport : Prop
+  physicalParticleExcitationImport : Prop
+  externalMatterFieldImport : Prop
+  externalGaugeFieldImport : Prop
+  continuumQFTImport : Prop
+  backgroundHilbertBundleImport : Prop
+  simulationOnlySignal : Prop
+  fitShortcut : Prop
+  physicalPromotion : Prop
+  unifiedFieldPromotion : Prop
+
+def SMC007NoHiddenObservedCatalogImportAuditContract.closed
+    (c : SMC007NoHiddenObservedCatalogImportAuditContract) : Prop :=
+  c.smc001UpstreamBindingClosed ∧
+  c.smc002FiniteCandidateSectorFamilyCatalogClosed ∧
+  c.smc003FiniteCandidateInteractionFamilySignatureClosed ∧
+  c.smc004ParticleExcitationCompatibilityClosed ∧
+  c.smc005CatalogConservationCoarseGrainingClosed ∧
+  c.smc006Paper7RegimeConsistencyClosed ∧
+  6 ≤ c.requiredSMCRungCount ∧
+  c.requiredSMCRungCount ≤ c.auditedSMCRungCount ∧
+  c.theoremDocsAudited ∧
+  c.proofLogAudited ∧
+  c.stateFilesAudited ∧
+  c.upstreamManifestAudited ∧
+  c.leanGateAudited ∧
+  c.rustGateAudited ∧
+  c.publicationSkeletonAudited ∧
+  c.rustOnlyRuntimeVerified ∧
+  c.failClosedAuditCertificateEmitted ∧
+  ¬ c.observedParticleCatalogImport ∧
+  ¬ c.physicalStandardModelContentImport ∧
+  ¬ c.physicalParticleExcitationImport ∧
+  ¬ c.externalMatterFieldImport ∧
+  ¬ c.externalGaugeFieldImport ∧
+  ¬ c.continuumQFTImport ∧
+  ¬ c.backgroundHilbertBundleImport ∧
+  ¬ c.simulationOnlySignal ∧
+  ¬ c.fitShortcut ∧
+  ¬ c.physicalPromotion ∧
+  ¬ c.unifiedFieldPromotion
+
+theorem smc007_no_hidden_observed_catalog_import_audit_closed_from_fields
+    (c : SMC007NoHiddenObservedCatalogImportAuditContract)
+    (hSMC001 : c.smc001UpstreamBindingClosed)
+    (hSMC002 : c.smc002FiniteCandidateSectorFamilyCatalogClosed)
+    (hSMC003 : c.smc003FiniteCandidateInteractionFamilySignatureClosed)
+    (hSMC004 : c.smc004ParticleExcitationCompatibilityClosed)
+    (hSMC005 : c.smc005CatalogConservationCoarseGrainingClosed)
+    (hSMC006 : c.smc006Paper7RegimeConsistencyClosed)
+    (hRequiredRungs : 6 ≤ c.requiredSMCRungCount)
+    (hAuditedRungs : c.requiredSMCRungCount ≤ c.auditedSMCRungCount)
+    (hTheoremDocs : c.theoremDocsAudited)
+    (hProofLog : c.proofLogAudited)
+    (hState : c.stateFilesAudited)
+    (hUpstream : c.upstreamManifestAudited)
+    (hLean : c.leanGateAudited)
+    (hRust : c.rustGateAudited)
+    (hPublication : c.publicationSkeletonAudited)
+    (hRustOnly : c.rustOnlyRuntimeVerified)
+    (hFailClosed : c.failClosedAuditCertificateEmitted)
+    (hNoObserved : ¬ c.observedParticleCatalogImport)
+    (hNoPhysicalSM : ¬ c.physicalStandardModelContentImport)
+    (hNoPhysicalParticle : ¬ c.physicalParticleExcitationImport)
+    (hNoMatter : ¬ c.externalMatterFieldImport)
+    (hNoGaugeField : ¬ c.externalGaugeFieldImport)
+    (hNoQFT : ¬ c.continuumQFTImport)
+    (hNoHilbert : ¬ c.backgroundHilbertBundleImport)
+    (hNoSimulation : ¬ c.simulationOnlySignal)
+    (hNoFit : ¬ c.fitShortcut)
+    (hNoPhysicalPromotion : ¬ c.physicalPromotion)
+    (hNoUnified : ¬ c.unifiedFieldPromotion) :
+    c.closed := by
+  exact ⟨hSMC001, hSMC002, hSMC003, hSMC004, hSMC005, hSMC006,
+    hRequiredRungs, hAuditedRungs, hTheoremDocs, hProofLog, hState,
+    hUpstream, hLean, hRust, hPublication, hRustOnly, hFailClosed,
+    hNoObserved, hNoPhysicalSM, hNoPhysicalParticle, hNoMatter, hNoGaugeField,
+    hNoQFT, hNoHilbert, hNoSimulation, hNoFit, hNoPhysicalPromotion,
+    hNoUnified⟩
+
+theorem smc007_missing_smc006_regime_not_closed
+    (c : SMC007NoHiddenObservedCatalogImportAuditContract)
+    (hClosed : c.closed)
+    (hMissingSMC006 : ¬ c.smc006Paper7RegimeConsistencyClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, hSMC006, _⟩
+  exact hMissingSMC006 hSMC006
+
+theorem smc007_insufficient_audit_coverage_not_closed
+    (c : SMC007NoHiddenObservedCatalogImportAuditContract)
+    (hClosed : c.closed)
+    (hInsufficient : ¬ c.requiredSMCRungCount ≤ c.auditedSMCRungCount) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, _, _, hAuditedRungs, _⟩
+  exact hInsufficient hAuditedRungs
+
+theorem smc007_observed_particle_catalog_import_not_closed
+    (c : SMC007NoHiddenObservedCatalogImportAuditContract)
+    (hClosed : c.closed)
+    (hObserved : c.observedParticleCatalogImport) :
+    False := by
+  rcases hClosed with
+    ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, hNoObserved, _⟩
+  exact hNoObserved hObserved
+
+def smc007CanonicalNoHiddenObservedCatalogImportAuditContract :
+    SMC007NoHiddenObservedCatalogImportAuditContract :=
+  { smc001UpstreamBindingClosed := True,
+    smc002FiniteCandidateSectorFamilyCatalogClosed := True,
+    smc003FiniteCandidateInteractionFamilySignatureClosed := True,
+    smc004ParticleExcitationCompatibilityClosed := True,
+    smc005CatalogConservationCoarseGrainingClosed := True,
+    smc006Paper7RegimeConsistencyClosed := True,
+    auditedSMCRungCount := 6,
+    requiredSMCRungCount := 6,
+    theoremDocsAudited := True,
+    proofLogAudited := True,
+    stateFilesAudited := True,
+    upstreamManifestAudited := True,
+    leanGateAudited := True,
+    rustGateAudited := True,
+    publicationSkeletonAudited := True,
+    rustOnlyRuntimeVerified := True,
+    failClosedAuditCertificateEmitted := True,
+    observedParticleCatalogImport := False,
+    physicalStandardModelContentImport := False,
+    physicalParticleExcitationImport := False,
+    externalMatterFieldImport := False,
+    externalGaugeFieldImport := False,
+    continuumQFTImport := False,
+    backgroundHilbertBundleImport := False,
+    simulationOnlySignal := False,
+    fitShortcut := False,
+    physicalPromotion := False,
+    unifiedFieldPromotion := False }
+
+theorem smc007_canonical_no_hidden_observed_catalog_import_audit_closed :
+    smc007CanonicalNoHiddenObservedCatalogImportAuditContract.closed := by
+  unfold SMC007NoHiddenObservedCatalogImportAuditContract.closed
+  unfold smc007CanonicalNoHiddenObservedCatalogImportAuditContract
+  simp
+
 structure Paper8StandardModelCandidateObservablesTheoremContract where
   smc001UpstreamBindingClosed : Prop
   smc002FiniteCandidateSectorFamilyCatalogClosed : Prop
@@ -1197,5 +1358,13 @@ theorem paper8_smc006_regime_does_not_close_standard_model_candidate_observables
     False := by
   rcases hClosed with ⟨_, _, _, _, _, _, hSMC007, _⟩
   exact hMissingSMC007 hSMC007
+
+theorem paper8_smc007_audit_does_not_close_standard_model_candidate_observables_theorem
+    (c : Paper8StandardModelCandidateObservablesTheoremContract)
+    (hClosed : c.closed)
+    (hMissingSMC008 : ¬ c.smc008FinalConditionalCertificateClosed) :
+    False := by
+  rcases hClosed with ⟨_, _, _, _, _, _, _, hSMC008, _⟩
+  exact hMissingSMC008 hSMC008
 
 end FiniteCapacity

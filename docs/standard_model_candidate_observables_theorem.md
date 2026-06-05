@@ -23,9 +23,10 @@ sector-family catalog observable row. `SMC-003` closes only finite candidate
 interaction-family signatures. `SMC-004` closes only compatibility with
 closed Paper 7 particle-excitation observable rows. `SMC-005` closes only
 catalog conservation/coarse-graining stability. `SMC-006` closes only Paper 7
-regime consistency and upstream-bypass rejection. This is not observed
-particle catalog recovery, not physical Standard Model recovery, not a
-physical particle-excitation claim, not a physical matter-field claim, not a
+regime consistency and upstream-bypass rejection. `SMC-007` closes only the
+no-hidden-observed-catalog/physical Standard Model import audit. This is not
+observed particle catalog recovery, not physical Standard Model recovery, not
+a physical particle-excitation claim, not a physical matter-field claim, not a
 physical gauge-field claim, not physical quantum dynamics, not continuum
 quantum field theory, and not a unified field theory.
 
@@ -334,8 +335,46 @@ nature promotion, or unified-field promotion.
 
 ### SMC-007: No-Hidden-Observed-Catalog Import Audit
 
-Status: open.
+Status: closed as a fail-closed no-hidden-observed-catalog/physical Standard
+Model import audit.
+
+`SMC-007` requires closed `SMC-001` through `SMC-006` dependencies, audit
+coverage of `SMC-001` through `SMC-006`, audit coverage of Paper 8 theorem
+docs, proof log, state files, upstream manifest, Lean gate, Rust gate, and
+publication skeleton, Rust-only runtime/proof-gate artifacts, and an emitted
+fail-closed audit certificate.
+
+It rejects observed particle catalogs, physical Standard Model content,
+physical particle excitations, external matter fields, external gauge fields,
+continuum QFT, background Hilbert bundles, simulation-only signals, fit
+shortcuts, physical promotion, and unified-field promotion.
+
+Rust anchors:
+
+- `NoHiddenObservedCatalogImportAudit`
+- `NoHiddenObservedCatalogImportAudit::canonical_smc007`
+- `NoHiddenObservedCatalogImportAudit::closes_smc007`
+- `Paper8SkeletonCertificate::with_smc007_no_hidden_import_audit_closed`
+- `smc007_no_hidden_observed_catalog_import_audit_marker`
+
+Lean anchors:
+
+- `SMC007NoHiddenObservedCatalogImportAuditContract`
+- `SMC007NoHiddenObservedCatalogImportAuditContract.closed`
+- `smc007_no_hidden_observed_catalog_import_audit_closed_from_fields`
+- `smc007_missing_smc006_regime_not_closed`
+- `smc007_insufficient_audit_coverage_not_closed`
+- `smc007_observed_particle_catalog_import_not_closed`
+- `smc007_canonical_no_hidden_observed_catalog_import_audit_closed`
+- `paper8_smc007_audit_does_not_close_standard_model_candidate_observables_theorem`
+
+Boundary: `SMC-007` closes only the fail-closed no-hidden-observed-catalog
+and physical Standard Model import audit. It does not close the final Paper 8
+theorem, observed particle catalogs, physical Standard Model content,
+physical particle excitations, physical matter fields, physical gauge fields,
+physical quantum dynamics, continuum QFT, physical nature promotion, or
+unified-field promotion.
 
 ### SMC-008: Final Conditional Standard-Model-Candidate Observables Certificate
 
-Status: planned.
+Status: open.

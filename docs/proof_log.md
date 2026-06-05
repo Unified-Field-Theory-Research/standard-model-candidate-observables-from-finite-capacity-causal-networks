@@ -358,11 +358,69 @@ physical Standard Model content, physical particle excitations, physical
 matter fields, physical gauge fields, physical quantum dynamics, continuum
 QFT, physical nature promotion, or unified-field promotion.
 
+## SMC-007: No-Hidden-Observed-Catalog Import Audit
+
+Status: closed as a fail-closed no-hidden-observed-catalog/physical Standard
+Model import audit.
+
+Artifacts:
+
+- `README.md`
+- `UPSTREAM-PAPERS.json`
+- `GPD/PROJECT.md`
+- `GPD/ROADMAP.md`
+- `GPD/STATE.md`
+- `GPD/state.json`
+- `docs/standard_model_candidate_observables_theorem.md`
+- `docs/open_proof_obligations.md`
+- `docs/proof_log.md`
+- `GPD/formal/FiniteCapacity/StandardModelCandidateObservables.lean`
+- `rust/cclab_accel/src/lib.rs`
+- `rust/cclab_accel/tests/standard_model_candidate_observables_gate.rs`
+- `GPD/publication/standard-model-candidate-observables-theorem/manuscript/standard_model_candidate_observables_theorem.tex`
+- `GPD/publication/standard-model-candidate-observables-theorem/manuscript/PAPER-CONFIG.json`
+
+Rust anchors:
+
+- `NoHiddenObservedCatalogImportAudit`
+- `NoHiddenObservedCatalogImportAudit::canonical_smc007`
+- `NoHiddenObservedCatalogImportAudit::closes_smc007`
+- `Paper8SkeletonCertificate::with_smc007_no_hidden_import_audit_closed`
+- `smc007_no_hidden_observed_catalog_import_audit_marker`
+
+Lean anchors:
+
+- `SMC007NoHiddenObservedCatalogImportAuditContract`
+- `SMC007NoHiddenObservedCatalogImportAuditContract.closed`
+- `smc007_no_hidden_observed_catalog_import_audit_closed_from_fields`
+- `smc007_missing_smc006_regime_not_closed`
+- `smc007_insufficient_audit_coverage_not_closed`
+- `smc007_observed_particle_catalog_import_not_closed`
+- `smc007_canonical_no_hidden_observed_catalog_import_audit_closed`
+- `paper8_smc007_audit_does_not_close_standard_model_candidate_observables_theorem`
+
+Verification:
+
+- `make test-fast`
+- `make lean-build`
+
+Boundary:
+
+`SMC-007` closes only the fail-closed no-hidden-observed-catalog/physical
+Standard Model import audit. It covers `SMC-001` through `SMC-006`, theorem
+docs, proof log, state files, upstream manifest, Lean gate, Rust gate,
+publication skeleton, Rust-only runtime/proof-gate policy, and an emitted
+fail-closed audit certificate. It does not close the final Paper 8 theorem,
+observed particle catalogs, physical Standard Model content, physical
+particle excitations, physical matter fields, physical gauge fields, physical
+quantum dynamics, continuum QFT, physical nature promotion, or unified-field
+promotion.
+
 ## Active Next Obligation
 
-`SMC-007`: close a fail-closed no-hidden-observed-catalog/physical Standard
-Model import audit across Paper 8 artifacts and `SMC-001` through `SMC-006`
-rows while rejecting observed particle catalogs, physical Standard Model
-content, physical particle excitations, external fields, continuum QFT,
-background Hilbert bundles, simulation-only signals, fit shortcuts, physical
-promotion, and unified-field promotion.
+`SMC-008`: assemble the final internal conditional Standard-Model-candidate
+observables certificate from closed `SMC-001` through `SMC-007` while
+preserving finite capacity, locality, bounded transfer, causal-cone/no
+signaling constraints, conservation/coarse-graining stability, Paper 7 regime
+consistency, no hidden observed-catalog/physical Standard Model imports, and
+all non-promotion flags.
